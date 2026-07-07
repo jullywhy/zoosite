@@ -571,3 +571,393 @@ body {
         opacity: 1;
     }
 }
+
+/* ============================================================
+   БЛОК: "То, что вы так долго искали" (МОБИЛЬНЫЙ)
+   ============================================================ */
+
+.mobile-title-search-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 795px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.mobile-title-search-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 837px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.mobile-description-search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 889px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+}
+
+.mobile-description-search .mobile-highlight {
+    font-weight: 600;
+    color: #333333;
+}
+
+/* ===== БРЕНДЫ ===== */
+.mobile-brands-container {
+    position: absolute;
+    left: 25px;
+    top: 994px;
+    width: 310px;
+    height: 212px;
+    background: #DFF5F9;
+    border-radius: 10px;
+    z-index: 8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+.mobile-brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-brand-item img {
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-brand-1 {
+    width: 92px;
+    height: 50px;
+}
+.mobile-brand-1 img { width: 100%; height: 100%; }
+
+.mobile-brand-2 {
+    width: 121px;
+    height: 46px;
+}
+.mobile-brand-2 img { width: 100%; height: 100%; }
+
+.mobile-brand-3 {
+    width: 108px;
+    height: 41px;
+}
+.mobile-brand-3 img { width: 100%; height: 100%; }
+
+.mobile-brand-4 {
+    width: 99px;
+    height: 52px;
+}
+.mobile-brand-4 img { width: 100%; height: 100%; }
+
+/* ============================================================
+   БЛОК: "Тысячи товаров по выгодным ценам" (МОБИЛЬНЫЙ)
+   ============================================================ */
+
+.mobile-title-products-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1274px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.mobile-title-products-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1316px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ===== КАРТОЧКИ ТОВАРОВ (2x2) ===== */
+.mobile-product-card {
+    position: absolute;
+    width: 135px;
+    height: 230px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3.2px 2px rgba(0, 0, 0, 0.12);
+    z-index: 8;
+}
+
+.mobile-product-card.mobile-card-1 {
+    left: 40px;
+    top: 1386px;
+}
+
+.mobile-product-card.mobile-card-2 {
+    left: 185px;
+    top: 1386px;
+}
+
+.mobile-product-card.mobile-card-3 {
+    left: 40px;
+    top: 1621px;
+}
+
+.mobile-product-card.mobile-card-4 {
+    left: 185px;
+    top: 1621px;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ===== */
+.mobile-product-image {
+    position: absolute;
+    z-index: 9;
+}
+
+.mobile-product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-product-card.mobile-card-1 .mobile-product-image {
+    left: 33px;
+    top: 50px;
+    width: 70px;
+    height: 76px;
+}
+
+.mobile-product-card.mobile-card-2 .mobile-product-image {
+    left: 41px;
+    top: 50px;
+    width: 52px;
+    height: 77px;
+}
+
+.mobile-product-card.mobile-card-3 .mobile-product-image {
+    left: 40px;
+    top: 43px;
+    width: 54px;
+    height: 81px;
+}
+
+.mobile-product-card.mobile-card-4 .mobile-product-image {
+    left: 30px;
+    top: 29px;
+    width: 75px;
+    height: 100px;
+}
+
+/* ===== СЕРДЦА ===== */
+.mobile-heart-icon {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mobile-heart-icon:hover {
+    transform: scale(1.1);
+}
+
+.mobile-heart-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.mobile-product-card.mobile-card-1 .mobile-heart-icon {
+    left: 105px;
+    top: 8px;
+}
+
+.mobile-product-card.mobile-card-2 .mobile-heart-icon {
+    left: 105px;
+    top: 8px;
+}
+
+.mobile-product-card.mobile-card-3 .mobile-heart-icon {
+    left: 105px;
+    top: 8px;
+}
+
+.mobile-product-card.mobile-card-4 .mobile-heart-icon {
+    left: 105px;
+    top: 8px;
+}
+
+/* ===== ОПИСАНИЕ ===== */
+.mobile-product-description {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 8px;
+    color: #333333;
+    z-index: 9;
+    line-height: 1.3;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 136px;
+    padding: 0 5px;
+}
+
+/* ===== ЦЕНА ===== */
+.mobile-product-price {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 175px;
+}
+
+/* ===== КНОПКА "В КОРЗИНУ" ===== */
+.mobile-product-btn {
+    position: absolute;
+    width: 120px;
+    height: 22px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.mobile-product-btn:hover {
+    background: #F5A800;
+    transform: scale(1.02);
+}
+
+.mobile-product-btn:active {
+    background: #D48800;
+    transform: scale(0.98);
+}
+
+.mobile-product-btn span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.mobile-product-btn.hidden {
+    display: none;
+}
+
+/* Позиции кнопок */
+.mobile-product-card.mobile-card-1 .mobile-product-btn {
+    left: 7px;
+    top: 201px;
+}
+
+.mobile-product-card.mobile-card-2 .mobile-product-btn {
+    left: 7px;
+    top: 201px;
+}
+
+.mobile-product-card.mobile-card-3 .mobile-product-btn {
+    left: 7px;
+    top: 201px;
+}
+
+.mobile-product-card.mobile-card-4 .mobile-product-btn {
+    left: 7px;
+    top: 201px;
+}
+
+/* ===== СЧЁТЧИК ===== */
+.mobile-product-counter {
+    position: absolute;
+    display: none;
+    z-index: 10;
+    top: 202px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.mobile-product-counter.active {
+    display: flex;
+}
+
+.mobile-counter-value {
+    width: 22px;
+    height: 22px;
+    background: #FFFFFF;
+    border: 2px solid #E99700;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333333;
+}
+
+.mobile-counter-btn {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mobile-counter-btn:hover {
+    transform: scale(1.1);
+}
+
+.mobile-counter-btn:active {
+    transform: scale(0.95);
+}
+
+/* Блокировка плюса при 10 */
+.mobile-counter-plus.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}

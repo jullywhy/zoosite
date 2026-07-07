@@ -146,3 +146,117 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ===== ПЕРЕКЛЮЧЕНИЕ СЕРДЕЦ =====
+function toggleMobileHeart(element) {
+    const img = element.querySelector('img');
+    const currentSrc = img.getAttribute('src');
+    
+    if (currentSrc.includes('heart1.svg')) {
+        img.setAttribute('src', 'heart2.svg');
+    } else {
+        img.setAttribute('src', 'heart1.svg');
+    }
+}
+
+// ===== СЧЁТЧИКИ ТОВАРОВ =====
+document.addEventListener('DOMContentLoaded', function() {
+    const prices = {
+        1: 520,
+        2: 280,
+        3: 150,
+        4: 450
+    };
+    
+    const quantities = {
+        1: 1,
+        2: 1,
+        3: 1,
+        4: 1
+    };
+    
+    function updateMobilePlusButton(id) {
+        const plusBtn = document.querySelector('.mobile-counter-plus[data-id="' + id + '"]');
+        if (plusBtn) {
+            if (quantities[id] >= 10) {
+                plusBtn.classList.add('disabled');
+            } else {
+                plusBtn.classList.remove('disabled');
+            }
+        }
+    }
+    
+    function updateMobilePrice(id, basePrice) {
+        const priceElement = document.getElementById('mobile-price-' + id);
+        if (priceElement) {
+            const total = basePrice * quantities[id];
+            priceElement.textContent = total + ' ₽';
+        }
+        updateMobilePlusButton(id);
+    }
+    
+    // Кнопки "В корзину"
+    document.querySelectorAll('.mobile-product-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const id = this.dataset.id;
+            const counter = document.getElementById('mobile-counter-' + id);
+            
+            if (counter) {
+                counter.classList.add('active');
+                this.classList.add('hidden');
+                
+                quantities[id] = 1;
+                const countEl = document.getElementById('mobile-count-' + id);
+                if (countEl) countEl.textContent = 1;
+                updateMobilePrice(id, prices[id]);
+            }
+        });
+    });
+    
+    // Плюс
+    document.querySelectorAll('.mobile-counter-plus').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const id = this.dataset.id;
+            if (quantities[id] < 10) {
+                quantities[id]++;
+                const countEl = document.getElementById('mobile-count-' + id);
+                if (countEl) countEl.textContent = quantities[id];
+                updateMobilePrice(id, prices[id]);
+            }
+        });
+    });
+    
+    // Минус
+    document.querySelectorAll('.mobile-counter-minus').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const id = this.dataset.id;
+            if (quantities[id] > 1) {
+                quantities[id]--;
+                const countEl = document.getElementById('mobile-count-' + id);
+                if (countEl) countEl.textContent = quantities[id];
+                updateMobilePrice(id, prices[id]);
+            } else {
+                const counter = document.getElementById('mobile-counter-' + id);
+                const btnAdd = document.querySelector('.mobile-product-btn[data-id="' + id + '"]');
+                
+                if (counter) counter.classList.remove('active');
+                if (btnAdd) btnAdd.classList.remove('hidden');
+                
+                quantities[id] = 1;
+                const countEl = document.getElementById('mobile-count-' + id);
+                if (countEl) countEl.textContent = 1;
+                updateMobilePrice(id, prices[id]);
+            }
+        });
+    });
+    
+    // Инициализация
+    for (let id = 1; id <= 4; id++) {
+        updateMobilePlusButton(id);
+    }
+});

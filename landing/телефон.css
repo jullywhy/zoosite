@@ -50,7 +50,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 50px;
 }
 
 .mobile-logo {
@@ -314,10 +314,10 @@ body {
 /* ===== FROGG2.PNG ===== */
 .mobile-frog {
     position: absolute;
-    left: 37px;
+    left: 30px;
     top: 667px;
     width: 310px;
-    height: 1000px;
+    height: 100px;
     z-index: 8;
 }
 

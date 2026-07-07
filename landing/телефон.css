@@ -430,7 +430,7 @@ body {
     top: 125px;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    font-size: 80px;
+    font-size: 64px;
     color: #E99700;
     z-index: 5;
     line-height: 1;
@@ -543,7 +543,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -1px;
+    bottom: -3px;
     width: 280px;
     height: 110px;
     z-index: 10;

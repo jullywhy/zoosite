@@ -1,0 +1,814 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Милый хвостик</title>
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+    <!-- Подключаем внешнюю таблицу стилей -->
+    <link rel="stylesheet" href="lendstyle.css">
+</head>
+<body>
+    <div class="frame">
+
+        <!-- Белые прямоугольники (карточки) -->
+        <div class="white-card card-1"></div>
+        <div class="white-card card-2"></div>
+        <div class="white-card card-3"></div>
+        <div class="white-card card-4"></div>
+
+        <!-- ===== ВСЁ МЕНЮ В ОДНОМ КОНТЕЙНЕРЕ ===== -->
+        <div class="menu-bar">
+            <!-- Логотип -->
+            <div class="logo">
+                <img src="лого.svg" alt="Логотип">
+            </div>
+
+            <!-- Пункты меню -->
+            <!-- Пункты меню (ссылки с якорями) -->
+            <a href="#about" class="menu-link">О нас</a>
+            <a href="#products" class="menu-link">Товары</a>
+            <a href="#collections" class="menu-link">Подборки</a>
+            <a href="#articles" class="menu-link">Статьи</a>
+            <a href="#stores" class="menu-link">Магазины</a>
+            <a href="#delivery" class="menu-link">Доставка</a>
+
+            <!-- "Остались вопросы?" -->
+            <span class="questions">Остались вопросы?</span>
+
+            <!-- Иконка телефона -->
+            <div class="icon-phone">
+                <img src="телефон.svg" alt="Телефон">
+            </div>
+
+            <!-- Кнопка "Связаться с нами" -->
+            <div class="btn-contact">
+                <span>Связаться с нами</span>
+            </div>
+        </div>
+        <!-- ===== КОНЕЦ МЕНЮ ===== -->
+        <!-- Картинка котика -->
+        <div class="cat-image">
+            <img src="котик.png" alt="Котик">
+        </div>
+
+        <!-- Текст "Милый" -->
+        <div class="title-mily">Милый</div>
+
+        <!-- Текст "хвостик" -->
+        <div class="title-hvostik">хвостик</div>
+
+        <!-- Описание -->
+        <div class="description">
+            В нашем магазине вы найдете все,<br>
+            что нужно для вашего любимого<br>
+            и неповторимого питомца
+        </div>
+
+        <!-- Поисковая строка -->
+        <div class="search-bar">
+            <input type="text" placeholder="Искать товар..." class="search-input">
+        </div>
+
+        <!-- Иконка лупы (кликабельная) -->
+        <div class="search-icon">
+            <img src="лупа.svg" alt="Поиск">
+        </div>
+
+        <!-- Картинка frog (1).svg -->
+        <div class="frog-image">
+            <img src="frog (1).svg" alt="Frog">
+        </div>
+
+        <!-- Иконка copy.svg (кликабельная) -->
+        <div class="copy-icon" id="copyIcon" onclick="toggleIcon()">
+            <img src="copy.svg" alt="Копировать" id="iconImage">
+        </div>
+
+    </div>
+
+
+    <!-- ===== НОВЫЙ БЛОК: "То, что вы так долго искали" ===== -->
+    <!-- Заголовок "То, что вы" -->
+    <div class="title-search-1">То, что вы</div>
+
+    <!-- Заголовок "так долго искали" -->
+    <div class="title-search-2">так долго искали</div>
+
+    <!-- Текст описания -->
+    <div class="description-search">
+        Здесь вы можете найти <span class="highlight">зарубежные товары</span> для ваших питомцев
+        <span class="highlight">по выгодным ценам</span>, которые больше не поставляются в Россию
+    </div>
+
+    <!-- Прямоугольник с брендами -->
+    <div class="brands-container">
+        <!-- Картинка проплан.png -->
+        <div class="brand-item brand-1">
+            <img src="проплан.png" alt="ProPlan">
+        </div>
+        <!-- Картинка монге.png -->
+        <div class="brand-item brand-2">
+            <img src="монге.png" alt="Monge">
+        </div>
+        <!-- Картинка канин.png -->
+        <div class="brand-item brand-3">
+            <img src="канин.png" alt="Kanin">
+        </div>
+        <!-- Картинка фиори.png -->
+        <div class="brand-item brand-4">
+            <img src="фиори.png" alt="Fiori">
+        </div>
+    </div>
+
+    <!-- ===== БЛОК: "Тысячи товаров по выгодным ценам" ===== -->
+    <!-- Заголовок "Тысячи товаров" -->
+    <div class="title-products-1">Тысячи товаров</div>
+
+    <!-- Заголовок "по выгодным ценам" -->
+    <div class="title-products-2">по выгодным ценам</div>
+
+    <!-- ===== КАРТОЧКА ТОВАРА 1 ===== -->
+    <div class="product-card card-1">
+        <!-- Изображение товара -->
+        <div class="product-image product-img-1">
+            <img src="товар1.png" alt="Товар 1">
+        </div>
+
+        <!-- Иконка сердца -->
+        <div class="heart-icon heart-1" onclick="toggleHeart(this)">
+            <img src="heart1.svg" alt="В избранное">
+        </div>
+
+        <!-- Описание товара -->
+        <div class="product-description">
+            Премиальный наполнитель<br>
+            для кошачьего туалета VAN<br>
+            CAT гранулы без отдушки 6 л
+        </div>
+
+        <!-- Цена -->
+        <div class="product-price" id="price-1">520 ₽</div>
+
+        <!-- Счётчик (скрыт по умолчанию) -->
+        <div class="product-counter" id="counter-1">
+            <img src="min.svg" alt="Минус" class="counter-btn counter-minus" data-id="1">
+            <div class="counter-value" id="count-1">1</div>
+            <img src="plus.svg" alt="Плюс" class="counter-btn counter-plus" data-id="1">
+        </div>
+
+        <!-- Кнопка "В корзину" -->
+        <div class="product-btn" data-id="1">
+            <span>В корзину</span>
+        </div>
+    </div>
+
+    <!-- ===== КАРТОЧКА ТОВАРА 2 ===== -->
+    <div class="product-card card-2">
+        <div class="product-image product-img-2">
+            <img src="товар2.png" alt="Товар 2">
+        </div>
+        <div class="heart-icon heart-2" onclick="toggleHeart(this)">
+            <img src="heart1.svg" alt="В избранное">
+        </div>
+        <div class="product-description">
+            Премиальный корм для<br>
+            стерилизованных взрослых<br>
+            кошек MONGE 85 г
+        </div>
+        <div class="product-price" id="price-2">280 ₽</div>
+        <div class="product-counter" id="counter-2">
+            <img src="min.svg" alt="Минус" class="counter-btn counter-minus" data-id="2">
+            <div class="counter-value" id="count-2">1</div>
+            <img src="plus.svg" alt="Плюс" class="counter-btn counter-plus" data-id="2">
+        </div>
+        <div class="product-btn" data-id="2">
+            <span>В корзину</span>
+        </div>
+    </div>
+
+    <!-- ===== КАРТОЧКА ТОВАРА 3 ===== -->
+    <div class="product-card card-3">
+        <div class="product-image product-img-3">
+            <img src="товар3.png" alt="Товар 3">
+        </div>
+        <div class="heart-icon heart-3" onclick="toggleHeart(this)">
+            <img src="heart1.svg" alt="В избранное">
+        </div>
+        <div class="product-description">
+            Палочки для чистки зубов<br>
+            и профилактики зубного<br>
+            камня для собак Pedigree 50 г
+        </div>
+        <div class="product-price" id="price-3">150 ₽</div>
+        <div class="product-counter" id="counter-3">
+            <img src="min.svg" alt="Минус" class="counter-btn counter-minus" data-id="3">
+            <div class="counter-value" id="count-3">1</div>
+            <img src="plus.svg" alt="Плюс" class="counter-btn counter-plus" data-id="3">
+        </div>
+        <div class="product-btn" data-id="3">
+            <span>В корзину</span>
+        </div>
+    </div>
+
+    <!-- ===== КАРТОЧКА ТОВАРА 4 ===== -->
+    <div class="product-card card-4">
+        <div class="product-image product-img-4">
+            <img src="товар4.png" alt="Товар 4">
+        </div>
+        <div class="heart-icon heart-4" onclick="toggleHeart(this)">
+            <img src="heart1.svg" alt="В избранное">
+        </div>
+        <div class="product-description">
+            Профессиональный набор<br>
+            для грумминга для собак<br>
+            и кошек Gamma 4 в 1
+        </div>
+        <div class="product-price" id="price-4">3320 ₽</div>
+        <div class="product-counter" id="counter-4">
+            <img src="min.svg" alt="Минус" class="counter-btn counter-minus" data-id="4">
+            <div class="counter-value" id="count-4">1</div>
+            <img src="plus.svg" alt="Плюс" class="counter-btn counter-plus" data-id="4">
+        </div>
+        <div class="product-btn" data-id="4">
+            <span>В корзину</span>
+        </div>
+    </div>
+    <!-- ===== БЛОК: "Немного о нас" ===== -->
+    <!-- Заголовок "Немного" -->
+    <div class="title-about-1">Немного</div>
+
+    <!-- Заголовок "о нас" -->
+    <div class="title-about-2">о нас</div>
+
+    <!-- Текст описания -->
+    <div class="description-about">
+        <span class="highlight-about">Мы - молодая команда специалистов</span>, занимающаяся выкупом дефицитных<br>
+        зоотоваров для ваших малышей. <span class="highlight-about">С 2024 года</span> наша команда доставляет радость<br>
+        пушистым и пернатым малышам
+    </div>
+
+    <!-- Картинка 10к.svg -->
+    <div class="stat-image stat-img-1">
+        <img src="10к.svg" alt="10 000">
+    </div>
+
+    <!-- Картинка 2к.svg -->
+    <div class="stat-image stat-img-2">
+        <img src="2к.svg" alt="2 000">
+    </div>
+
+    <!-- Картинка 1к.svg -->
+    <div class="stat-image stat-img-3">
+        <img src="1к.svg" alt="1 000">
+    </div>
+
+    <!-- Текст "Сделано заказов" -->
+    <div class="stat-text stat-text-1">
+        Сделано<br>
+        <span class="highlight-stat">заказов</span>
+    </div>
+
+    <!-- Текст "Счастливых любимцев" -->
+    <div class="stat-text stat-text-2">
+        Счастливых<br>
+        <span class="highlight-stat">любимцев</span>
+    </div>
+
+    <!-- Текст "Ваших отзывов" -->
+    <div class="stat-text stat-text-3">
+        Ваших<br>
+        <span class="highlight-stat">отзывов</span>
+    </div>
+
+    <!-- Кнопка "Оформить заказ" -->
+    <div class="btn-order">
+        <span>Оформить заказ</span>
+    </div>
+
+    <!-- ===== БЛОК: "Подборки для каждого" ===== -->
+    <!-- Заголовок "Подборки" -->
+    <div class="title-collections-1">Подборки</div>
+
+    <!-- Заголовок "для каждого" -->
+    <div class="title-collections-2">для каждого</div>
+
+    <!-- Текст описания -->
+    <div class="description-collections">
+        В наших магазинах можно найти все необходимые зоотовары<br>
+        <span class="highlight-collections">для каждого любимца</span>
+    </div>
+
+    <!-- Картинка cd.png -->
+    <div class="collection-image collection-img-1">
+        <img src="cd.png" alt="Кошка">
+    </div>
+
+    <!-- Картинка fish.png -->
+    <div class="collection-image collection-img-2">
+        <img src="fish.png" alt="Рыбка">
+    </div>
+
+    <!-- Картинка hamster.png -->
+    <div class="collection-image collection-img-3">
+        <img src="hamster.png" alt="Хомяк">
+    </div>
+
+    <!-- Картинка parrot.png -->
+    <div class="collection-image collection-img-4">
+        <img src="parrot.png" alt="Попугай">
+    </div>
+
+    <!-- Картинка chameleon.png -->
+    <div class="collection-image collection-img-5">
+        <img src="chameleon.png" alt="Хамелеон">
+    </div>
+    <!-- ===== БЛОК: "Мы в соцсетях" ===== -->
+    <!-- Заголовок "Мы" -->
+    <div class="title-social-1">Мы</div>
+
+    <!-- Заголовок "в соцсетях" -->
+    <div class="title-social-2">в соцсетях</div>
+
+    <!-- Текст описания (по центру) -->
+    <div class="description-social">
+        Каждую неделю обсуждаем <span class="highlight-social">новые интересные темы</span> о ваших<br>
+        питомцах. Будьте в курсе всех <span class="highlight-social">самых важных новостей</span> о своих<br>
+        любимцах: уходе, здоровье, стиле и о многом другом
+    </div>
+
+    <!-- Текст с выравниванием по правому краю -->
+    <div class="social-text-right">
+        Свежая подборка отправленных фотографий<br>
+        ваших любимцев. Находите себя и оставляйте<br>
+        комментарии!
+    </div>
+
+    <!-- Картинка кот.png -->
+    <div class="social-image social-cat">
+        <img src="кот.png" alt="Кот">
+    </div>
+
+    <!-- Картинка читать.svg (первая) -->
+    <div class="social-read-btn social-read-1">
+        <img src="читать.svg" alt="Читать">
+    </div>
+
+    <!-- ===== КАРТОЧКИ СТАТЕЙ ===== -->
+    <!-- Карточка 1: dog.png -->
+    <div class="article-card article-1">
+        <div class="article-image">
+            <img src="dog.png" alt="Собака">
+        </div>
+        <div class="article-text">
+            Тема: Топ-5 трендов в собачьей<br>
+            моде 2026. Что будет в моде этой<br>
+            осенью и весной
+        </div>
+        <div class="article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Карточка 2: lizard.png -->
+    <div class="article-card article-2">
+        <div class="article-image">
+            <img src="lizard.png" alt="Ящерица">
+        </div>
+        <div class="article-text">
+            Тема: Каких ящериц разных видов<br>
+            можно держать вместе? Советы<br>
+            зоологов
+        </div>
+        <div class="article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Карточка 3: parrots.png -->
+    <div class="article-card article-3">
+        <div class="article-image">
+            <img src="parrots.png" alt="Попугаи">
+        </div>
+        <div class="article-text">
+            Тема: Какой корм полезен<br>
+            для волнистых попугаев больше<br>
+            всего? Изучаем подборку товаров
+        </div>
+        <div class="article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Кнопка "Перейти в блог" -->
+    <div class="btn-blog">
+        <span>Перейти в блог</span>
+    </div>
+    <!-- ===== БЛОК: "20 точек по всей России" ===== -->
+    <!-- Заголовок "20 точек" -->
+    <div class="title-stores-1">20 точек</div>
+
+    <!-- Заголовок "по всей России" -->
+    <div class="title-stores-2">по всей России</div>
+
+    <!-- Текст описания -->
+    <div class="description-stores">
+        Магазины находятся в <span class="highlight-stores">крупнейших городах</span> для вашего удобства. Каждый<br>
+        год мы <span class="highlight-stores">расширяемся</span> и создаем <span class="highlight-stores">новые точки</span> по всей стране
+    </div>
+
+    <!-- Картинка карта россии.svg -->
+    <div class="stores-map">
+        <img src="карта россии.svg" alt="Карта России">
+    </div>
+    <!-- ===== БЛОК: "Доставка в любую точку" ===== -->
+    <!-- Заголовок "Доставка" -->
+    <div class="title-delivery-1">Доставка</div>
+
+    <!-- Заголовок "в любую точку" -->
+    <div class="title-delivery-2">в любую точку</div>
+
+    <!-- Текст описания -->
+    <div class="description-delivery">
+        Прекрасная возможность купить<br>
+        дефицитные товары <span class="highlight-delivery">не выходя из дома</span>
+    </div>
+
+    <!-- Картинка коробка.svg -->
+    <div class="delivery-image delivery-img-1">
+        <img src="коробка.svg" alt="Коробка">
+    </div>
+
+    <!-- Картинка доставка.svg -->
+    <div class="delivery-image delivery-img-2">
+        <img src="доставка.svg" alt="Доставка">
+    </div>
+
+    <!-- Картинка подарок.svg -->
+    <div class="delivery-image delivery-img-3">
+        <img src="подарок.svg" alt="Подарок">
+    </div>
+
+    <!-- Текст "Каждый заказ в коробке" -->
+    <div class="delivery-text delivery-text-1">
+        Каждый заказ<br>
+        <span class="highlight-delivery-text">в коробке</span>
+    </div>
+
+    <!-- Текст "Возможность экспресс-доставки" -->
+    <div class="delivery-text delivery-text-2">
+        Возможность<br>
+        <span class="highlight-delivery-text">экспресс-доставки</span>
+    </div>
+
+    <!-- Текст "Подарок в каждом заказе" -->
+    <div class="delivery-text delivery-text-3">
+        Подарок<br>
+        <span class="highlight-delivery-text">в каждом заказе</span>
+    </div>
+
+    <!-- Картинка кот в коробке.png -->
+    <div class="delivery-cat">
+        <img src="кот в коробке.png" alt="Кот в коробке">
+    </div>
+
+    <!-- Текст "Скидка 20%" -->
+    <div class="delivery-discount-1">Скидка 20%</div>
+
+    <!-- Текст "на первый заказ" -->
+    <div class="delivery-discount-2">на первый заказ</div>
+
+    <!-- Кнопка "Оформить заказ" -->
+    <div class="btn-delivery-order">
+        <span>Оформить заказ</span>
+    </div>
+
+    <!-- Прямоугольник E9F9FB -->
+    <div class="delivery-bottom-bar"></div>
+
+    <!-- ===== ФУТЕР (НИЖНЯЯ ЧАСТЬ) ===== -->
+    <!-- Текст "@2024 Все права защищены" -->
+    <div class="footer-copyright">@2024 Все права защищены</div>
+
+    <!-- Иконки соцсетей (кликабельные) -->
+    <a href="#" class="footer-social footer-inst" target="_blank" onclick="openWorkModal(event)">
+        <img src="инста.png" alt="Instagram">
+    </a>
+    <a href="#" class="footer-social footer-fb" target="_blank" onclick="openWorkModal(event)">
+        <img src="фб.png" alt="Facebook">
+    </a>
+    <a href="#" class="footer-social footer-tg" target="_blank" onclick="openWorkModal(event)">
+        <img src="тг.png" alt="Telegram">
+    </a>
+
+    <!-- Заголовки колонок -->
+    <div class="footer-title footer-title-1">О компании</div>
+    <div class="footer-title footer-title-2">Товары</div>
+    <div class="footer-title footer-title-3">Магазины</div>
+
+    <!-- Телефоны -->
+    <div class="footer-phone footer-phone-1">+7(948) 078 68 08</div>
+    <div class="footer-phone footer-phone-2">+7(988) 076 68 08</div>
+
+    <!-- Адрес -->
+    <div class="footer-address">Москва, ул.Барклая, д.6,<br>стр.26, офис 7</div>
+
+    <!-- Email -->
+    <div class="footer-email">milyi_hvostic@gmail.com</div>
+
+    <!-- Иконки локация и почта -->
+    <div class="footer-icon footer-icon-location">
+        <img src="локация.svg" alt="Локация">
+    </div>
+    <div class="footer-icon footer-icon-mail">
+        <img src="почта.svg" alt="Почта">
+    </div>
+
+    <!-- Ссылки колонки "О компании" -->
+    <a href="#" class="footer-link footer-link-1" onclick="openWorkModal(event)">О нас</a>
+    <a href="#" class="footer-link footer-link-2" onclick="openWorkModal(event)">Сотрудничество</a>
+    <a href="#" class="footer-link footer-link-3" onclick="openWorkModal(event)">Регистрация</a>
+    <a href="#" class="footer-link footer-link-4" onclick="openWorkModal(event)">Вакансии</a>
+    <a href="#" class="footer-link footer-link-5" onclick="openWorkModal(event)">Доставка товаров</a>
+
+    <!-- Ссылки колонки "Товары" -->
+    <a href="#" class="footer-link footer-link-6" onclick="openWorkModal(event)">Бренды</a>
+    <a href="#" class="footer-link footer-link-7" onclick="openWorkModal(event)">Предзаказ</a>
+    <a href="#" class="footer-link footer-link-8" onclick="openWorkModal(event)">Для кошек</a>
+    <a href="#" class="footer-link footer-link-9" onclick="openWorkModal(event)">Для собак</a>
+    <a href="#" class="footer-link footer-link-10" onclick="openWorkModal(event)">Для грызунов</a>
+    <a href="#" class="footer-link footer-link-11" onclick="openWorkModal(event)">Для птиц</a>
+
+    <!-- Ссылки колонки "Магазины" -->
+    <a href="#" class="footer-link footer-link-12" onclick="openWorkModal(event)">Адреса</a>
+    <a href="#" class="footer-link footer-link-13" onclick="openWorkModal(event)">Отзывы</a>
+    <a href="#" class="footer-link footer-link-14" onclick="openWorkModal(event)">Акции</a>
+    <a href="#" class="footer-link footer-link-15" onclick="openWorkModal(event)">Доставка</a>
+
+    <div id="about" class="title-about-1">Немного</div>
+
+    <!-- Блок "Товары" -->
+    <div id="products" class="title-products-1">Тысячи товаров</div>
+
+    <!-- Блок "Подборки" -->
+    <div id="collections" class="title-collections-1">Подборки</div>
+
+    <!-- Блок "Статьи" (раздел "Мы в соцсетях" с карточками) -->
+    <div id="articles" class="title-social-1">Мы</div>
+
+    <!-- Блок "Магазины" -->
+    <div id="stores" class="title-stores-1">20 точек</div>
+
+    <!-- Блок "Доставка" -->
+    <div id="delivery" class="title-delivery-1">Доставка</div>
+
+    <!-- ===== ПЛАШКА С ИКОНКАМИ (закреплена при прокрутке) ===== -->
+    <div class="sticky-icons-bar">
+        <!-- Иконка профиля -->
+        <div class="sticky-icon sticky-icon-prof" onclick="openWorkModal()">
+            <img src="prof.svg" alt="Профиль">
+        </div>
+
+        <!-- Иконка избранное -->
+        <div class="sticky-icon sticky-icon-heart" onclick="openWorkModal()">
+            <img src="heart2.svg" alt="Избранное">
+        </div>
+
+        <!-- Иконка корзины -->
+        <div class="sticky-icon sticky-icon-cart" onclick="openWorkModal()">
+            <img src="cart.svg" alt="Корзина">
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО (OVERLAY) ========================================== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-close" onclick="closeModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Текст "Упс!" -->
+            <div class="modal-title">Упс!</div>
+
+            <!-- Текст описания (ОДНА СТРОКА) -->
+            <div class="modal-description">
+                Кажется, страница не найдена. Попробуйте другую ссылку
+            </div>
+
+            <!-- Цифра "404" -->
+            <div class="modal-404">404</div>
+
+            <!-- Картинка 404c.png -->
+            <div class="modal-image">
+                <img src="404c.png" alt="404">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "Упс! Ведутся работы" ========================== -->
+    <div class="modal-work-overlay" id="modalWorkOverlay">
+        <div class="modal-work-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-work-close" onclick="closeWorkModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Текст "Упс!" -->
+            <div class="modal-work-title">Упс!</div>
+
+            <!-- Текст описания -->
+            <div class="modal-work-description">
+                На сайте ведутся работы. Скоро всё будет доступно!
+            </div>
+
+            <!-- Цифра "404" -->
+            <div class="modal-work-404">500</div>
+
+            <!-- Картинка 505f.png -->
+            <div class="modal-work-image">
+                <img src="500f.png" alt="Ведутся работы">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" ===== -->
+    <div class="modal-success-overlay" id="modalSuccessOverlay">
+        <div class="modal-success-window">
+
+            <!-- Крестик для закрытия -->
+            <div class="modal-success-close" onclick="closeSuccessModal()" style="position: absolute; left: 1184px; top: 33px; width: 25px; height: 25px; cursor: pointer; z-index: 10; transition: transform 0.2s ease;">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Заголовок "Заказ оформлен!" -->
+            <div class="modal-success-title" style="position: absolute; left: 380px; top: 56px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 64px; color: #333333; z-index: 5; line-height: 1;">
+                Заказ оформлен!
+            </div>
+
+            <!-- Текст описания -->
+            <div class="modal-success-description" style="position: absolute; left: 290px; top: 179px; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 24px; color: #333333; z-index: 5; line-height: 1.6; text-align: center;">
+                Сообщение о готовности заказа придет на указанный<br>
+                номер <span id="successPhone">***-***-48-03</span>
+            </div>
+
+            <!-- Картинка dog2.png -->
+            <div class="modal-success-dog" style="position: absolute; left: 324px; top: 330px; width: 640px; height: 400px; z-index: 5;">
+                <img src="dog2.png" alt="Собака">
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" ===== -->
+    <div class="modal-order-overlay" id="modalOrderOverlay">
+        <div class="modal-order-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-order-close" onclick="closeOrderModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Заголовок "Оформление заказа" -->
+            <div class="modal-order-title">Оформление заказа</div>
+
+            <!-- Поле "Имя" -->
+            <div class="modal-order-label" style="left:266px; top:161px;">Имя</div>
+            <input type="text" class="modal-order-input" id="orderName" placeholder="Введите ваше имя" style="left:266px; top:195px;">
+            <div class="modal-order-error" id="nameError" style="left:266px; top:254px;"></div>
+
+            <!-- Поле "Почта" -->
+            <div class="modal-order-label" style="left:266px; top:278px;">Почта</div>
+            <input type="email" class="modal-order-input" id="orderEmail" placeholder="Введите любую почту" style="left:266px; top:313px;">
+            <div class="modal-order-error" id="emailError" style="left:266px; top:372px;"></div>
+
+            <!-- Поле "Телефон" -->
+            <div class="modal-order-label" style="left:266px; top:397px;">Телефон</div>
+            <input type="tel" class="modal-order-input" id="orderPhone" placeholder="Введите номер телефона в формате +7-(123)-456-78-90" style="left:266px; top:431px;">
+            <div class="modal-order-error" id="phoneError" style="left:266px; top:490px;"></div>
+
+            <!-- Поле "Адрес доставки" -->
+            <div class="modal-order-label" style="left:266px; top:634px;">Адрес доставки</div>
+            <input type="text" class="modal-order-input" id="orderAddress" placeholder="Введите адрес в формате улица, дом, почтовый индекс или наш магазин" style="left:266px; top:668px;" autocomplete="off">
+            <div class="modal-order-error" id="addressError" style="left:266px; top:732px;"></div>
+
+            <!-- ===== КОНТЕЙНЕР ДЛЯ ПОДСКАЗОК ===== -->
+            <div class="suggestions-wrapper" id="suggestionsWrapper">
+                <ul class="suggestions-list" id="suggestionsList"></ul>
+            </div>
+
+            <div class="modal-order-error" id="cityError" style="left:266px; top:609px;"></div>
+            <!-- Поле "Регион" (ВЫПАДАЮЩИЙ СПИСОК) -->
+            <div class="modal-order-label" style="left:266px; top:515px;">Регион</div>
+            <select class="modal-order-select" id="orderCity" style="left:266px; top:550px;">
+                <option value="">Выберите регион</option>
+                <option value="Алтайский край">Алтайский край</option>
+                <option value="Амурская область">Амурская область</option>
+                <option value="Архангельская область">Архангельская область</option>
+                <option value="Астраханская область">Астраханская область</option>
+                <option value="Белгородская область">Белгородская область</option>
+                <option value="Брянская область">Брянская область</option>
+                <option value="Владимирская область">Владимирская область</option>
+                <option value="Волгоградская область">Волгоградская область</option>
+                <option value="Вологодская область">Вологодская область</option>
+                <option value="Воронежская область">Воронежская область</option>
+                <option value="Еврейская автономная область">Еврейская автономная область</option>
+                <option value="Забайкальский край">Забайкальский край</option>
+                <option value="Ивановская область">Ивановская область</option>
+                <option value="Иркутская область">Иркутская область</option>
+                <option value="Кабардино-Балкарская Республика">Кабардино-Балкарская Республика</option>
+                <option value="Калининградская область">Калининградская область</option>
+                <option value="Калужская область">Калужская область</option>
+                <option value="Камчатский край">Камчатский край</option>
+                <option value="Карачаево-Черкесская Республика">Карачаево-Черкесская Республика</option>
+                <option value="Кемеровская область">Кемеровская область</option>
+                <option value="Кировская область">Кировская область</option>
+                <option value="Костромская область">Костромская область</option>
+                <option value="Краснодарский край">Краснодарский край</option>
+                <option value="Красноярский край">Красноярский край</option>
+                <option value="Курганская область">Курганская область</option>
+                <option value="Курская область">Курская область</option>
+                <option value="Ленинградская область">Ленинградская область</option>
+                <option value="Липецкая область">Липецкая область</option>
+                <option value="Магаданская область">Магаданская область</option>
+                <option value="Москва">Москва</option>
+                <option value="Московская область">Московская область</option>
+                <option value="Мурманская область">Мурманская область</option>
+                <option value="Ненецкий автономный округ">Ненецкий автономный округ</option>
+                <option value="Нижегородская область">Нижегородская область</option>
+                <option value="Новгородская область">Новгородская область</option>
+                <option value="Новосибирская область">Новосибирская область</option>
+                <option value="Омская область">Омская область</option>
+                <option value="Оренбургская область">Оренбургская область</option>
+                <option value="Орловская область">Орловская область</option>
+                <option value="Пензенская область">Пензенская область</option>
+                <option value="Пермский край">Пермский край</option>
+                <option value="Приморский край">Приморский край</option>
+                <option value="Псковская область">Псковская область</option>
+                <option value="Республика Адыгея">Республика Адыгея</option>
+                <option value="Республика Алтай">Республика Алтай</option>
+                <option value="Республика Башкортостан">Республика Башкортостан</option>
+                <option value="Республика Бурятия">Республика Бурятия</option>
+                <option value="Республика Дагестан">Республика Дагестан</option>
+                <option value="Республика Ингушетия">Республика Ингушетия</option>
+                <option value="Республика Калмыкия">Республика Калмыкия</option>
+                <option value="Республика Карелия">Республика Карелия</option>
+                <option value="Республика Коми">Республика Коми</option>
+                <option value="Республика Крым">Республика Крым</option>
+                <option value="Республика Марий Эл">Республика Марий Эл</option>
+                <option value="Республика Мордовия">Республика Мордовия</option>
+                <option value="Республика Саха (Якутия)">Республика Саха (Якутия)</option>
+                <option value="Республика Северная Осетия-Алания">Республика Северная Осетия-Алания</option>
+                <option value="Республика Татарстан">Республика Татарстан</option>
+                <option value="Республика Тыва">Республика Тыва</option>
+                <option value="Республика Хакасия">Республика Хакасия</option>
+                <option value="Ростовская область">Ростовская область</option>
+                <option value="Рязанская область">Рязанская область</option>
+                <option value="Самарская область">Самарская область</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Саратовская область">Саратовская область</option>
+                <option value="Сахалинская область">Сахалинская область</option>
+                <option value="Свердловская область">Свердловская область</option>
+                <option value="Севастополь">Севастополь</option>
+                <option value="Смоленская область">Смоленская область</option>
+                <option value="Ставропольский край">Ставропольский край</option>
+                <option value="Тамбовская область">Тамбовская область</option>
+                <option value="Тверская область">Тверская область</option>
+                <option value="Томская область">Томская область</option>
+                <option value="Тульская область">Тульская область</option>
+                <option value="Тюменская область">Тюменская область</option>
+                <option value="Удмуртская Республика">Удмуртская Республика</option>
+                <option value="Ульяновская область">Ульяновская область</option>
+                <option value="Хабаровский край">Хабаровский край</option>
+                <option value="Ханты-Мансийский автономный округ">Ханты-Мансийский автономный округ</option>
+                <option value="Челябинская область">Челябинская область</option>
+                <option value="Чеченская Республика">Чеченская Республика</option>
+                <option value="Чувашская Республика">Чувашская Республика</option>
+                <option value="Чукотский автономный округ">Чукотский автономный округ</option>
+                <option value="Ямало-Ненецкий автономный округ">Ямало-Ненецкий автономный округ</option>
+                <option value="Ярославская область">Ярославская область</option>
+            </select>
+            <div class="modal-order-error" id="cityError" style="left:266px; top:614px;"></div>
+
+            <!-- Кнопка "Оформить заказ" -->
+            <button class="modal-order-btn" id="orderSubmitBtn" disabled>
+                <span>Оформить заказ</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Подключаем внешний JavaScript файл -->
+    <script src="lendform.js"></script>
+    <!-- Подключаем DaData -->
+    <script src="https://cdn.jsdelivr.net/npm/dadata-suggestions@5.1.0/dist/dadata-suggestions.min.js"></script>
+
+
+</body>
+</html>

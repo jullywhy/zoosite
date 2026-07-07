@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Милый хвостик — Планшетная версия</title>
+    <!-- Подключаем шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем стили для планшета -->
+    <link rel="stylesheet" href="планшет.css">
+</head>
+<body>
+    <div class="tablet-frame">
+
+        <!-- ===== БЕЛЫЕ ПРЯМОУГОЛЬНИКИ ===== -->
+        <div class="tablet-card tablet-card-1"></div>
+        <div class="tablet-card tablet-card-2"></div>
+        <div class="tablet-card tablet-card-3"></div>
+        <div class="tablet-card tablet-card-4"></div>
+
+        <!-- ===== МЕНЮ (закрепляется при прокрутке) ===== -->
+        <div class="tablet-menu" id="tabletMenu">
+            <img src="лого.svg" alt="Логотип" class="tablet-logo">
+            <img src="menutelum.svg" alt="Меню" class="tablet-burger" onclick="toggleTabletMenu()">
+        </div>
+
+        <!-- ===== ВЫКАТЫВАЮЩЕЕСЯ МЕНЮ (БУРГЕР) ===== -->
+        <div class="tablet-menu-overlay" id="tabletMenuOverlay" onclick="closeTabletMenu()">
+            <div class="tablet-menu-panel" id="tabletMenuPanel" onclick="event.stopPropagation()">
+                <!-- Верхняя часть меню -->
+                <div class="tablet-menu-header">
+                    <img src="лого.svg" alt="Логотип" class="tablet-menu-logo">
+                </div>
+
+                <!-- Пункты меню -->
+                <a href="#products" class="tablet-menu-item" onclick="closeTabletMenu()">Товары</a>
+                <a href="#about" class="tablet-menu-item" onclick="closeTabletMenu()">О нас</a>
+                <a href="#collections" class="tablet-menu-item" onclick="closeTabletMenu()">Подборки</a>
+                <a href="#articles" class="tablet-menu-item" onclick="closeTabletMenu()">Статьи</a>
+                <a href="#stores" class="tablet-menu-item" onclick="closeTabletMenu()">Магазины</a>
+                <a href="#delivery" class="tablet-menu-item" onclick="closeTabletMenu()">Доставка</a>
+
+                <!-- Кнопка "Связаться с нами" -->
+                <div class="tablet-menu-contact" onclick="openModal()">
+                    <img src="телефон.svg" alt="Телефон">
+                    <span>Связаться с нами</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== КАРТИНКА КОТИКА ===== -->
+        <div class="tablet-cat">
+            <img src="котик.png" alt="Котик">
+        </div>
+
+        <!-- ===== ТЕКСТ "МИЛЫЙ" ===== -->
+        <div class="tablet-title-mily">Милый</div>
+
+        <!-- ===== ТЕКСТ "ХВОСТИК" ===== -->
+        <div class="tablet-title-hvostik">хвостик</div>
+
+        <!-- ===== ОПИСАНИЕ ===== -->
+        <div class="tablet-description">
+            В нашем магазине вы найдете все,<br>
+            что нужно для вашего любимого<br>
+            и неповторимого питомца
+        </div>
+
+        <!-- ===== ПОИСКОВАЯ СТРОКА ===== -->
+        <div class="tablet-search-bar">
+            <input type="text" placeholder="Искать товар..." class="tablet-search-input" id="tabletSearchInput">
+            <div class="tablet-search-icon" id="tabletSearchIcon" onclick="openWorkModal()">
+                <img src="лупа.svg" alt="Поиск">
+            </div>
+        </div>
+
+        <!-- ===== КАРТИНКА FROG.SVG ===== -->
+        <div class="tablet-frog">
+            <img src="frog (1).svg" alt="Frog">
+        </div>
+
+        <!-- ===== ИКОНКА COPY.SVG ===== -->
+        <div class="tablet-copy-icon" id="tabletCopyIcon" onclick="toggleTabletIcon()">
+            <img src="copy.svg" alt="Копировать" id="tabletIconImage">
+        </div>
+
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "УПС! 404" (ПЛАНШЕТ) ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-window">
+            <!-- Крестик для закрытия (15x15) -->
+            <div class="modal-close" onclick="closeModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Текст "Упс!" (55px) -->
+            <div class="modal-title">Упс!</div>
+
+            <!-- Текст описания -->
+            <div class="modal-description">
+                Кажется, страница не найдена. Попробуйте другую ссылку
+            </div>
+
+            <!-- Цифра "404" (посередине, 128px) -->
+            <div class="modal-404">404</div>
+
+            <!-- Картинка 404c.png (680x259) -->
+            <div class="modal-image">
+                <img src="404c.png" alt="404">
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ВЕДУТСЯ РАБОТЫ" (ПЛАНШЕТ) ===== -->
+    <div class="modal-work-overlay" id="modalWorkOverlay">
+        <div class="modal-work-window">
+            <!-- Крестик для закрытия (15x15) -->
+            <div class="modal-work-close" onclick="closeWorkModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Текст "Упс!" (55px) -->
+            <div class="modal-work-title">Упс!</div>
+
+            <!-- Текст описания -->
+            <div class="modal-work-description">
+                На сайте ведутся работы. Скоро всё будет доступно!
+            </div>
+
+            <!-- Цифра "500" (посередине, 128px) -->
+            <div class="modal-work-404">500</div>
+
+            <!-- Картинка 500f.png (680x259) -->
+            <div class="modal-work-image">
+                <img src="500f.png" alt="Ведутся работы">
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== БЛОК: "То, что вы так долго искали" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "То, что вы" -->
+    <div class="tablet-title-search-1">То, что вы</div>
+
+    <!-- Заголовок "так долго искали" -->
+    <div class="tablet-title-search-2">так долго искали</div>
+
+    <!-- Текст описания -->
+    <div class="tablet-description-search">
+        Здесь вы можете найти <span class="tablet-highlight">зарубежные товары</span> для ваших питомцев
+        <span class="tablet-highlight">по выгодным ценам</span>, которые больше не поставляются в Россию
+    </div>
+
+    <!-- Прямоугольник с брендами -->
+    <div class="tablet-brands-container">
+        <!-- Картинка проплан.png -->
+        <div class="tablet-brand-item tablet-brand-1">
+            <img src="проплан.png" alt="ProPlan">
+        </div>
+        <!-- Картинка монге.png -->
+        <div class="tablet-brand-item tablet-brand-2">
+            <img src="монге.png" alt="Monge">
+        </div>
+        <!-- Картинка канин.png -->
+        <div class="tablet-brand-item tablet-brand-3">
+            <img src="канин.png" alt="Kanin">
+        </div>
+        <!-- Картинка фиори.png -->
+        <div class="tablet-brand-item tablet-brand-4">
+            <img src="фиори.png" alt="Fiori">
+        </div>
+    </div>
+
+    <!-- ===== БЛОК: "Тысячи товаров по выгодным ценам" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "Тысячи товаров" -->
+    <div class="tablet-title-products-1">Тысячи товаров</div>
+
+    <!-- Заголовок "по выгодным ценам" -->
+    <div class="tablet-title-products-2">по выгодным ценам</div>
+
+    <!-- ===== КОНТЕЙНЕР ДЛЯ КАРТОЧЕК ===== -->
+    <div class="tablet-products-wrapper">
+
+        <!-- ===== КАРТОЧКА ТОВАРА 1 ===== -->
+        <div class="tablet-product-card tablet-card-1">
+            <div class="tablet-product-image tablet-product-img-1">
+                <img src="товар1.png" alt="Товар 1">
+            </div>
+            <div class="tablet-heart-icon tablet-heart-1" onclick="toggleTabletHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="tablet-product-description">
+                Премиальный наполнитель<br>
+                для кошачьего туалета VAN<br>
+                CAT гранулы без отдушки 6 л
+            </div>
+            <div class="tablet-product-price" id="tablet-price-1">520 ₽</div>
+            <div class="tablet-product-counter" id="tablet-counter-1">
+                <img src="min.svg" alt="Минус" class="tablet-counter-btn tablet-counter-minus" data-id="1">
+                <div class="tablet-counter-value" id="tablet-count-1">1</div>
+                <img src="plus.svg" alt="Плюс" class="tablet-counter-btn tablet-counter-plus" data-id="1">
+            </div>
+            <div class="tablet-product-btn" data-id="1">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <!-- ===== КАРТОЧКА ТОВАРА 2 ===== -->
+        <div class="tablet-product-card tablet-card-2">
+            <div class="tablet-product-image tablet-product-img-2">
+                <img src="товар2.png" alt="Товар 2">
+            </div>
+            <div class="tablet-heart-icon tablet-heart-2" onclick="toggleTabletHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="tablet-product-description">
+                Премиальный корм для<br>
+                стерилизованных взрослых<br>
+                кошек MONGE 85 г
+            </div>
+            <div class="tablet-product-price" id="tablet-price-2">280 ₽</div>
+            <div class="tablet-product-counter" id="tablet-counter-2">
+                <img src="min.svg" alt="Минус" class="tablet-counter-btn tablet-counter-minus" data-id="2">
+                <div class="tablet-counter-value" id="tablet-count-2">1</div>
+                <img src="plus.svg" alt="Плюс" class="tablet-counter-btn tablet-counter-plus" data-id="2">
+            </div>
+            <div class="tablet-product-btn" data-id="2">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <!-- ===== КАРТОЧКА ТОВАРА 3 ===== -->
+        <div class="tablet-product-card tablet-card-3">
+            <div class="tablet-product-image tablet-product-img-3">
+                <img src="товар4.png" alt="Товар 4">
+            </div>
+            <div class="tablet-heart-icon tablet-heart-3" onclick="toggleTabletHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="tablet-product-description">
+                Профессиональный набор<br>
+                для грумминга для собак<br>
+                и кошек Gamma 4 в 1
+            </div>
+            <div class="tablet-product-price" id="tablet-price-3">450 ₽</div>
+            <div class="tablet-product-counter" id="tablet-counter-3">
+                <img src="min.svg" alt="Минус" class="tablet-counter-btn tablet-counter-minus" data-id="3">
+                <div class="tablet-counter-value" id="tablet-count-3">1</div>
+                <img src="plus.svg" alt="Плюс" class="tablet-counter-btn tablet-counter-plus" data-id="3">
+            </div>
+            <div class="tablet-product-btn" data-id="3">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+
+        <!-- ===== БЛОК: "Немного о нас" (ПЛАНШЕТ) ===== -->
+        <!-- Заголовок "Немного" -->
+        <div class="tablet-title-about-1">Немного</div>
+
+        <!-- Заголовок "о нас" -->
+        <div class="tablet-title-about-2">о нас</div>
+
+        <!-- Текст описания -->
+        <div class="tablet-description-about">
+            <span class="tablet-highlight-about">Мы - молодая команда специалистов</span>, занимающаяся выкупом<br>
+            дефицитных зоотоваров для ваших малышей. <span class="tablet-highlight-about">С 2024 года</span> наша<br>
+            команда доставляет радость пушистым и пернатым малышам
+        </div>
+
+        <!-- Картинка 10к.svg -->
+        <div class="tablet-stat-img tablet-stat-1">
+            <img src="10к.svg" alt="10 000">
+        </div>
+
+        <!-- Картинка 2к.svg -->
+        <div class="tablet-stat-img tablet-stat-2">
+            <img src="2к.svg" alt="2 000">
+        </div>
+
+        <!-- Картинка 1к.svg -->
+        <div class="tablet-stat-img tablet-stat-3">
+            <img src="1к.svg" alt="1 000">
+        </div>
+
+        <!-- Текст "Сделано заказов" -->
+        <div class="tablet-stat-text tablet-stat-text-1">
+            Сделано<br>
+            <span class="tablet-highlight-stat">заказов</span>
+        </div>
+
+        <!-- Текст "Счастливых любимцев" -->
+        <div class="tablet-stat-text tablet-stat-text-2">
+            Счастливых<br>
+            <span class="tablet-highlight-stat">любимцев</span>
+        </div>
+
+        <!-- Текст "Ваших отзывов" -->
+        <div class="tablet-stat-text tablet-stat-text-3">
+            Ваших<br>
+            <span class="tablet-highlight-stat">отзывов</span>
+        </div>
+
+        <!-- Кнопка "Оформить заказ" -->
+        <div class="tablet-btn-about-order">
+            <span>Оформить заказ</span>
+        </div>
+    </div>
+
+    <!-- ===== БЛОК: "Подборки для каждого" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "Подборки" -->
+    <div class="tablet-title-collections-1">Подборки</div>
+
+    <!-- Заголовок "для каждого" -->
+    <div class="tablet-title-collections-2">для каждого</div>
+
+    <!-- Текст описания -->
+    <div class="tablet-description-collections">
+        В наших магазинах можно найти все необходимые<br>
+        зоотовары <span class="tablet-highlight-collections">для каждого любимца</span>
+    </div>
+
+    <!-- ===== КАРТИНКИ (КАЖДАЯ СВОИ КООРДИНАТЫ) ===== -->
+    <!-- cd.png - 387x402, x=59, y=2563 -->
+    <div class="tablet-collection-img tablet-collection-1">
+        <img src="cd.png" alt="Кошка">
+    </div>
+
+    <!-- fish.png - 247x197, x=460, y=2564 -->
+    <div class="tablet-collection-img tablet-collection-2">
+        <img src="fish.png" alt="Рыбка">
+    </div>
+
+    <!-- chameleon.png - 248x193, x=459, y=2772 -->
+    <div class="tablet-collection-img tablet-collection-3">
+        <img src="chameleon.png" alt="Хамелеон">
+    </div>
+
+    <!-- hamster.png - 315x241, x=59, y=2976 -->
+    <div class="tablet-collection-img tablet-collection-4">
+        <img src="hamster.png" alt="Хомяк">
+    </div>
+
+    <!-- parrot.png - 315x241, x=392, y=2975 -->
+    <div class="tablet-collection-img tablet-collection-5">
+        <img src="parrot.png" alt="Попугай">
+    </div>
+
+
+    <!-- ===== БЛОК: "Мы в соцсетях" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "Мы" -->
+    <div class="tablet-title-social-1">Мы</div>
+
+    <!-- Заголовок "в соцсетях" -->
+    <div class="tablet-title-social-2">в соцсетях</div>
+
+    <!-- Текст описания -->
+    <div class="tablet-description-social">
+        Каждую неделю обсуждаем <span class="tablet-highlight-social">новые интересные темы</span> о ваших питомцах.<br>
+        Будьте в курсе всех <span class="tablet-highlight-social">самых важных новостей</span><br>
+        о своих любимцах: уходе, здоровье, стиле и о многом другом
+    </div>
+
+    <!-- Картинка кот.png -->
+    <div class="tablet-social-cat">
+        <img src="кот.png" alt="Кот">
+    </div>
+
+    <!-- Текст с выравниванием по левому краю -->
+    <div class="tablet-social-text-left">
+        Свежая подборка отправленных фотографий<br>
+        ваших любимцев. Находите себя<br>
+        и оставляйте комментарии!
+    </div>
+
+    <!-- Картинка читать.svg -->
+    <div class="tablet-social-read-btn">
+        <img src="читать.svg" alt="Читать">
+    </div>
+
+    <!-- ===== КАРТОЧКИ СТАТЕЙ ===== -->
+    <!-- Карточка 1: dog.png -->
+    <div class="tablet-article-card tablet-article-1">
+        <div class="tablet-article-text">
+            Тема: Топ-5 трендов в собачьей моде 2026.<br>
+            Что будет в моде этой осенью и зимой
+        </div>
+        <div class="tablet-article-image">
+            <img src="dog.png" alt="Собака">
+        </div>
+        <div class="tablet-article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Карточка 2: lizard.png -->
+    <div class="tablet-article-card tablet-article-2">
+        <div class="tablet-article-text">
+            Тема: Каких ящериц разных видов можно держать<br>
+            вместе? Советы зоологов
+        </div>
+        <div class="tablet-article-image">
+            <img src="lizard.png" alt="Ящерица">
+        </div>
+        <div class="tablet-article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Карточка 3: parrots.png -->
+    <div class="tablet-article-card tablet-article-3">
+        <div class="tablet-article-text">
+            Тема: Какой корм полезен для волнистых попугаев<br>
+            больше всего? Изучаем подборку товаров
+        </div>
+        <div class="tablet-article-image">
+            <img src="parrots.png" alt="Попугаи">
+        </div>
+        <div class="tablet-article-read-btn">
+            <img src="читать.svg" alt="Читать">
+        </div>
+    </div>
+
+    <!-- Кнопка "Перейти в блог" -->
+    <div class="tablet-btn-blog">
+        <span>Перейти в блог</span>
+    </div>
+
+    <!-- ===== БЛОК: "Доставка" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "Доставка" -->
+    <div class="tablet-title-delivery-1">Доставка</div>
+
+    <!-- Заголовок "в любую точку" -->
+    <div class="tablet-title-delivery-2">в любую точку</div>
+
+    <!-- Текст описания -->
+    <div class="tablet-description-delivery">
+        Прекрасная возможность купить<br>
+        дефицитные товары <span class="tablet-highlight-delivery">не выходя из дома</span>
+    </div>
+
+    <!-- Картинка кот в коробке.png -->
+    <div class="tablet-delivery-cat">
+        <img src="кот в коробке.png" alt="Кот в коробке">
+    </div>
+
+    <!-- Текст "Скидка 20%" -->
+    <div class="tablet-delivery-discount-1">Скидка 20%</div>
+
+    <!-- Текст "на первый заказ" -->
+    <div class="tablet-delivery-discount-2">на первый заказ</div>
+
+    <!-- Кнопка "Оформить заказ" -->
+    <div class="tablet-btn-delivery-order">
+        <span>Оформить заказ</span>
+    </div>
+
+    <!-- Прямоугольник E9F9FB -->
+    <div class="tablet-delivery-bottom-bar"></div>
+
+    <!-- ===== ФУТЕР (ПЛАНШЕТ) ===== -->
+    <!-- Текст "@2024 Все права защищены" -->
+    <div class="tablet-footer-copyright">@2024 Все права защищены</div>
+
+    <!-- Иконки соцсетей (кликабельные) -->
+    <a href="#" class="tablet-footer-social tablet-footer-inst" onclick="openWorkModal(event)">
+        <img src="инста.png" alt="Instagram">
+    </a>
+    <a href="#" class="tablet-footer-social tablet-footer-fb" onclick="openWorkModal(event)">
+        <img src="фб.png" alt="Facebook">
+    </a>
+    <a href="#" class="tablet-footer-social tablet-footer-tg" onclick="openWorkModal(event)">
+        <img src="тг.png" alt="Telegram">
+    </a>
+
+    <!-- Заголовки колонок -->
+    <div class="tablet-footer-title tablet-footer-title-1">О компании</div>
+    <div class="tablet-footer-title tablet-footer-title-2">Товары</div>
+    <div class="tablet-footer-title tablet-footer-title-3">Магазины</div>
+
+    <!-- Телефоны -->
+    <div class="tablet-footer-phone tablet-footer-phone-1">+7(948) 078 68 08</div>
+    <div class="tablet-footer-phone tablet-footer-phone-2">+7(988) 076 68 08</div>
+
+    <!-- Адрес -->
+    <div class="tablet-footer-address">Москва, ул.Барклая, д.6,<br>стр.26, офис 7</div>
+
+    <!-- Email -->
+    <div class="tablet-footer-email">milyi_hvostic@gmail.com</div>
+
+    <!-- Иконки локация и почта -->
+    <div class="tablet-footer-icon tablet-footer-icon-location">
+        <img src="локация.svg" alt="Локация">
+    </div>
+    <div class="tablet-footer-icon tablet-footer-icon-mail">
+        <img src="почта.svg" alt="Почта">
+    </div>
+
+    <!-- Ссылки колонки "О компании" -->
+    <a class="tablet-footer-link tablet-footer-link-1" onclick="openWorkModal(event)">О нас</a>
+    <a class="tablet-footer-link tablet-footer-link-2" onclick="openWorkModal(event)">Сотрудничество</a>
+    <a class="tablet-footer-link tablet-footer-link-3" onclick="openWorkModal(event)">Регистрация</a>
+    <a class="tablet-footer-link tablet-footer-link-4" onclick="openWorkModal(event)">Вакансии</a>
+    <a class="tablet-footer-link tablet-footer-link-5" onclick="openWorkModal(event)">Доставка товаров</a>
+
+    <!-- Ссылки колонки "Товары" -->
+    <a class="tablet-footer-link tablet-footer-link-6" onclick="openWorkModal(event)">Бренды</a>
+    <a class="tablet-footer-link tablet-footer-link-7" onclick="openWorkModal(event)">Предзаказ</a>
+    <a class="tablet-footer-link tablet-footer-link-8" onclick="openWorkModal(event)">Для кошек</a>
+    <a class="tablet-footer-link tablet-footer-link-9" onclick="openWorkModal(event)">Для собак</a>
+    <a class="tablet-footer-link tablet-footer-link-10" onclick="openWorkModal(event)">Для грызунов</a>
+    <a class="tablet-footer-link tablet-footer-link-11" onclick="openWorkModal(event)">Для птиц</a>
+
+    <!-- Ссылки колонки "Магазины" -->
+    <a class="tablet-footer-link tablet-footer-link-12" onclick="openWorkModal(event)">Адреса</a>
+    <a class="tablet-footer-link tablet-footer-link-13" onclick="openWorkModal(event)">Отзывы</a>
+    <a class="tablet-footer-link tablet-footer-link-14" onclick="openWorkModal(event)">Акции</a>
+    <a class="tablet-footer-link tablet-footer-link-15" onclick="openWorkModal(event)">Доставка</a>
+
+    <!-- Иконки соцсетей -->
+    <a class="tablet-footer-social tablet-footer-inst" onclick="openWorkModal(event)">
+        <img src="инста.png" alt="Instagram">
+    </a>
+    <a class="tablet-footer-social tablet-footer-fb" onclick="openWorkModal(event)">
+        <img src="фб.png" alt="Facebook">
+    </a>
+    <a class="tablet-footer-social tablet-footer-tg" onclick="openWorkModal(event)">
+        <img src="тг.png" alt="Telegram">
+    </a>
+    <!-- ===== БЛОК: "20 точек по всей России" (ПЛАНШЕТ) ===== -->
+    <!-- Заголовок "20 точек" -->
+    <div class="tablet-title-stores-1">20 точек</div>
+
+    <!-- Заголовок "по всей России" -->
+    <div class="tablet-title-stores-2">по всей России</div>
+
+    <!-- Текст описания -->
+    <div class="tablet-description-stores">
+        Магазины находятся в <span class="tablet-highlight-stores">крупнейших городах</span> для вашего удобства.<br>
+        Каждый год мы <span class="tablet-highlight-stores">расширяемся</span> и создаем <span class="tablet-highlight-stores">новые точки</span> по всей стране
+    </div>
+
+    <!-- Картинка карта россии.svg -->
+    <div class="tablet-stores-map">
+        <img src="карта россии.svg" alt="Карта России">
+    </div>
+
+    <!-- ===== КАРТИНКА СТАТИСТИКА ===== -->
+    <div class="tablet-stats-image">
+        <img src="статистика.svg" alt="Статистика">
+    </div>
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (ПЛАНШЕТ) ===== -->
+    <div class="modal-order-overlay" id="modalOrderOverlay">
+        <div class="modal-order-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-order-close" onclick="closeOrderModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Заголовок "Оформление заказа" -->
+            <div class="modal-order-title">Оформление заказа</div>
+
+            <!-- Поле "Имя" -->
+            <div class="modal-order-label" style="left:50px; top:150px;">Имя</div>
+            <input type="text" class="modal-order-input" id="orderName" placeholder="Введите ваше имя" style="left:50px; top:175px;">
+            <div class="modal-order-error" id="nameError" style="left:50px; top:220px;"></div>
+
+            <!-- Поле "Почта" -->
+            <div class="modal-order-label" style="left:50px; top:240px;">Почта</div>
+            <input type="email" class="modal-order-input" id="orderEmail" placeholder="Введите любую почту" style="left:50px; top:265px;">
+            <div class="modal-order-error" id="emailError" style="left:50px; top:310px;"></div>
+
+            <!-- Поле "Телефон" -->
+            <div class="modal-order-label" style="left:50px; top:330px;">Телефон</div>
+            <input type="tel" class="modal-order-input" id="orderPhone" placeholder="Введите номер телефона" style="left:50px; top:355px;">
+            <div class="modal-order-error" id="phoneError" style="left:50px; top:400px;"></div>
+
+            <!-- Поле "Регион" -->
+            <div class="modal-order-label" style="left:50px; top:420px;">Регион</div>
+            <select class="modal-order-select" id="orderCity" style="left:50px; top:448px; width:650px; height:45px;">
+                <option value="">Выберите регион</option>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Московская область">Московская область</option>
+                <!-- ... остальные регионы ... -->
+            </select>
+            <div class="modal-order-error" id="cityError" style="left:50px; top:490px;"></div>
+
+            <!-- Поле "Адрес доставки" -->
+            <div class="modal-order-label" style="left:50px; top:510px;">Адрес доставки</div>
+            <input type="text" class="modal-order-input" id="orderAddress" placeholder="Введите адрес доставки" style="left:50px; top:535px;">
+            <div class="modal-order-error" id="addressError" style="left:50px; top:580px;"></div>
+
+            <!-- Кнопка "Оформить заказ" (ПОДНЯТА НА 60px) -->
+            <button class="modal-order-btn" id="orderSubmitBtn" disabled style="top:620px;">
+                <span>Оформить заказ</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" (ПЛАНШЕТ) ===== -->
+    <div class="modal-success-overlay" id="modalSuccessOverlay">
+        <div class="modal-success-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-success-close" onclick="closeSuccessModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Заголовок "Заказ оформлен!" -->
+            <div class="modal-success-title">Заказ оформлен!</div>
+
+            <!-- Текст описания -->
+            <div class="modal-success-description">
+                Сообщение о готовности заказа придет на указанный<br>
+                номер <span id="successPhone">***-***-**-48-03</span>
+            </div>
+
+            <!-- Картинка dog2.png -->
+            <div class="modal-success-dog">
+                <img src="dog2.png" alt="Собака">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== КАРТИНКИ В БЛОКЕ "ПОДБОРКИ" ===== -->
+    <!-- cd.png -->
+    <div class="tablet-collection-img tablet-collection-1" onclick="openWorkModal(event)">
+        <img src="cd.png" alt="Кошка">
+    </div>
+
+    <!-- fish.png -->
+    <div class="tablet-collection-img tablet-collection-2" onclick="openWorkModal(event)">
+        <img src="fish.png" alt="Рыбка">
+    </div>
+
+    <!-- chameleon.png -->
+    <div class="tablet-collection-img tablet-collection-3" onclick="openWorkModal(event)">
+        <img src="chameleon.png" alt="Хамелеон">
+    </div>
+
+    <!-- hamster.png -->
+    <div class="tablet-collection-img tablet-collection-4" onclick="openWorkModal(event)">
+        <img src="hamster.png" alt="Хомяк">
+    </div>
+
+    <!-- parrot.png -->
+    <div class="tablet-collection-img tablet-collection-5" onclick="openWorkModal(event)">
+        <img src="parrot.png" alt="Попугай">
+    </div>
+
+    <!-- ===== КОНЕЦ КОНТЕЙНЕРА ===== -->
+    <!-- ===== КОНЕЦ КОНТЕЙНЕРА ДЛЯ КАРТОЧЕК ===== -->
+    <!-- Подключаем скрипты -->
+    <script src="планшет.js"></script>
+</body>
+</html>

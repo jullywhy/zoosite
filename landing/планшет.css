@@ -1,0 +1,2813 @@
+﻿/* ============================================================
+   ПЛАНШЕТНАЯ ВЕРСИЯ (ширина 768px)
+   ============================================================ */
+
+/* Сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FBEACC;
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== ОСНОВНОЙ ФРЕЙМ ===== */
+.tablet-frame {
+    width: 768px;
+    min-height: 6266px;
+    background: #FBEACC;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* ===== БЕЛЫЕ ПРЯМОУГОЛЬНИКИ ===== */
+.tablet-card {
+    position: absolute;
+    left: 15px;
+    width: 738px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.tablet-card-1 {
+    top: 18px;
+    height: 1027px;
+}
+
+.tablet-card-2 {
+    top: 1060px;
+    height: 1235px;
+}
+
+.tablet-card-3 {
+    top: 2310px;
+    height: 2100px;
+}
+
+.tablet-card-4 {
+    top: 4425px;
+    height: 1864px;
+}
+
+/* ===== МЕНЮ (закрепляется при прокрутке, НЕ УВЕЛИЧИВАЕТСЯ) ===== */
+.tablet-menu {
+    position: absolute;
+    left: 15px;
+    top: 16px;
+    width: 738px;
+    height: 63px;
+    background: #DFF5F9;
+    border-radius: 0 0 200px 200px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    transition: top 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* Закреплённое меню — размеры остаются прежними */
+    .tablet-menu.fixed {
+        position: fixed;
+        top: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 738px;
+        height: 63px;
+        border-radius: 0 0 200px 200px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+.tablet-logo {
+    width: 30px;
+    height: 26px;
+    object-fit: contain;
+    left:20px;
+}
+
+.tablet-burger {
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .tablet-burger:hover {
+        transform: scale(1.1);
+    }
+
+/* ===== БУРГЕР-МЕНЮ (ВЫКАТЫВАЕТСЯ СПРАВА С ОТСТУПОМ) ===== */
+.tablet-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    display: none;
+    justify-content: flex-end;
+    padding-right: 374px; /* Отступ справа, чтобы меню начиналось с x=753 */
+    transition: background 0.4s ease;
+}
+
+    .tablet-menu-overlay.active {
+        display: flex !important;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .tablet-menu-overlay.closing {
+        background: rgba(0, 0, 0, 0);
+    }
+
+/* Панель выезжает справа */
+.tablet-menu-panel {
+    width: 301px;
+    height: 566px;
+    background: #FFFFFF;
+    border-radius: 20px 0 0 20px;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(100%); /* Начинает за экраном */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.tablet-menu-overlay.active .tablet-menu-panel {
+    transform: translateX(0); /* Приезжает на место */
+}
+
+/* Верхняя часть меню */
+.tablet-menu-header {
+    width: 301px;
+    height: 63px;
+    background: #DFF5F9;
+    border-radius: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    padding-left: 31px;
+}
+
+.tablet-menu-logo {
+    width: 30px;
+    height: 26px;
+    object-fit: contain;
+}
+
+/* Пункты меню */
+.tablet-menu-item {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    text-decoration: none;
+    padding: 10px 30px;
+    transition: color 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+}
+
+    .tablet-menu-item:hover {
+        color: #83BF13;
+        background: rgba(131, 191, 19, 0.05);
+    }
+
+    .tablet-menu-item:nth-child(2) {
+        margin-top: 43px;
+    }
+
+    .tablet-menu-item:nth-child(3) {
+        margin-top: 8px;
+    }
+
+    .tablet-menu-item:nth-child(4) {
+        margin-top: 8px;
+    }
+
+    .tablet-menu-item:nth-child(5) {
+        margin-top: 8px;
+    }
+
+    .tablet-menu-item:nth-child(6) {
+        margin-top: 8px;
+    }
+
+    .tablet-menu-item:nth-child(7) {
+        margin-top: 8px;
+    }
+/* Кнопка "Связаться с нами" */
+.tablet-menu-contact {
+    position: absolute;
+    left: 30px;
+    bottom: 48px;
+    width: 204px;
+    height: 36px;
+    background: #83BF13;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .tablet-menu-contact:hover {
+        background: #8CCA1A;
+        transform: scale(1.02);
+    }
+
+    .tablet-menu-contact:active {
+        background: #7EBB0F;
+        transform: scale(0.98);
+    }
+
+    .tablet-menu-contact img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .tablet-menu-contact span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Верхняя часть меню */
+.tablet-menu-header {
+    width: 301px;
+    height: 63px;
+    background: #DFF5F9;
+    border-radius: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    padding-left: 31px;
+}
+
+.tablet-menu-logo {
+    width: 30px;
+    height: 26px;
+    object-fit: contain;
+}
+
+/* Пункты меню */
+.tablet-menu-item {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    text-decoration: none;
+    padding: 10px 30px;
+    transition: color 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+}
+
+    .tablet-menu-item:hover {
+        color: #83BF13;
+        background: rgba(131, 191, 19, 0.05);
+    }
+
+    /* Позиции пунктов меню */
+    .tablet-menu-item:nth-child(2) {
+        margin-top: 43px;
+    }
+    /* Товары */
+    .tablet-menu-item:nth-child(3) {
+        margin-top: 8px;
+    }
+    /* О нас */
+    .tablet-menu-item:nth-child(4) {
+        margin-top: 8px;
+    }
+    /* Подборки */
+    .tablet-menu-item:nth-child(5) {
+        margin-top: 8px;
+    }
+    /* Статьи */
+    .tablet-menu-item:nth-child(6) {
+        margin-top: 8px;
+    }
+    /* Магазины */
+    .tablet-menu-item:nth-child(7) {
+        margin-top: 8px;
+    }
+/* Доставка */
+
+/* Кнопка "Связаться с нами" */
+.tablet-menu-contact {
+    position: absolute;
+    left: 30px;
+    bottom: 48px;
+    width: 204px;
+    height: 36px;
+    background: #83BF13;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .tablet-menu-contact:hover {
+        background: #8CCA1A;
+        transform: scale(1.02);
+    }
+
+    .tablet-menu-contact:active {
+        background: #7EBB0F;
+        transform: scale(0.98);
+    }
+
+    .tablet-menu-contact img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+    }
+
+    .tablet-menu-contact span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+/* ===== КАРТИНКА КОТИКА ===== */
+.tablet-cat {
+    position: absolute;
+    left: 343px;
+    top: 89px;
+    width: 405px;
+    height: 388px;
+    z-index: 5;
+}
+
+    .tablet-cat img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+/* ===== ЗАГОЛОВОК "МИЛЫЙ" ===== */
+.tablet-title-mily {
+    position: absolute;
+    left: 58px;
+    top: 102px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== ЗАГОЛОВОК "ХВОСТИК" ===== */
+.tablet-title-hvostik {
+    position: absolute;
+    left: 58px;
+    top: 178px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 42px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== ОПИСАНИЕ ===== */
+.tablet-description {
+    position: absolute;
+    left: 58px;
+    top: 241px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+}
+
+/* ===== ПОИСКОВАЯ СТРОКА ===== */
+.tablet-search-bar {
+    position: absolute;
+    left: 58px;
+    top: 347px;
+    width: 320px;
+    height: 38px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    box-shadow: -2px 1px 10.1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tablet-search-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    padding: 0 5px;
+}
+
+    .tablet-search-input::placeholder {
+        color: #A7A7A7;
+        opacity: 1;
+        font-weight: 500;
+        font-size: 16px;
+    }
+/* ===== ИКОНКА ЛУПЫ ===== */
+.tablet-search-icon {
+    position: absolute; /* ← ДОБАВЬТЕ ЭТО */
+    left: 286px; /* ← РАБОТАЕТ ТОЛЬКО С position: absolute */
+    top: 6px; /* ← ДОБАВЬТЕ ЭТО, чтобы контролировать высоту */
+    width: 26px;
+    height: 26px;
+    cursor: default;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+    pointer-events: none;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+    .tablet-search-icon.active {
+        cursor: pointer;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+        .tablet-search-icon.active:hover {
+            transform: scale(1.1);
+        }
+
+        .tablet-search-icon.active:active {
+            transform: scale(0.95);
+        }
+
+    .tablet-search-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== КАРТИНКА FROG.SVG ===== */
+.tablet-frog {
+    position: absolute;
+    left: 58px;
+    top: 415px;
+    width: 321px;
+    height: 138px;
+    z-index: 8;
+}
+
+    .tablet-frog img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== ИКОНКА COPY.SVG ===== */
+.tablet-copy-icon {
+    position: absolute;
+    left: 72px;
+    top: 518px;
+    width: 13px;
+    height: 13px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .tablet-copy-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .tablet-copy-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== МОДАЛЬНЫЕ ОКНА ===== */
+
+/* Затемнённый фон */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-window {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideInRight 0.3s ease;
+    overflow: hidden;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-close:hover {
+        transform: rotate(90deg);
+    }
+
+    .modal-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.modal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+.modal-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 140px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    z-index: 5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modal-404 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 190px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 120px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+}
+
+.modal-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    width: 200px;
+    height: 150px;
+    z-index: 10;
+}
+
+    .modal-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* Окно "Ведутся работы" */
+.modal-work-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-work-window {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideInRight 0.3s ease;
+    overflow: hidden;
+}
+
+.modal-work-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-work-close:hover {
+        transform: rotate(90deg);
+    }
+
+    .modal-work-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.modal-work-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+.modal-work-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 140px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    z-index: 5;
+    text-align: center;
+}
+
+.modal-work-404 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 190px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 120px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+}
+
+.modal-work-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    width: 300px;
+    height: 120px;
+    z-index: 10;
+}
+
+    .modal-work-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+/* ============================================================
+   БЛОК: "То, что вы так долго искали" (ПЛАНШЕТ) — ЦЕНТРИРОВАН
+   ============================================================ */
+
+/* Заголовок "То, что вы" */
+.tablet-title-search-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 657px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Заголовок "так долго искали" */
+.tablet-title-search-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 727px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Текст описания */
+.tablet-description-search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 789px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.5;
+    text-align: center;
+    width: 580px;
+}
+
+    /* Выделение жирным шрифтом */
+    .tablet-description-search .tablet-highlight {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== ПРЯМОУГОЛЬНИК С БРЕНДАМИ (ЦЕНТРИРОВАН) ===== */
+.tablet-brands-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 866px;
+    width: 650px;
+    height: 107px;
+    background: #DFF5F9;
+    border-radius: 20px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+
+/* Общий стиль для элементов брендов */
+.tablet-brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .tablet-brand-item img {
+        display: block;
+        object-fit: contain;
+    }
+
+/* Индивидуальные размеры для каждого бренда */
+.tablet-brand-1 {
+    width: 105px;
+    height: 57px;
+}
+
+    .tablet-brand-1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.tablet-brand-2 {
+    width: 137px;
+    height: 52px;
+}
+
+    .tablet-brand-2 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.tablet-brand-3 {
+    width: 130px;
+    height: 49px;
+}
+
+    .tablet-brand-3 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.tablet-brand-4 {
+    width: 111px;
+    height: 58px;
+}
+
+    .tablet-brand-4 img {
+        width: 100%;
+        height: 100%;
+    }
+
+/* ============================================================
+   БЛОК: "Тысячи товаров по выгодным ценам" (ЦЕНТРИРОВАН)
+   ============================================================ */
+
+/* Заголовок "Тысячи товаров" */
+.tablet-title-products-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1117px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Заголовок "по выгодным ценам" */
+.tablet-title-products-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1188px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   БЛОК: "Тысячи товаров по выгодным ценам" (ЦЕНТРИРОВАН)
+   ============================================================ */
+
+/* Заголовок "Тысячи товаров" */
+.tablet-title-products-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1117px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Заголовок "по выгодным ценам" */
+.tablet-title-products-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1188px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ===== КОНТЕЙНЕР ДЛЯ КАРТОЧЕК ===== */
+.tablet-products-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1274px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    z-index: 8;
+    justify-content: center;
+    align-items: flex-start;
+    width: auto;
+}
+
+/* ===== КАРТОЧКИ ТОВАРОВ ===== */
+.tablet-product-card {
+    width: 187px;
+    height: 317px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.12);
+    position: relative !important;
+    flex-shrink: 0;
+    top: auto !important;
+    left: auto !important;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ТОВАРОВ ===== */
+.tablet-product-image {
+    position: absolute;
+    z-index: 9;
+}
+
+    .tablet-product-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+.tablet-product-card.tablet-card-1 .tablet-product-image {
+    left: 42px;
+    top: 60px;
+    width: 103px;
+    height: 113px;
+}
+
+.tablet-product-card.tablet-card-2 .tablet-product-image {
+    left: 54px;
+    top: 60px;
+    width: 80px;
+    height: 118px;
+}
+
+.tablet-product-card.tablet-card-3 .tablet-product-image {
+    left: 43px;
+    top: 47px;
+    width: 101px;
+    height: 135px;
+}
+
+/* ===== ИКОНКИ СЕРДЕЦ ===== */
+.tablet-heart-icon {
+    position: absolute;
+    width: 24px;
+    height: 23px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .tablet-heart-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .tablet-heart-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.tablet-product-card.tablet-card-1 .tablet-heart-icon {
+    right: 16px;
+    top: 13px;
+}
+
+.tablet-product-card.tablet-card-2 .tablet-heart-icon {
+    right: 16px;
+    top: 13px;
+}
+
+.tablet-product-card.tablet-card-3 .tablet-heart-icon {
+    right: 16px;
+    top: 13px;
+}
+
+/* ===== ОПИСАНИЕ ТОВАРА ===== */
+.tablet-product-description {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    color: #333333;
+    z-index: 9;
+    line-height: 1.3;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 192px;
+    padding: 0 5px;
+}
+
+/* ===== ЦЕНА ===== */
+.tablet-product-price {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 252px;
+}
+
+/* ===== КНОПКА "В КОРЗИНУ" ===== */
+.tablet-product-btn {
+    position: absolute;
+    width: 174px;
+    height: 30px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 279px;
+}
+
+    .tablet-product-btn:hover {
+        background: #F5A800;
+    }
+
+    .tablet-product-btn:active {
+        background: #D48800;
+    }
+
+    .tablet-product-btn span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+    .tablet-product-btn.hidden {
+        display: none;
+    }
+
+/* ===== СЧЁТЧИК ===== */
+.tablet-product-counter {
+    position: absolute;
+    display: none;
+    z-index: 10;
+    top: 280px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+}
+
+    .tablet-product-counter.active {
+        display: flex;
+    }
+
+.tablet-counter-value {
+    width: 29px;
+    height: 29px;
+    background: #FFFFFF;
+    border: 2px solid #E99700;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333333;
+}
+
+.tablet-counter-btn {
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .tablet-counter-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .tablet-counter-btn:active {
+        transform: scale(0.95);
+    }
+
+
+/* ============================================================
+   БЛОК: "Немного о нас" (ПЛАНШЕТ) — ОПУЩЕН НА 60px, ВСЁ ПО ЦЕНТРУ
+   ============================================================ */
+
+/* Заголовок "Немного" */
+.tablet-title-about-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 430px; /* Было 370, опустили на 60px */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Заголовок "о нас" */
+.tablet-title-about-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 497px; /* Было 437, опустили на 60px */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Текст описания */
+.tablet-description-about {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 569px; /* Было 509, опустили на 60px */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    white-space: normal;
+    letter-spacing: -0.5px;
+}
+
+    /* Выделение жирным шрифтом */
+    .tablet-description-about .tablet-highlight-about {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКИ СО СТАТИСТИКОЙ (ПО ЦЕНТРУ) ===== */
+.tablet-stat-img {
+    position: absolute;
+    z-index: 8;
+}
+
+    .tablet-stat-img img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* Центрирование: (768 - 97 - 128 - 125 - 50*2) / 2 = 159 */
+/* 10к.svg - 97x92 */
+.tablet-stat-1 {
+    left: 79px;
+    top: 697px; /* Было 637, опустили на 60px */
+    width: 97px;
+    height: 92px;
+}
+
+/* 2к.svg - 128x130 */
+.tablet-stat-2 {
+    left: 236px; /* 159 + 97 + 50 = 306 */
+    top: 677px; /* Было 617, опустили на 60px */
+    width: 128px;
+    height: 130px;
+}
+
+/* 1к.svg - 125x123 */
+.tablet-stat-3 {
+    left: 404px; /* 306 + 128 + 50 = 484 */
+    top: 683px; /* Было 623, опустили на 60px */
+    width: 125px;
+    height: 123px;
+}
+
+/* ===== ТЕКСТЫ ПОД КАРТИНКАМИ (ПО ЦЕНТРУ) ===== */
+.tablet-stat-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    line-height: 1.4;
+    width: 97px;
+}
+
+    /* Выделение жирным в текстах статистики */
+    .tablet-stat-text .tablet-highlight-stat {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* Текст "Сделано заказов" */
+.tablet-stat-text-1 {
+    left: 79px;
+    top: 819px; /* Было 759, опустили на 60px */
+}
+
+/* Текст "Счастливых любимцев" */
+.tablet-stat-text-2 {
+    left: 246px;
+    top: 819px; /* Было 759, опустили на 60px */
+}
+
+/* Текст "Ваших отзывов" */
+.tablet-stat-text-3 {
+    left: 418px;
+    top: 819px; /* Было 759, опустили на 60px */
+}
+
+/* ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" (ПО ЦЕНТРУ) ===== */
+.tablet-btn-about-order {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 902px; /* Было 842, опустили на 60px */
+    width: 200px;
+    height: 44px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .tablet-btn-about-order:hover {
+        background: #F5A800;
+        transform: translateX(-50%) scale(1.02);
+    }
+
+    .tablet-btn-about-order:active {
+        background: #D48800;
+        transform: translateX(-50%) scale(0.98);
+    }
+
+    .tablet-btn-about-order span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+/* ============================================================
+   БЛОК: "Подборки для каждого" (ПЛАНШЕТ)
+   ============================================================ */
+
+/* Заголовки и текст */
+.tablet-title-collections-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2392px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.tablet-title-collections-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2462px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.tablet-description-collections {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2524px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+    .tablet-description-collections .tablet-highlight-collections {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== ОБЁРТКА ДЛЯ КАРТИНОК (СДВИГ ВПРАВО НА 200px) ===== */
+.tablet-collections-wrapper {
+    margin-left: 200px; /* ← МЕНЯЙТЕ ЗДЕСЬ (ВПРАВО/ВЛЕВО) */
+}
+
+/* ===== КАЖДАЯ КАРТИНКА ===== */
+.tablet-collection-img {
+    position: absolute;
+    z-index: 8;
+    cursor: pointer;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+
+    .tablet-collection-img img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+/* ===== ИНДИВИДУАЛЬНЫЕ КООРДИНАТЫ ===== */
+.tablet-collection-1 {
+    left: 414px;
+    top: 2623px;
+    width: 387px;
+    height: 402px;
+}
+
+.tablet-collection-2 {
+    left: 815px;
+    top: 2624px;
+    width: 247px;
+    height: 197px;
+}
+
+.tablet-collection-3 {
+    left: 814px;
+    top: 2832px;
+    width: 248px;
+    height: 193px;
+}
+
+.tablet-collection-4 {
+    left: 414px;
+    top: 3036px;
+    width: 315px;
+    height: 241px;
+}
+
+.tablet-collection-5 {
+    left: 747px;
+    top: 3035px;
+    width: 315px;
+    height: 241px;
+}
+
+
+/* ============================================================
+   БЛОК: "Мы в соцсетях" (ПЛАНШЕТ) — КОРРЕКТИРОВКА
+   ============================================================ */
+
+/* ===== ЗАГОЛОВКИ И ТЕКСТ (ОПУЩЕНЫ НА 50px) ===== */
+.tablet-title-social-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3372px; /* 3322 + 50 = 3372 */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.tablet-title-social-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3440px; /* 3390 + 50 = 3440 */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+.tablet-description-social {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3502px; /* 3452 + 50 = 3502 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+    max-width: 650px;
+    letter-spacing: -0.3px;
+}
+
+    .tablet-description-social .tablet-highlight-social {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКА КОТА (ПОДНЯТА НА 10px) ===== */
+.tablet-social-cat {
+    position: absolute;
+    left: 409px;
+    top: 3612px; /* 3622 - 10 = 3612 */
+    width: 235px;
+    height: 248px;
+    z-index: 8;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+    .tablet-social-cat:hover {
+        transform: scale(1.05);
+        z-index: 20;
+    }
+
+    .tablet-social-cat img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ СЛЕВА (ПОДНЯТ НА 10px) ===== */
+.tablet-social-text-left {
+    position: absolute;
+    left: 680px;
+    top: 3640px; /* 3650 - 10 = 3640 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: left;
+    width: 320px;
+}
+
+/* ===== КНОПКА "ЧИТАТЬ" (ПОДНЯТА НА 10px) ===== */
+.tablet-social-read-btn {
+    position: absolute;
+    left: 680px;
+    top: 3765px; /* 3775 - 10 = 3765 */
+    width: 68px;
+    height: 19px;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .tablet-social-read-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .tablet-social-read-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ============================================================
+   КАРТОЧКИ СТАТЕЙ (ПОДНЯТЫ НА 10px)
+   ============================================================ */
+
+.tablet-article-card {
+    position: absolute;
+    left: 409px;
+    width: 649px;
+    height: 124px;
+    background: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 16px;
+    z-index: 8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .tablet-article-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 20;
+    }
+
+.tablet-article-1 {
+    top: 3877px; /* 3887 - 10 = 3877 */
+}
+
+.tablet-article-2 {
+    top: 4010px; /* 4020 - 10 = 4010 */
+}
+
+.tablet-article-3 {
+    top: 4142px; /* 4152 - 10 = 4142 */
+}
+
+/* ===== ТЕКСТ В КАРТОЧКАХ ===== */
+.tablet-article-text {
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    z-index: 9;
+    line-height: 1.5;
+    max-width: 420px;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ В КАРТОЧКАХ ===== */
+.tablet-article-image {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    width: 129px;
+    height: 96px;
+    z-index: 9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .tablet-article-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+/* ===== КНОПКИ "ЧИТАТЬ" В КАРТОЧКАХ ===== */
+.tablet-article-read-btn {
+    position: absolute;
+    left: 20px;
+    bottom: 14px;
+    width: 68px;
+    height: 18px;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .tablet-article-read-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .tablet-article-read-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== КНОПКА "ПЕРЕЙТИ В БЛОГ" (ПОДНЯТА НА 40px) ===== */
+.tablet-btn-blog {
+    position: absolute;
+    left: 637px;
+    top: 4285px; /* 4325 - 40 = 4285 */
+    width: 194px;
+    height: 44px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .tablet-btn-blog:hover {
+        background: #F5A800;
+        transform: scale(1.02);
+    }
+
+    .tablet-btn-blog:active {
+        background: #D48800;
+        transform: scale(0.98);
+    }
+
+    .tablet-btn-blog span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+/* ============================================================
+   БЛОК: "20 точек по всей России" (ПЛАНШЕТ) — ОПУЩЕН ЕЩЁ НА 20px
+   ============================================================ */
+
+/* Заголовок "20 точек" */
+.tablet-title-stores-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4509px; /* 4489 + 20 = 4509 */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Заголовок "по всей России" */
+.tablet-title-stores-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4578px; /* 4558 + 20 = 4578 */
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Текст описания */
+.tablet-description-stores {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4641px; /* 4621 + 20 = 4641 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+    max-width: 650px;
+    letter-spacing: -0.3px;
+}
+
+    .tablet-description-stores .tablet-highlight-stores {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКА КАРТА РОССИИ ===== */
+.tablet-stores-map {
+    position: absolute;
+    left: 410px;
+    top: 4716px; /* 4696 + 20 = 4716 */
+    width: 649px;
+    height: 378px;
+    z-index: 8;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .tablet-stores-map img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+
+/* ============================================================
+   БЛОК: "Доставка" (ПЛАНШЕТ)
+   ============================================================ */
+
+/* Заголовок "Доставка" */
+.tablet-title-delivery-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5129px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Заголовок "в любую точку" */
+.tablet-title-delivery-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5198px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Текст описания */
+.tablet-description-delivery {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5260px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+    .tablet-description-delivery .tablet-highlight-delivery {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКА КОТ В КОРОБКЕ ===== */
+.tablet-delivery-cat {
+    position: absolute;
+    left: 400px; /* 55 + 345 = 400 */
+    top: 5526px;
+    width: 382px;
+    height: 292px;
+    z-index: 8;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+    .tablet-delivery-cat img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ "СКИДКА 20%" ===== */
+.tablet-delivery-discount-1 {
+    position: absolute;
+    left: 830px; /* 485 + 345 = 830 */
+    top: 5648px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== ТЕКСТ "НА ПЕРВЫЙ ЗАКАЗ" ===== */
+.tablet-delivery-discount-2 {
+    position: absolute;
+    left: 807px; /* 462 + 345 = 807 */
+    top: 5681px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" ===== */
+.tablet-btn-delivery-order {
+    position: absolute;
+    left: 815px; /* 463 + 345 = 808 */
+    top: 5730px;
+    width: 201px;
+    height: 44px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .tablet-btn-delivery-order:hover {
+        background: #F5A800;
+        transform: scale(1.02);
+    }
+
+    .tablet-btn-delivery-order:active {
+        background: #D48800;
+        transform: scale(0.98);
+    }
+
+    .tablet-btn-delivery-order span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+/* ===== НИЖНЯЯ ПЛАШКА E9F9FB ===== */
+.tablet-delivery-bottom-bar {
+    position: absolute;
+    left: 368px; /* 15 + 345 = 360 */
+    top: 5818px;
+    width: 738px;
+    height: 40px;
+    background: #E9F9FB;
+    border-radius: 10px;
+    z-index: 8;
+}
+
+/* ============================================================
+   ФУТЕР (ПЛАНШЕТ) — СДВИГ ВПРАВО НА 345px
+   ============================================================ */
+
+/* Текст "@2024 Все права защищены" */
+.tablet-footer-copyright {
+    position: absolute;
+    left: 404px; /* 59 + 345 = 404 */
+    top: 5880px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #333333;
+    z-index: 8;
+}
+
+/* ===== ИКОНКИ СОЦСЕТЕЙ ===== */
+.tablet-footer-social {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+/* ===== УБИРАЕМ ЗАКРУГЛЕНИЕ У ИКОНОК СОЦСЕТЕЙ ===== */
+.tablet-footer-social {
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+    .tablet-footer-social img {
+        border-radius: 0 !important;
+    }
+
+    .tablet-footer-social:hover {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+
+    .tablet-footer-social img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.tablet-footer-inst {
+    left: 405px; /* 60 + 345 = 405 */
+    top: 5908px;
+}
+
+.tablet-footer-fb {
+    left: 455px; /* 110 + 345 = 455 */
+    top: 5908px;
+}
+
+.tablet-footer-tg {
+    left: 506px; /* 161 + 345 = 506 */
+    top: 5908px;
+}
+
+/* ===== ЗАГОЛОВКИ КОЛОНОК ===== */
+.tablet-footer-title {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    z-index: 8;
+}
+
+.tablet-footer-title-1 {
+    left: 661px; /* 316 + 345 = 661 */
+    top: 5877px;
+}
+
+.tablet-footer-title-2 {
+    left: 661px; /* 316 + 345 = 661 */
+    top: 6021px;
+}
+
+.tablet-footer-title-3 {
+    left: 876px; /* 531 + 345 = 876 */
+    top: 6020px;
+}
+
+/* ===== ТЕЛЕФОНЫ ===== */
+.tablet-footer-phone {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #31777B;
+    z-index: 8;
+}
+
+.tablet-footer-phone-1 {
+    left: 873px; /* 528 + 345 = 873 */
+    top: 5881px;
+}
+
+.tablet-footer-phone-2 {
+    left: 873px; /* 528 + 345 = 873 */
+    top: 5906px;
+}
+
+/* ===== АДРЕС ===== */
+.tablet-footer-address {
+    position: absolute;
+    left: 876px; /* 581 + 345 = 926 */
+    top: 5940px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.4;
+}
+
+/* ===== EMAIL ===== */
+.tablet-footer-email {
+    position: absolute;
+    left: 876px; /* 531 + 345 = 876 */
+    top: 5988px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    z-index: 8;
+}
+
+/* ===== ИКОНКИ ЛОКАЦИЯ И ПОЧТА ===== */
+.tablet-footer-icon {
+    position: absolute;
+    z-index: 8;
+}
+
+    .tablet-footer-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+.tablet-footer-icon-location {
+    left: 852px; /* 507 + 345 = 852 */
+    top: 5947px;
+    width: 16px;
+    height: 16px;
+}
+
+.tablet-footer-icon-mail {
+    left: 852px; /* 507 + 345 = 852 */
+    top: 5991px;
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== ССЫЛКИ В ФУТЕРЕ ===== */
+.tablet-footer-link {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    z-index: 9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+    .tablet-footer-link:hover {
+        color: #999999;
+    }
+
+/* Колонка "О компании" */
+.tablet-footer-link-1 {
+    left: 661px;
+    top: 5902px;
+}
+/* О нас */
+.tablet-footer-link-2 {
+    left: 661px;
+    top: 5923px;
+}
+/* Сотрудничество */
+.tablet-footer-link-3 {
+    left: 661px;
+    top: 5944px;
+}
+/* Регистрация */
+.tablet-footer-link-4 {
+    left: 661px;
+    top: 5965px;
+}
+/* Вакансии */
+.tablet-footer-link-5 {
+    left: 661px;
+    top: 5986px;
+}
+/* Доставка товаров */
+
+/* Колонка "Товары" */
+.tablet-footer-link-6 {
+    left: 661px;
+    top: 6047px;
+}
+/* Бренды */
+.tablet-footer-link-7 {
+    left: 661px;
+    top: 6069px;
+}
+/* Предзаказ */
+.tablet-footer-link-8 {
+    left: 661px;
+    top: 6091px;
+}
+/* Для кошек */
+.tablet-footer-link-9 {
+    left: 661px;
+    top: 6113px;
+}
+/* Для собак */
+.tablet-footer-link-10 {
+    left: 661px;
+    top: 6135px;
+}
+/* Для грызунов */
+.tablet-footer-link-11 {
+    left: 661px;
+    top: 6157px;
+}
+/* Для птиц */
+
+/* Колонка "Магазины" */
+.tablet-footer-link-12 {
+    left: 876px;
+    top: 6045px;
+}
+/* Адреса */
+.tablet-footer-link-13 {
+    left: 876px;
+    top: 6065px;
+}
+/* Отзывы */
+.tablet-footer-link-14 {
+    left: 876px;
+    top: 6085px;
+}
+/* Акции */
+.tablet-footer-link-15 {
+    left: 876px;
+    top: 6105px;
+}
+/* Доставка */
+
+/* ===== КАРТИНКА СТАТИСТИКА ===== */
+.tablet-stats-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5337px;
+    width: 544px;
+    height: 178px;
+    z-index: 8;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+    .tablet-stats-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (ПЛАНШЕТ)
+   ============================================================ */
+
+/* Затемнённый фон */
+.modal-order-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9998;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Само окно */
+.modal-order-window {
+    position: relative;
+    width: 750px;
+    height: 780px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* Крестик для закрытия */
+.modal-order-close {
+    position: absolute;
+    left: 700px;
+    top: 45px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-order-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Заголовок "Оформление заказа" */
+.modal-order-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Метки полей */
+.modal-order-label {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* Поля ввода */
+.modal-order-input {
+    position: absolute;
+    width: 650px;
+    height: 45px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+    .modal-order-input:focus {
+        border-color: #83BF13;
+    }
+
+    .modal-order-input::placeholder {
+        color: #777777;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+/* Ошибки под полями */
+.modal-order-error {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #FF0000;
+    z-index: 6;
+    display: none;
+}
+
+/* ===== НОВЫЕ ПОЗИЦИИ ===== */
+/* Поле "Имя" — БЕЗ ИЗМЕНЕНИЙ */
+.modal-order-label:nth-of-type(1) {
+    left: 50px;
+    top: 150px;
+}
+
+#orderName {
+    left: 50px;
+    top: 175px;
+}
+
+#nameError {
+    left: 50px;
+    top: 227px;
+}
+
+/* Поле "Почта" — ПОДНЯТО ЕЩЁ НА 20px */
+.modal-order-label:nth-of-type(2) {
+    left: 50px;
+    top: 200px; /* Было 220px, -20px */
+}
+
+#orderEmail {
+    left: 50px;
+    top: 225px; /* Было 245px, -20px */
+}
+
+#emailError {
+    left: 50px;
+    top: 277px; /* Было 297px, -20px */
+}
+
+/* Поле "Телефон" — ПОДНЯТО ЕЩЁ НА 20px */
+.modal-order-label:nth-of-type(3) {
+    left: 50px;
+    top: 200px; /* Было 310px, -20px */
+}
+
+#orderPhone {
+    left: 50px;
+    top: 315px; /* Было 335px, -20px */
+}
+
+#phoneError {
+    left: 50px;
+    top: 367px; /* Было 387px, -20px */
+}
+
+/* Поле "Регион" — ПОДНЯТО ЕЩЁ НА 20px */
+.modal-order-label:nth-of-type(4) {
+    left: 50px;
+    top: 380px; /* Было 400px, -20px */
+}
+
+#orderCity {
+    left: 50px;
+    top: 405px; /* Было 425px, -20px */
+}
+
+#cityError {
+    left: 50px;
+    top: 457px; /* Было 477px, -20px */
+}
+
+/* Поле "Адрес доставки" — ПОДНЯТО ЕЩЁ НА 20px */
+.modal-order-label:nth-of-type(5) {
+    left: 50px;
+    top: 470px; /* Было 490px, -20px */
+}
+
+#orderAddress {
+    left: 50px;
+    top: 495px; /* Было 515px, -20px */
+}
+
+#addressError {
+    left: 50px;
+    top: 547px; /* Было 567px, -20px */
+}
+
+/* Кнопка "Оформить заказ" — ПОДНЯТА ЕЩЁ НА 20px */
+.modal-order-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 640px; /* Было 660px, -20px */
+    width: 200px;
+    height: 44px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    cursor: not-allowed;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .modal-order-btn.active {
+        background: #E99700;
+        border-color: #E99700;
+        cursor: pointer;
+    }
+
+        .modal-order-btn.active:hover {
+            background: #F5A800;
+            transform: translateX(-50%) scale(1.02);
+        }
+
+        .modal-order-btn.active:active {
+            background: #D48800;
+            transform: translateX(-50%) scale(0.98);
+        }
+
+    .modal-order-btn span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #E99700;
+        transition: color 0.3s ease;
+    }
+
+    .modal-order-btn.active span {
+        color: #FFFFFF;
+    }
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" (ПЛАНШЕТ)
+   ============================================================ */
+
+.modal-success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Окно (ПЛАНШЕТ) */
+.modal-success-window {
+    position: relative;
+    width: 700px;
+    height: 600px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* Крестик */
+.modal-success-close {
+    position: absolute;
+    left: 660px;
+    top: 25px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-success-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Заголовок "Заказ оформлен!" */
+.modal-success-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Текст описания */
+.modal-success-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 120px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1.6;
+    text-align: center;
+    width: 80%;
+}
+
+    .modal-success-description #successPhone {
+        font-weight: 600;
+        color: #E99700;
+    }
+
+/* Картинка dog2.png (ПЛАНШЕТ) */
+.modal-success-dog {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 300px;
+    width: 480px;
+    height: 300px;
+    z-index: 5;
+}
+
+    .modal-success-dog img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+/* ===== ВЫПАДАЮЩИЙ СПИСОК (ПЛАНШЕТ) ===== */
+.modal-order-select {
+    position: absolute;
+    width: 650px; /* Стало шире */
+    height: 45px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E99700' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+    .modal-order-select:focus {
+        border-color: #83BF13;
+    }
+
+    .modal-order-select option {
+        padding: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+
+        .modal-order-select option[value=""] {
+            color: #777777;
+        }
+
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "ВЕДУТСЯ РАБОТЫ" (ПЛАНШЕТ)
+   ============================================================ */
+
+/* Затемнённый фон */
+.modal-work-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Окно */
+.modal-work-window {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* ===== КРЕСТИК (15x15) ===== */
+.modal-work-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-work-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ "Упс!" (55px) ===== */
+.modal-work-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ===== ТЕКСТ ОПИСАНИЯ ===== */
+.modal-work-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 110px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 5;
+    text-align: center;
+    width: 80%;
+}
+
+/* ===== ЦИФРА "500" (ПОСЕРЕДИНЕ, 128px) ===== */
+.modal-work-404 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 165px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ===== КАРТИНКА 500f.png (680x259) ===== */
+.modal-work-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+    width: 554px;
+    height: 211px;
+    z-index: 10;
+}
+
+    .modal-work-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "УПС! 404" (ПЛАНШЕТ)
+   ============================================================ */
+
+/* Затемнённый фон */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Окно */
+.modal-window {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* ===== КРЕСТИК (15x15) ===== */
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+
+    .modal-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ "Упс!" (55px) ===== */
+.modal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 55px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ===== ТЕКСТ ОПИСАНИЯ ===== */
+.modal-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 110px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 5;
+    text-align: center;
+    width: 80%;
+    white-space: normal;
+}
+
+/* ===== ЦИФРА "404" (ПОСЕРЕДИНЕ, 128px) ===== */
+.modal-404 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 165px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+/* ===== КАРТИНКА 404c.png (680x259) ===== */
+.modal-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+    width: 680px;
+    height: 259px;
+    z-index: 10;
+}
+
+    .modal-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+.modal-close:hover,
+.modal-work-close:hover,
+.modal-order-close:hover,
+.modal-success-close:hover {
+    transform: none !important;
+}

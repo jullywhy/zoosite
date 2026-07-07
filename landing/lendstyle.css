@@ -1,0 +1,2633 @@
+﻿/* Сброс и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FBEACC;
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Главный фрейм 1920x10919 */
+.frame {
+    width: 1920px;
+    min-height: 10919px;
+    background: #FBEACC;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Белые прямоугольники (карточки) - ИСПРАВЛЕНЫ ВЫСОТЫ */
+.white-card {
+    position: absolute;
+    left: 24px;
+    width: 1872px;
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.card-1 {
+    top: 30px;
+    height: 2018px;
+}
+
+.card-2 {
+    top: 2072px;
+    height: 2212px;
+}
+
+.card-3 {
+    top: 4307px;
+    height: 3078px;
+}
+
+.card-4 {
+    top: 7409px;
+    height: 3490px;
+}
+
+/* Плашка меню */
+.menu-bar {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    width: 1872px;
+    height: 128px;
+    background: #DFF5F9;
+    border-radius: 0 0 200px 200px;
+    z-index: 10;
+    transition: top 0.4s ease, box-shadow 0.4s ease;
+}
+
+    /* Стиль для зафиксированного меню */
+    .menu-bar.fixed-menu {
+        position: fixed;
+        top: 0px;
+        left: 46px;
+        width: 1872px;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+/* ===== ВСЕ ЭЛЕМЕНТЫ ВНУТРИ МЕНЮ ===== */
+/* КООРДИНАТЫ ПЕРЕСЧИТАНЫ: вычитаем 24px от top, X оставляем как есть */
+
+/* Логотип */
+.logo {
+    position: absolute;
+    left: 174px;
+    top: 34px;
+    width: 59px;
+    height: 52px;
+    z-index: 15;
+}
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Пункты меню (общий стиль) */
+.menu-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 15;
+}
+
+/* ===== ССЫЛКИ В ВЕРХНЕМ МЕНЮ ===== */
+.menu-link {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+    z-index: 15;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    /* Отдельный элемент для подчёркивания (не влияет на позицию текста) */
+    .menu-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: #333333;
+        transition: width 0.3s ease;
+        pointer-events: none;
+    }
+
+    /* При наведении подчёркивание появляется слева направо */
+    .menu-link:hover::after {
+        width: 100%;
+    }
+
+    /* Цвет НЕ меняется при наведении */
+    .menu-link:hover {
+        color: #333333;
+    }
+
+    /* ===== ПОЗИЦИИ ССЫЛОК (НЕ МЕНЯЕМ!) ===== */
+    .menu-link:nth-child(2) {
+        left: 454px;
+        top: 53px;
+    }
+    /* О нас */
+    .menu-link:nth-child(3) {
+        left: 595px;
+        top: 53px;
+    }
+    /* Товары */
+    .menu-link:nth-child(4) {
+        left: 754px;
+        top: 53px;
+    }
+    /* Подборки */
+    .menu-link:nth-child(5) {
+        left: 921px;
+        top: 53px;
+    }
+    /* Статьи */
+    .menu-link:nth-child(6) {
+        left: 1058px;
+        top: 53px;
+    }
+    /* Магазины */
+    .menu-link:nth-child(7) {
+        left: 1224px;
+        top: 53px;
+    }
+/* Доставка */
+
+/* ===== ПОЗИЦИИ ОБЫЧНЫХ ПУНКТОВ МЕНЮ (НЕ МЕНЯЕМ!) ===== */
+.menu-text:nth-child(2) {
+    left: 432px;
+    top: 53px;
+}
+/* О нас */
+.menu-text:nth-child(3) {
+    left: 573px;
+    top: 53px;
+}
+/* Товары */
+.menu-text:nth-child(4) {
+    left: 732px;
+    top: 53px;
+}
+/* Подборки */
+.menu-text:nth-child(5) {
+    left: 899px;
+    top: 53px;
+}
+/* Статьи */
+.menu-text:nth-child(6) {
+    left: 1036px;
+    top: 53px;
+}
+/* Магазины */
+.menu-text:nth-child(7) {
+    left: 1202px;
+    top: 53px;
+}
+/* Доставка */
+
+/* "Остались вопросы?" - пересчитано: 51 - 24 = 27 */
+.questions {
+    position: absolute;
+    left: 1544px;
+    top: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    z-index: 15;
+}
+
+/* Иконка телефона - пересчитано: 93 - 24 = 69 */
+.icon-phone {
+    position: absolute;
+    left: 1530px;
+    top: 66px;
+    width: 26px;
+    height: 24px;
+    z-index: 16;
+}
+
+    .icon-phone img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Кнопка "Связаться с нами" - пересчитано: 81 - 24 = 57 */
+.btn-contact {
+    position: absolute;
+    left: 1505px;
+    top: 54px;
+    width: 262px;
+    height: 48px;
+    background: #83BF13;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 15;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+    .btn-contact:hover {
+        background: #8CCA1A;
+    }
+
+    .btn-contact:active {
+        background: #7EBB0F;
+    }
+
+    .btn-contact span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #FFFFFF;
+        padding-left: 30px;
+    }
+
+/* Картинка котика */
+.cat-image {
+    position: absolute;
+    left: 826px;
+    top: 153px;
+    width: 1076px;
+    height: 1030px;
+    z-index: 5;
+}
+
+    .cat-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+/* Заголовок "Милый" */
+.title-mily {
+    position: absolute;
+    left: 145px;
+    top: 255px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 128px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "хвостик" */
+.title-hvostik {
+    position: absolute;
+    left: 145px;
+    top: 367px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текстовое описание */
+.description {
+    position: absolute;
+    left: 149px;
+    top: 508px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.4;
+}
+
+/* Поисковая строка (контейнер) */
+.search-bar {
+    position: absolute;
+    left: 150px;
+    top: 688px;
+    width: 616px;
+    height: 76px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: -2px 1px 10.1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Поле ввода (поиск) */
+.search-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    padding: 0 10px 0 10px;
+}
+
+    .search-input::placeholder {
+        color: #A7A7A7;
+        opacity: 1;
+        font-weight: 500;
+        font-size: 24px;
+    }
+
+/* Иконка лупы (кликабельная) */
+.search-icon {
+    position: absolute;
+    left: 698px;
+    top: 698px;
+    width: 56px;
+    height: 56px;
+    z-index: 10;
+    cursor: default; /* По умолчанию курсор как обычный */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5; /* Полупрозрачная, когда неактивна */
+    pointer-events: none; /* Неактивна по умолчанию */
+}
+
+    /* Активное состояние (когда есть текст) */
+    .search-icon.active {
+        cursor: pointer;
+        opacity: 1;
+        pointer-events: auto; /* Становится кликабельной */
+    }
+
+        .search-icon.active:hover {
+            transform: scale(1.1);
+        }
+
+        .search-icon.active:active {
+            transform: scale(0.95);
+        }
+
+    .search-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Картинка frog (1).svg */
+.frog-image {
+    position: absolute;
+    left: 149px;
+    top: 819px;
+    width: 616px;
+    height: 240px;
+    z-index: 8;
+}
+
+    .frog-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* Иконка copy.svg (кликабельная) */
+.copy-icon {
+    position: absolute;
+    left: 185px;
+    top: 1000px;
+    width: 22px;
+    height: 25px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .copy-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .copy-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== НОВЫЙ БЛОК: "То, что вы так долго искали" ===== */
+
+/* Заголовок "То, что вы" */
+.title-search-1 {
+    position: absolute;
+    left: 760px;
+    top: 1255px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "так долго искали" */
+.title-search-2 {
+    position: absolute;
+    left: 704px;
+    top: 1364px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текст описания */
+.description-search {
+    position: absolute;
+    left: 520px;
+    top: 1503px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 900px;
+}
+
+    /* Выделение жирным шрифтом */
+    .description-search .highlight {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* Прямоугольник с брендами */
+.brands-container {
+    position: absolute;
+    left: 108px;
+    top: 1648px;
+    width: 1750px;
+    height: 269px;
+    background: #DFF5F9;
+    border-radius: 20px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 40px;
+}
+
+/* Общий стиль для элементов брендов */
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .brand-item img {
+        display: block;
+        object-fit: contain;
+    }
+
+/* Индивидуальные размеры для каждого бренда */
+.brand-1 {
+    width: 256px;
+    height: 140px;
+}
+
+    .brand-1 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.brand-2 {
+    width: 344px;
+    height: 130px;
+}
+
+    .brand-2 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.brand-3 {
+    width: 320px;
+    height: 120px;
+}
+
+    .brand-3 img {
+        width: 100%;
+        height: 100%;
+    }
+
+.brand-4 {
+    width: 274px;
+    height: 143px;
+}
+
+    .brand-4 img {
+        width: 100%;
+        height: 100%;
+    }
+
+/* ===== БЛОК: "Тысячи товаров по выгодным ценам" ===== */
+
+/* Заголовок "Тысячи товаров" */
+.title-products-1 {
+    position: absolute;
+    left: 640px;
+    top: 2167px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "по выгодным ценам" */
+.title-products-2 {
+    position: absolute;
+    left: 653px;
+    top: 2276px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== КАРТОЧКИ ТОВАРОВ ===== */
+
+/* Общий стиль для карточки товара */
+.product-card {
+    position: absolute;
+    width: 353px;
+    height: 593px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    top: 2491px;
+    z-index: 8;
+    box-shadow: 0px 0px 13.2px 5px rgba(0, 0, 0, 0.15);
+}
+
+    /* Позиции карточек */
+    .product-card.card-1 {
+        left: 218px;
+    }
+
+    .product-card.card-2 {
+        left: 595px;
+    }
+
+    .product-card.card-3 {
+        left: 972px;
+    }
+
+    .product-card.card-4 {
+        left: 1349px;
+    }
+
+/* ===== ИЗОБРАЖЕНИЯ ТОВАРОВ (НОВЫЕ РАЗМЕРЫ) ===== */
+.product-image {
+    position: absolute;
+    z-index: 9;
+}
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* Товар 1: 200x220, x=296, y=2609 */
+.product-card.card-1 .product-image {
+    left: 78px; /* 296 - 218 = 78 */
+    top: 118px; /* 2609 - 2491 = 118 */
+    width: 200px;
+    height: 220px;
+}
+
+/* Товар 2: 154x229, x=698, y=2605 */
+.product-card.card-2 .product-image {
+    left: 103px; /* 698 - 595 = 103 */
+    top: 114px; /* 2605 - 2491 = 114 */
+    width: 154px;
+    height: 229px;
+}
+
+/* Товар 3: 182x248, x=1064, y=2589 */
+.product-card.card-3 .product-image {
+    left: 92px; /* 1064 - 972 = 92 */
+    top: 98px; /* 2589 - 2491 = 98 */
+    width: 182px;
+    height: 248px;
+}
+
+/* Товар 4: 200x265, x=1429, y=2569 */
+.product-card.card-4 .product-image {
+    left: 80px; /* 1429 - 1349 = 80 */
+    top: 78px; /* 2569 - 2491 = 78 */
+    width: 200px;
+    height: 265px;
+}
+
+/* ===== ИКОНКИ СЕРДЕЦ ===== */
+.heart-icon {
+    position: absolute;
+    width: 38px;
+    height: 35px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .heart-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .heart-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.product-card.card-1 .heart-icon {
+    left: 284px;
+    top: 31px;
+}
+
+.product-card.card-2 .heart-icon {
+    left: 284px;
+    top: 31px;
+}
+
+.product-card.card-3 .heart-icon {
+    left: 284px;
+    top: 31px;
+}
+
+.product-card.card-4 .heart-icon {
+    left: 284px;
+    top: 31px;
+}
+
+/* ===== ОПИСАНИЕ ТОВАРА (поднято на y=2859) ===== */
+.product-description {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    z-index: 9;
+    line-height: 1.4;
+    text-align: center;
+    width: 290px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 368px; /* 2859 - 2491 = 368 */
+}
+
+/* ===== ЦЕНА (поднята на 10px выше) ===== */
+.product-price {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    top: 463px; /* 2954 - 2491 - 10 = 453 (ещё на 10px выше) */
+}
+
+/* ===== СЧЁТЧИК ===== */
+.product-counter {
+    position: absolute;
+    display: none;
+    z-index: 10;
+}
+
+    .product-counter.active {
+        display: block;
+    }
+
+/* Окошко с количеством (белое с обводкой 5px) */
+.counter-value {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 4px solid #E99700; /* Было 3px, стало 5px */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333333;
+}
+
+/* Кнопки + и - */
+.counter-btn {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+    .counter-btn:hover {
+        transform: scale(1.03);
+    }
+
+    .counter-btn:active {
+        transform: scale(0.95);
+    }
+
+/* ---- КАРТОЧКА 1 (влево на 5px, вверх на 20px) ---- */
+.product-card.card-1 .counter-minus {
+    left: 91px; /* 96 - 5 = 91 */
+    top: 524px; /* 536 - 20 = 516 */
+}
+
+.product-card.card-1 .counter-plus {
+    left: 215px; /* 220 - 5 = 215 */
+    top: 524px;
+}
+
+.product-card.card-1 .counter-value {
+    left: 148px; /* 153 - 5 = 148 */
+    top: 519px; /* 531 - 20 = 511 */
+}
+
+/* ---- КАРТОЧКА 2 ---- */
+.product-card.card-2 .counter-minus {
+    left: 91px;
+    top: 524px;
+}
+
+.product-card.card-2 .counter-plus {
+    left: 215px;
+    top: 524px;
+}
+
+.product-card.card-2 .counter-value {
+    left: 148px;
+    top: 519px;
+}
+
+/* ---- КАРТОЧКА 3 ---- */
+.product-card.card-3 .counter-minus {
+    left: 91px;
+    top: 524px;
+}
+
+.product-card.card-3 .counter-plus {
+    left: 215px;
+    top: 524px;
+}
+
+.product-card.card-3 .counter-value {
+    left: 148px;
+    top: 519px;
+}
+
+/* ---- КАРТОЧКА 4 ---- */
+.product-card.card-4 .counter-minus {
+    left: 91px;
+    top: 524px;
+}
+
+.product-card.card-4 .counter-plus {
+    left: 215px;
+    top: 524px;
+}
+
+.product-card.card-4 .counter-value {
+    left: 148px;
+    top: 519px;
+}
+/* ===== КНОПКА "В КОРЗИНУ" ===== */
+.product-btn {
+    position: absolute;
+    width: 290px;
+    height: 50px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 519px; /* 3010 - 2491 = 519 */
+}
+
+    .product-btn:hover {
+        background: #F5A800;
+        transform: translateX(-50%) scale(1.02);
+    }
+
+    .product-btn:active {
+        background: #D48800;
+        transform: translateX(-50%) scale(0.98);
+    }
+
+    .product-btn span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #FFFFFF;
+    }
+
+    /* Скрываем кнопку, когда активен счётчик */
+    .product-btn.hidden {
+        display: none;
+    }
+
+/* Кнопка "+" в заблокированном состоянии */
+.counter-plus.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none; /* Запрещаем клики */
+}
+
+
+
+/* ===== БЛОК: "Немного о нас" ===== */
+
+/* Заголовок "Немного" */
+.title-about-1 {
+    position: absolute;
+    left: 777px;
+    top: 3266px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "о нас" */
+.title-about-2 {
+    position: absolute;
+    left: 879px;
+    top: 3375px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текст описания */
+.description-about {
+    position: absolute;
+    left: 460px;
+    top: 3514px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+}
+
+    /* Выделение жирным шрифтом */
+    .description-about .highlight-about {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКИ СО СТАТИСТИКОЙ ===== */
+.stat-image {
+    position: absolute;
+    z-index: 8;
+}
+
+    .stat-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* Картинка 10к.svg - 215x205, x=395, y=3699 */
+.stat-img-1 {
+    left: 395px;
+    top: 3699px;
+    width: 215px;
+    height: 205px;
+}
+
+/* Картинка 2к.svg - 250x255, x=883, y=3675 */
+.stat-img-2 {
+    left: 840px;
+    top: 3675px;
+    width: 250px;
+    height: 255px;
+}
+
+/* Картинка 1к.svg - 259x254, x=1283, y=3682 */
+.stat-img-3 {
+    left: 1283px;
+    top: 3682px;
+    width: 259px;
+    height: 254px;
+}
+
+/* ===== ТЕКСТЫ ПОД КАРТИНКАМИ ===== */
+.stat-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    line-height: 1.4;
+}
+
+    /* Выделение жирным в текстах статистики */
+    .stat-text .highlight-stat {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* Текст "Сделано заказов" - x=453, y=3927 */
+.stat-text-1 {
+    left: 453px;
+    top: 3927px;
+}
+
+/* Текст "Счастливых любимцев" - x=883, y=3927 */
+.stat-text-2 {
+    left: 883px;
+    top: 3927px;
+}
+
+/* Текст "Ваших отзывов" - x=1355, y=3927 */
+.stat-text-3 {
+    left: 1355px;
+    top: 3927px;
+}
+
+/* ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" ===== */
+.btn-order {
+    position: absolute;
+    left: 813px;
+    top: 4092px;
+    width: 293px;
+    height: 66px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .btn-order:hover {
+        background: #F5A800;
+        transform: scale(1.02);
+    }
+
+    .btn-order:active {
+        background: #D48800;
+        transform: scale(0.98);
+    }
+
+    .btn-order span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #FFFFFF;
+    }
+
+/* ===== БЛОК: "Подборки для каждого" ===== */
+
+/* Заголовок "Подборки" */
+.title-collections-1 {
+    position: absolute;
+    left: 740px;
+    top: 4402px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "для каждого" */
+.title-collections-2 {
+    position: absolute;
+    left: 760px;
+    top: 4513px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текст описания */
+.description-collections {
+    position: absolute;
+    left: 559px;
+    top: 4652px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+}
+
+    /* Выделение жирным шрифтом */
+    .description-collections .highlight-collections {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКИ В БЛОКЕ "ПОДБОРКИ" ===== */
+.collection-image {
+    position: absolute;
+    z-index: 8;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+    .collection-image:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+        z-index: 20;
+    }
+
+    .collection-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+/* Картинка cd.png - 680x697, x=150, y=4814 */
+.collection-img-1 {
+    left: 150px;
+    top: 4814px;
+    width: 680px;
+    height: 697px;
+}
+
+/* Картинка fish.png - 441x335, x=858, y=4814 */
+.collection-img-2 {
+    left: 858px;
+    top: 4814px;
+    width: 441px;
+    height: 335px;
+}
+
+/* Картинка hamster.png - 440x335, x=1330, y=4814 */
+.collection-img-3 {
+    left: 1330px;
+    top: 4814px;
+    width: 440px;
+    height: 335px;
+}
+
+/* Картинка parrot.png - 440x335, x=1330, y=5180 */
+.collection-img-4 {
+    left: 1330px;
+    top: 5180px;
+    width: 440px;
+    height: 335px;
+}
+
+/* Картинка chameleon.png - 441x335, x=858, y=5180 */
+.collection-img-5 {
+    left: 858px;
+    top: 5180px;
+    width: 441px;
+    height: 335px;
+}
+
+/* ===== БЛОК: "Мы в соцсетях" ===== */
+
+/* Заголовок "Мы" */
+.title-social-1 {
+    position: absolute;
+    left: 885px;
+    top: 5698px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "в соцсетях" */
+.title-social-2 {
+    position: absolute;
+    left: 790px;
+    top: 5807px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== ТЕКСТ ОПИСАНИЯ (ПО ЦЕНТРУ) ===== */
+.description-social {
+    position: absolute;
+    left: 160px;
+    top: 5930px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center; /* ВЫРОВНИВАНИЕ ПО ЦЕНТРУ */
+    width: 1620px; /* Ширина от 150 до 1770 */
+}
+
+    /* Выделение жирным шрифтом */
+    .description-social .highlight-social {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== ТЕКСТ СПРАВА (ВЫРОВНЕН ПО ПРАВОМУ КРАЮ) ===== */
+.social-text-right {
+    position: absolute;
+    left: 150px;
+    top: 6159px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: left;
+    width: 643px;
+}
+
+/* ===== КАРТИНКА КОТА ===== */
+.social-image {
+    position: absolute;
+    z-index: 8;
+}
+
+    .social-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== КАРТИНКА КОТА ===== */
+.social-cat {
+    left: 150px;
+    top: 6363px;
+    width: 643px;
+    height: 669px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ДОБАВЛЕНО */
+    cursor: pointer; /* ДОБАВЛЕНО: указатель как на ссылке */
+    border-radius: 20px; /* ДОБАВЛЕНО: скругление для красоты */
+    overflow: hidden; /* ДОБАВЛЕНО: чтобы содержимое не выходило за границы */
+}
+
+    /* Эффект при наведении */
+    .social-cat:hover {
+        transform: scale(1.03); /* ДОБАВЛЕНО: увеличение на 8% */
+      
+        z-index: 20; /* ДОБАВЛЕНО: поднимаем поверх других элементов */
+    }
+
+    .social-cat img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease; /* ДОБАВЛЕНО: плавность для изображения */
+    }
+
+/* ===== КНОПКА "ЧИТАТЬ" ===== */
+.social-read-btn {
+    position: absolute;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .social-read-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .social-read-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.social-read-1 {
+    left: 150px;
+    top: 6306px;
+    width: 120px;
+    height: 34px;
+}
+
+/* ===== КАРТОЧКИ СТАТЕЙ ===== */
+.article-card {
+    position: absolute;
+    width: 905px;
+    height: 307px;
+    background: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 20px;
+    z-index: 8;
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+    .article-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        z-index: 20;
+    }
+
+/* Позиции карточек - ВАШИ КООРДИНАТЫ */
+.article-1 {
+    left: 865px;
+    top: 6127px;
+}
+
+.article-2 {
+    left: 865px;
+    top: 6455px;
+}
+
+.article-3 {
+    left: 865px;
+    top: 6783px;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ В КАРТОЧКАХ ===== */
+.article-image {
+    position: absolute;
+    z-index: 9;
+    transition: transform 0.6s ease;
+}
+
+    .article-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ВАШИ КООРДИНАТЫ ДЛЯ КАРТИНОК */
+.article-1 .article-image {
+    left: 550px; /* 1415 - 865 = 550 */
+    top: 34px; /* 6161 - 6127 = 34 */
+    width: 325px;
+    height: 240px;
+}
+
+.article-2 .article-image {
+    left: 550px; /* 1415 - 865 = 550 */
+    top: 34px; /* 6489 - 6455 = 34 */
+    width: 325px;
+    height: 240px;
+}
+
+.article-3 .article-image {
+    left: 550px; /* 1415 - 865 = 550 */
+    top: 34px; /* 6817 - 6783 = 34 */
+    width: 325px;
+    height: 240px;
+}
+
+/* ===== ТЕКСТ В КАРТОЧКАХ ===== */
+.article-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 9;
+    line-height: 1.4;
+    text-align: left;
+    left: 40px;
+    top: 40px;
+    max-width: 480px;
+}
+
+/* ===== КНОПКИ "ЧИТАТЬ" В КАРТОЧКАХ ===== */
+.article-read-btn {
+    position: absolute;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .article-read-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .article-read-btn img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ВАШИ КООРДИНАТЫ ДЛЯ КНОПОК "ЧИТАТЬ" */
+.article-1 .article-read-btn {
+    left: 45px; /* 924 - 865 = 59 */
+    bottom: 40px;
+    width: 120px;
+    height: 34px;
+}
+
+.article-2 .article-read-btn {
+    left: 45px; /* 924 - 865 = 59 */
+    bottom: 40px;
+    width: 120px;
+    height: 34px;
+}
+
+.article-3 .article-read-btn {
+    left: 45px; /* 924 - 865 = 59 */
+    bottom: 40px;
+    width: 120px;
+    height: 34px;
+}
+
+/* ===== КНОПКА "ПЕРЕЙТИ В БЛОГ" ===== */
+.btn-blog {
+    position: absolute;
+    left: 813px;
+    top: 7205px;
+    width: 293px;
+    height: 66px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+    .btn-blog:hover {
+        background: #F5A800;
+        transform: scale(1.02);
+        
+    }
+
+    .btn-blog:active {
+        background: #D48800;
+        transform: scale(0.98);
+    }
+
+    .btn-blog span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #FFFFFF;
+        position: absolute;
+        left: 46px; /* 859 - 813 = 46 */
+        top: 18px; /* 7223 - 7205 = 18 */
+    }
+
+/* ===== БЛОК: "20 точек по всей России" ===== */
+
+/* Заголовок "20 точек" */
+.title-stores-1 {
+    position: absolute;
+    left: 778px;
+    top: 7525px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "по всей России" */
+.title-stores-2 {
+    position: absolute;
+    left: 720px;
+    top: 7634px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текст описания */
+.description-stores {
+    position: absolute;
+    left: 506px;
+    top: 7753px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+}
+
+    /* Выделение жирным шрифтом */
+    .description-stores .highlight-stores {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКА КАРТА РОССИИ ===== */
+.stores-map {
+    position: absolute;
+    left: 175px;
+    top: 7890px;
+    width: 1620px;
+    height: 943px;
+    z-index: 8;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+/* ===== БЛОК: "Доставка в любую точку" ===== */
+
+/* Заголовок "Доставка" */
+.title-delivery-1 {
+    position: absolute;
+    left: 765px;
+    top: 9029px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Заголовок "в любую точку" */
+.title-delivery-2 {
+    position: absolute;
+    left: 741px;
+    top: 9137px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 70px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* Текст описания */
+.description-delivery {
+    position: absolute;
+    left: 722px;
+    top: 9276px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.6;
+    text-align: center;
+}
+
+    /* Выделение жирным шрифтом */
+    .description-delivery .highlight-delivery {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* ===== КАРТИНКИ В БЛОКЕ ДОСТАВКИ ===== */
+.delivery-image {
+    position: absolute;
+    z-index: 8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+    .delivery-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+/* Коробка.svg - 215x205, x=387, y=9414 */
+.delivery-img-1 {
+    left: 407px;
+    top: 9414px;
+    width: 215px;
+    height: 205px;
+}
+
+/* Доставка.svg - 265x261, x=820, y=9384 */
+.delivery-img-2 {
+    left: 840px;
+    top: 9384px;
+    width: 265px;
+    height: 261px;
+}
+
+/* Подарок.svg - 259x254, x=1275, y=9400 */
+.delivery-img-3 {
+    left: 1295px;
+    top: 9400px;
+    width: 259px;
+    height: 254px;
+}
+
+/* ===== ТЕКСТЫ ПОД КАРТИНКАМИ ===== */
+.delivery-text {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 9;
+    text-align: center;
+    line-height: 1.4;
+}
+
+    .delivery-text .highlight-delivery-text {
+        font-weight: 600;
+        color: #333333;
+    }
+
+/* "Каждый заказ в коробке" - x=413, y=9650 */
+.delivery-text-1 {
+    left: 433px;
+    top: 9650px;
+}
+
+/* "Возможность экспресс-доставки" - x=839, y=9650 */
+.delivery-text-2 {
+    left: 859px;
+    top: 9650px;
+}
+
+/* "Подарок в каждом заказе" - x=1295, y=9650 */
+.delivery-text-3 {
+    left: 1315px;
+    top: 9650px;
+}
+
+/* ===== КАРТИНКА КОТ В КОРОБКЕ ===== */
+.delivery-cat {
+    position: absolute;
+    left: 154px;
+    top: 9624px;
+    width: 952px;
+    height: 729px;
+    z-index: 8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+    .delivery-cat img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+/* ===== ТЕКСТ "СКИДКА 20%" ===== */
+.delivery-discount-1 {
+    position: absolute;
+    left: 1223px;
+    top: 9944px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== ТЕКСТ "НА ПЕРВЫЙ ЗАКАЗ" ===== */
+.delivery-discount-2 {
+    position: absolute;
+    left: 1174px;
+    top: 10022px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #83BF13;
+    z-index: 8;
+    line-height: 1;
+}
+
+/* ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" ===== */
+.btn-delivery-order {
+    position: absolute;
+    left: 1280px;
+    top: 10134px;
+    width: 293px;
+    height: 66px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+    .btn-delivery-order:hover {
+        background: #F5A800;
+        transform: scale(1.02);
+        
+    }
+
+    .btn-delivery-order:active {
+        background: #D48800;
+        transform: scale(0.98);
+    }
+
+    .btn-delivery-order span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #FFFFFF;
+        position: absolute;
+        left: 41px; /* 1291 - 1250 = 41 */
+        top: 18px; /* 10152 - 10134 = 18 */
+    }
+
+/* ===== НИЖНЯЯ ПЛАШКА E9F9FB ===== */
+.delivery-bottom-bar {
+    position: absolute;
+    left: 46px;
+    top: 10353px;
+    width: 1872px;
+    height: 102px;
+    background: #E9F9FB;
+    border-radius: 20px;
+    z-index: 8;
+}
+/* ===== ФУТЕР (НИЖНЯЯ ЧАСТЬ) ===== */
+
+/* Текст "@2024 Все права защищены" */
+.footer-copyright {
+    position: absolute;
+    left: 150px;
+    top: 10513px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333333;
+    z-index: 8;
+}
+
+/* ===== ИКОНКИ СОЦСЕТЕЙ ===== */
+.footer-social {
+    position: absolute;
+    width: 74px;
+    height: 74px;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    display: block;
+}
+
+    .footer-social:hover {
+        opacity: 0.7;
+    }
+
+    .footer-social img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.footer-inst {
+    left: 150px;
+    top: 10558px;
+}
+
+.footer-fb {
+    left: 245px;
+    top: 10558px;
+}
+
+.footer-tg {
+    left: 340px;
+    top: 10558px;
+}
+
+/* ===== ЗАГОЛОВКИ КОЛОНОК ===== */
+.footer-title {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #333333;
+    z-index: 8;
+}
+
+.footer-title-1 {
+    left: 554px;
+    top: 10503px;
+}
+
+.footer-title-2 {
+    left: 896px;
+    top: 10503px;
+}
+
+.footer-title-3 {
+    left: 1141px;
+    top: 10503px;
+}
+
+/* ===== ТЕЛЕФОНЫ ===== */
+.footer-phone {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #31777B;
+    z-index: 8;
+}
+
+.footer-phone-1 {
+    left: 1473px;
+    top: 10503px;
+}
+
+.footer-phone-2 {
+    left: 1473px;
+    top: 10559px;
+}
+
+/* ===== АДРЕС ===== */
+.footer-address {
+    position: absolute;
+    left: 1473px;
+    top: 10627px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+    line-height: 1.4;
+}
+
+/* ===== EMAIL ===== */
+.footer-email {
+    position: absolute;
+    left: 1473px;
+    top: 10707px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #333333;
+    z-index: 8;
+}
+
+/* ===== ИКОНКИ ЛОКАЦИЯ И ПОЧТА ===== */
+.footer-icon {
+    position: absolute;
+    z-index: 8;
+}
+
+    .footer-icon img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+.footer-icon-location {
+    left: 1425px;
+    top: 10636px;
+    width: 33px;
+    height: 31px;
+}
+
+.footer-icon-mail {
+    left: 1428px;
+    top: 10709px;
+    width: 30px;
+    height: 30px;
+}
+
+/* ===== ССЫЛКИ В ФУТЕРЕ (ОДИНАКОВОЕ РАССТОЯНИЕ 27px) ===== */
+.footer-link {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333333;
+    z-index: 9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+    .footer-link:hover {
+        color: #838383;
+    }
+
+/* ===== КОЛОНКА "О КОМПАНИИ" (x=554) ===== */
+.footer-link-1 {
+    left: 554px;
+    top: 10548px;
+}
+/* О нас */
+.footer-link-2 {
+    left: 554px;
+    top: 10575px;
+}
+/* Сотрудничество */
+.footer-link-3 {
+    left: 554px;
+    top: 10602px;
+}
+/* Регистрация */
+.footer-link-4 {
+    left: 554px;
+    top: 10629px;
+}
+/* Вакансии */
+.footer-link-5 {
+    left: 554px;
+    top: 10656px;
+}
+/* Доставка товаров */
+
+/* ===== КОЛОНКА "ТОВАРЫ" (x=896) ===== */
+.footer-link-6 {
+    left: 896px;
+    top: 10548px;
+}
+/* Бренды */
+.footer-link-7 {
+    left: 896px;
+    top: 10575px;
+}
+/* Предзаказ */
+.footer-link-8 {
+    left: 896px;
+    top: 10602px;
+}
+/* Для кошек */
+.footer-link-9 {
+    left: 896px;
+    top: 10629px;
+}
+/* Для собак */
+.footer-link-10 {
+    left: 896px;
+    top: 10656px;
+}
+/* Для грызунов */
+.footer-link-11 {
+    left: 896px;
+    top: 10683px;
+}
+/* Для птиц */
+
+/* ===== КОЛОНКА "МАГАЗИНЫ" (x=1141) ===== */
+.footer-link-12 {
+    left: 1141px;
+    top: 10548px;
+}
+/* Адреса */
+.footer-link-13 {
+    left: 1141px;
+    top: 10575px;
+}
+/* Отзывы */
+.footer-link-14 {
+    left: 1141px;
+    top: 10602px;
+}
+/* Акции */
+.footer-link-15 {
+    left: 1141px;
+    top: 10629px;
+}
+/* Доставка */
+
+/* ===== МОДАЛЬНОЕ ОКНО (OVERLAY) ===== */
+
+/* Затемнённый фон */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Само окно */
+/* Само окно */
+.modal-window {
+    position: relative;
+    width: 1250px;
+    height: 720px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+    transform-origin: center center;
+}
+
+/* ===== КРЕСТИК ДЛЯ ЗАКРЫТИЯ ===== */
+.modal-close {
+    position: absolute;
+    left: 1190px;
+    top: 38px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    .modal-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ "Упс!" ===== */
+.modal-title {
+    position: absolute;
+    left: 550px;
+    top: 74px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* ===== ТЕКСТ ОПИСАНИЯ ===== */
+.modal-description {
+    position: absolute;
+    left: 160px;
+    top: 190px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1.6;
+    text-align: center;
+    width: 950px;
+    white-space: nowrap;
+}
+
+/* ===== ЦИФРА "404" ===== */
+.modal-404 {
+    position: absolute;
+    left: 495px;
+    top: 285px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 128px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* ===== КАРТИНКА 404c.png (ИСПРАВЛЕНО) ===== */
+.modal-image {
+    position: absolute;
+    left: 100px;
+    top: 330px; /* Чтобы быть в видимой области */
+    width: 1000px;
+    height: 394px;
+    z-index: 10; /* Поверх других элементов */
+}
+
+    .modal-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.9) translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" ===== */
+
+/* Затемнённый фон */
+.modal-order-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9998;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Само окно */
+.modal-order-window {
+    position: relative;
+    width: 1440px;
+    height: 880px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* Крестик для закрытия */
+.modal-order-close {
+    position: absolute;
+    left: 1380px;
+    top: 32px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+
+    .modal-order-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Заголовок "Оформление заказа" */
+.modal-order-title {
+    position: absolute;
+    left: 427px;
+    top: 64px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* Метки полей */
+.modal-order-label {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* Поля ввода */
+.modal-order-input {
+    position: absolute;
+    width: 903px;
+    height: 57px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+    .modal-order-input:focus {
+        border-color: #83BF13;
+    }
+
+    .modal-order-input::placeholder {
+        color: #777777;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+/* Ошибки под полями */
+.modal-order-error {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FF0000;
+    z-index: 6;
+    display: none; 
+}
+/* ===== ПОЗИЦИИ ОШИБОК ===== */
+#nameError {
+    left: 266px;
+    top: 248px;
+}
+
+#emailError {
+    left: 266px;
+    top: 366px;
+}
+
+#phoneError {
+    left: 266px;
+    top: 484px;
+}
+
+#cityError {
+    left: 266px;
+    top: 603px;
+}
+
+#addressError {
+    left: 266px;
+    top: 721px;
+}
+
+/* Кнопка "Оформить заказ" */
+.modal-order-btn {
+    position: absolute;
+    left: 610px;
+    top: 763px;
+    width: 220px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    cursor: not-allowed;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .modal-order-btn.active {
+        background: #E99700;
+        border-color: #E99700;
+        cursor: pointer;
+    }
+
+        .modal-order-btn.active:hover {
+            background: #F5A800;
+            transform: scale(1.02);
+        }
+
+        .modal-order-btn.active:active {
+            background: #D48800;
+            transform: scale(0.98);
+        }
+
+    .modal-order-btn span {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #E99700;
+        transition: color 0.3s ease;
+    }
+
+    .modal-order-btn.active span {
+        color: #FFFFFF;
+    }
+
+/* ===== МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" ===== */
+
+.modal-success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Окно (1800x960 -> 1350x720) */
+.modal-success-window {
+    position: relative;
+    width: 1250px;
+    height: 720px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* Крестик (1730x44 -> 1298x33) */
+.modal-success-close {
+    position: absolute;
+    left: 1100px;
+    top: 33px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    
+
+    .modal-success-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* Заголовок "Заказ оформлен!" (96 -> 72) */
+.modal-success-title {
+    position: absolute;
+    left: 350px;
+    top: 56px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 64px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* Текст описания (24 -> 18) */
+.modal-success-description {
+    position: absolute;
+    left: 219px;
+    top: 179px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1.6;
+    text-align: center;
+}
+
+    .modal-success-description #successPhone {
+        font-weight: 600;
+        color: #E99700;
+    }
+
+/* Картинка dog2.png (897x1234 -> 673x926) */
+.modal-success-dog {
+    position: absolute;
+    left: 314px;
+    top: 400px;
+    width: 580px;
+    height: 363px;
+    z-index: 5;
+}
+
+    .modal-success-dog img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+/* ===== МОДАЛЬНОЕ ОКНО "Упс! Ведутся работы" ===== */
+
+/* Затемнённый фон */
+.modal-work-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9997;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Само окно */
+.modal-work-window {
+    position: relative;
+    width: 1250px;
+    height: 720px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+}
+
+/* ===== КРЕСТИК ДЛЯ ЗАКРЫТИЯ ===== */
+.modal-work-close {
+    position: absolute;
+    left: 1190px;
+    top: 38px;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+    
+
+    .modal-work-close img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+/* ===== ТЕКСТ "Упс!" ===== */
+.modal-work-title {
+    position: absolute;
+    left: 545px;
+    top: 74px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 96px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* ===== ТЕКСТ ОПИСАНИЯ ===== */
+.modal-work-description {
+    position: absolute;
+    left: 130px;
+    top: 190px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1.6;
+    text-align: center;
+    width: 1010px; /* 1250 - 120 - 120 = 1010 */
+}
+
+/* ===== ЦИФРА "500" ===== */
+.modal-work-404 {
+    position: absolute;
+    left: 520px;
+    top: 285px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 128px;
+    color: #E99700;
+    z-index: 5;
+    line-height: 1;
+}
+
+/* ===== КАРТИНКА 505f.png ===== */
+.modal-work-image {
+    position: absolute;
+    left: 250px; /* (1250 - 530) / 2 = 360 */
+    top: 445px;
+    width: 750px;
+    height: 284px;
+    z-index: 5;
+}
+
+    .modal-work-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== ВЫПАДАЮЩИЙ СПИСОК ===== */
+.modal-order-select {
+    position: absolute;
+    width: 903px;
+    height: 57px;
+    background: #FFFFFF;
+    border: 3px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #333333;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E99700' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+    .modal-order-select:focus {
+        border-color: #83BF13;
+    }
+
+    .modal-order-select option {
+        padding: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+    }
+
+        /* Стиль для пустого option */
+        .modal-order-select option[value=""] {
+            color: #777777;
+        }
+
+
+/* ===== ПОДСКАЗКИ ADDRESS (DADATA) ===== */
+.suggestions-wrapper {
+    position: absolute;
+    left: 266px;
+    top: 730px; /* Под полем адреса (668 + 57 + 5 = 730) */
+    width: 903px;
+    z-index: 20;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+    .suggestions-wrapper.active {
+        display: block;
+    }
+
+.suggestions-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+    .suggestions-list li {
+        padding: 10px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        color: #333333;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+        .suggestions-list li:hover {
+            background: #F5F5F5;
+        }
+
+        .suggestions-list li:last-child {
+            border-bottom: none;
+        }
+
+        .suggestions-list li .highlight {
+            font-weight: 600;
+            color: #E99700;
+        }
+
+
+/* ===== ПЛАШКА С ИКОНКАМИ (ЗАКРЕПЛЕНА ПРИ ПРОКРУТКЕ) ===== */
+.sticky-icons-bar {
+    position: fixed;
+    left: 1590px;
+    top: 840px;
+    width: 263px;
+    height: 82px;
+    background: #FFFFFF;
+    border-radius: 300px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+    /* Эффект при наведении на плашку */
+    .sticky-icons-bar:hover {
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    }
+
+/* ===== ОБЩИЙ СТИЛЬ ДЛЯ ИКОНОК ===== */
+.sticky-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+    .sticky-icon:hover {
+        transform: scale(1.08);
+    }
+
+    .sticky-icon:active {
+        transform: scale(0.95);
+    }
+
+    .sticky-icon img {
+        display: block;
+        object-fit: contain;
+    }
+
+/* ===== ИНДИВИДУАЛЬНЫЕ РАЗМЕРЫ ===== */
+.sticky-icon-prof {
+    width: 33px;
+    height: 36px;
+}
+
+.sticky-icon-heart {
+    width: 36px;
+    height: 36px;
+}
+
+.sticky-icon-cart {
+    width: 46px;
+    height: 46px;
+}

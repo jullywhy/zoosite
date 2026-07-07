@@ -597,7 +597,7 @@ body {
     top: 837px;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 26px;
     color: #83BF13;
     z-index: 8;
     line-height: 1;
@@ -627,7 +627,7 @@ body {
 /* ===== БРЕНДЫ ===== */
 .mobile-brands-container {
     position: absolute;
-    left: 25px;
+    left: 50%;
     top: 994px;
     width: 310px;
     height: 212px;

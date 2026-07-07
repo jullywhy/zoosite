@@ -1,11 +1,111 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Милый хвостик — Мобильная версия</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
+    <div class="mobile-frame">
 
+        <!-- ===== БЕЛЫЕ ПРЯМОУГОЛЬНИКИ ===== -->
+        <div class="mobile-card mobile-card-1"></div>
+        <div class="mobile-card mobile-card-2"></div>
+        <div class="mobile-card mobile-card-3"></div>
+        <div class="mobile-card mobile-card-4"></div>
+
+        <!-- ===== МЕНЮ ===== -->
+        <div class="mobile-menu" id="mobileMenu">
+            <img src="лого.svg" alt="Логотип" class="mobile-logo">
+            <img src="menutelum.svg" alt="Меню" class="mobile-burger" onclick="toggleMobileMenu()">
+        </div>
+
+        <!-- ===== БУРГЕР-МЕНЮ ===== -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()">
+            <div class="mobile-menu-panel" onclick="event.stopPropagation()">
+                <div class="mobile-menu-header">
+                    <img src="лого.svg" alt="Логотип" class="mobile-menu-logo">
+                </div>
+                <a href="#products" class="mobile-menu-item" onclick="closeMobileMenu()">Товары</a>
+                <a href="#about" class="mobile-menu-item" onclick="closeMobileMenu()">О нас</a>
+                <a href="#collections" class="mobile-menu-item" onclick="closeMobileMenu()">Подборки</a>
+                <a href="#articles" class="mobile-menu-item" onclick="closeMobileMenu()">Статьи</a>
+                <a href="#stores" class="mobile-menu-item" onclick="closeMobileMenu()">Магазины</a>
+                <a href="#delivery" class="mobile-menu-item" onclick="closeMobileMenu()">Доставка</a>
+                <div class="mobile-menu-contact" onclick="openModal()">
+                    <img src="телефон.svg" alt="Телефон">
+                    <span>Связаться с нами</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== КОТИК ===== -->
+        <div class="mobile-cat">
+            <img src="котик.png" alt="Котик">
+        </div>
+
+        <!-- ===== ТЕКСТ "МИЛЫЙ" ===== -->
+        <div class="mobile-title-mily">Милый</div>
+
+        <!-- ===== ТЕКСТ "ХВОСТИК" ===== -->
+        <div class="mobile-title-hvostik">хвостик</div>
+
+        <!-- ===== ОПИСАНИЕ ===== -->
+        <div class="mobile-description">
+            В нашем магазине вы найдете все,<br>
+            что нужно для вашего любимого<br>
+            и неповторимого питомца
+        </div>
+
+        <!-- ===== ПОИСКОВАЯ СТРОКА ===== -->
+        <div class="mobile-search-bar">
+            <input type="text" placeholder="Искать товар..." class="mobile-search-input" id="mobileSearchInput">
+            <div class="mobile-search-icon" id="mobileSearchIcon" onclick="openWorkModal()">
+                <img src="лупа.svg" alt="Поиск">
+            </div>
+        </div>
+
+        <!-- ===== FROGG2.PNG ===== -->
+        <div class="mobile-frog">
+            <img src="frogg2.png" alt="Frog">
+        </div>
+
+        <!-- ===== COPY.SVG ===== -->
+        <div class="mobile-copy-icon" id="mobileCopyIcon" onclick="toggleMobileIcon()">
+            <img src="copy.svg" alt="Копировать" id="mobileIconImage">
+        </div>
+
+    </div>
+
+    <!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-window">
+            <div class="modal-close" onclick="closeModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+            <div class="modal-title">Упс!</div>
+            <div class="modal-description">Кажется, страница не найдена. Попробуйте другую ссылку</div>
+            <div class="modal-404">404</div>
+            <div class="modal-image"><img src="404c.png" alt="404"></div>
+        </div>
+    </div>
+
+    <div class="modal-work-overlay" id="modalWorkOverlay">
+        <div class="modal-work-window">
+            <div class="modal-work-close" onclick="closeWorkModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+            <div class="modal-work-title">Упс!</div>
+            <div class="modal-work-description">На сайте ведутся работы. Скоро всё будет доступно!</div>
+            <div class="modal-work-404">500</div>
+            <div class="modal-work-image"><img src="500f.png" alt="Ведутся работы"></div>
+        </div>
+    </div>
+
+    <script src="mobile.js"></script>
 </body>
 </html>

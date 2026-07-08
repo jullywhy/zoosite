@@ -1533,3 +1533,191 @@ body {
     color: #999999;
     z-index: 8;
 }
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (МОБИЛЬНЫЙ)
+   ============================================================ */
+
+.modal-order-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9998;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-order-window {
+    position: relative;
+    width: 340px;
+    height: 700px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.modal-order-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.modal-order-close:hover {
+    transform: rotate(90deg);
+}
+
+.modal-order-close img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.modal-order-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+.modal-order-label {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+}
+
+.modal-order-input {
+    position: absolute;
+    background: #FFFFFF;
+    border: 2px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.modal-order-input:focus {
+    border-color: #83BF13;
+}
+
+.modal-order-input::placeholder {
+    color: #777777;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.modal-order-select {
+    position: absolute;
+    background: #FFFFFF;
+    border: 2px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23E99700' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.modal-order-select:focus {
+    border-color: #83BF13;
+}
+
+.modal-order-select option {
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.modal-order-select option[value=""] {
+    color: #777777;
+}
+
+.modal-order-error {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #FF0000;
+    z-index: 6;
+    display: none;
+}
+
+.modal-order-btn {
+    position: absolute;
+    background: #FFFFFF;
+    border: 2px solid #E99700;
+    border-radius: 100px;
+    z-index: 5;
+    cursor: not-allowed;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-order-btn.active {
+    background: #E99700;
+    border-color: #E99700;
+    cursor: pointer;
+}
+
+.modal-order-btn.active:hover {
+    background: #F5A800;
+    transform: scale(1.02);
+}
+
+.modal-order-btn.active:active {
+    background: #D48800;
+    transform: scale(0.98);
+}
+
+.modal-order-btn span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #E99700;
+    transition: color 0.3s ease;
+}
+
+.modal-order-btn.active span {
+    color: #FFFFFF;
+}

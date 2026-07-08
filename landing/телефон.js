@@ -601,3 +601,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// ===== ПЛАВНАЯ ПРОКРУТКА К БЛОКАМ =====
+document.addEventListener('DOMContentLoaded', function() {
+    const menuLinks = document.querySelectorAll('.mobile-menu-item');
+    const menu = document.getElementById('mobileMenu');
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Закрываем бургер-меню
+            closeMobileMenu();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Проверяем, закреплено ли меню
+                const isFixed = menu.classList.contains('fixed');
+                const menuHeight = isFixed ? 58 : 0;
+                const offset = 20;
+                
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - menuHeight - offset;
+                
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 350); // Задержка для закрытия меню
+            }
+        });
+    });
+});

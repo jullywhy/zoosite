@@ -1274,7 +1274,7 @@ body {
     position: absolute;
     left: 15%;
     transform: translateX(-50%);
-    top: 3950px; /* Было 3870px, опустили на 40px */
+    top: 3970px; /* Было 3870px, опустили на 40px */
     width: 68px;
     height: 19px;
     z-index: 9;

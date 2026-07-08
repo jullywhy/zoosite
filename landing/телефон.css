@@ -692,7 +692,7 @@ body {
     top: 1274px;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    font-size: 34px; /* Было 36px, стало 34px */
+    font-size: 32px; /* Было 36px, стало 34px */
     color: #333333;
     z-index: 8;
     line-height: 1;
@@ -1236,7 +1236,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3590px; /* Было 3550px, опустили на 40px */
+    top: 3630px; /* Было 3550px, опустили на 40px */
     width: 230px;
     height: 203px;
     z-index: 8;
@@ -1259,7 +1259,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3811px; /* Было 3771px, опустили на 40px */
+    top: 3851px; /* Было 3771px, опустили на 40px */
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -1272,9 +1272,9 @@ body {
 
 .mobile-social-read-btn {
     position: absolute;
-    left: 50%;
+    left: 10%;
     transform: translateX(-50%);
-    top: 3910px; /* Было 3870px, опустили на 40px */
+    top: 3950px; /* Было 3870px, опустили на 40px */
     width: 68px;
     height: 19px;
     z-index: 9;

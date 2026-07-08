@@ -121,31 +121,323 @@ function closeWorkModal() {
     }
 }
 
-// Закрытие по клику на фон
+// ===== ФУНКЦИИ ДЛЯ ТЕЛЕФОНА =====
+function formatPhoneNumber(input) {
+    let value = input.value.replace(/\D/g, '');
+
+    if (value.startsWith('8')) {
+        value = '7' + value.slice(1);
+    }
+
+    if (value.startsWith('9') && value.length > 0) {
+        value = '7' + value;
+    }
+
+    let formatted = '';
+
+    if (value.length > 0) {
+        if (value.startsWith('7')) {
+            formatted = '+7';
+            value = value.slice(1);
+        } else {
+            formatted = '+7';
+        }
+
+        if (value.length > 0) {
+            formatted += '-(' + value.slice(0, 3);
+            value = value.slice(3);
+        }
+
+        if (value.length > 0) {
+            formatted += ')-' + value.slice(0, 3);
+            value = value.slice(3);
+        }
+
+        if (value.length > 0) {
+            formatted += '-' + value.slice(0, 2);
+            value = value.slice(2);
+        }
+
+        if (value.length > 0) {
+            formatted += '-' + value.slice(0, 2);
+            value = value.slice(2);
+        }
+    }
+
+    input.value = formatted;
+    const length = input.value.length;
+    input.setSelectionRange(length, length);
+}
+
+function formatPhoneNumberStatic(digits) {
+    if (!digits || digits.length === 0) return '';
+
+    let formatted = '+7';
+    let remaining = digits;
+
+    if (remaining.startsWith('7')) {
+        remaining = remaining.slice(1);
+    } else {
+        if (remaining.length > 0 && remaining[0] !== '7') {
+            if (remaining[0] === '8') {
+                remaining = remaining.slice(1);
+            }
+        }
+    }
+
+    if (remaining.length > 0) {
+        formatted += '-(' + remaining.slice(0, 3);
+        remaining = remaining.slice(3);
+    } else {
+        formatted += '-(';
+    }
+
+    if (remaining.length > 0) {
+        formatted += ')-' + remaining.slice(0, 3);
+        remaining = remaining.slice(3);
+    } else {
+        formatted += ')-';
+    }
+
+    if (remaining.length > 0) {
+        formatted += '-' + remaining.slice(0, 2);
+        remaining = remaining.slice(2);
+    } else {
+        formatted += '-';
+    }
+
+    if (remaining.length > 0) {
+        formatted += '-' + remaining.slice(0, 2);
+    } else {
+        formatted += '-';
+    }
+
+    return formatted;
+}
+
+function validatePhone(value) {
+    const digits = value.replace(/\D/g, '');
+    return digits.length === 11;
+}
+
+// ===== ВАЛИДАЦИЯ =====
+function validateName(value) {
+    const regex = /^[A-Za-zА-Яа-яЁё\s]{2,}$/;
+    return regex.test(value.trim());
+}
+
+function validateEmail(value) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value.trim());
+}
+
+function validateCity(value) {
+    return value.trim().length >= 2;
+}
+
+function validateAddress(value) {
+    return value.trim().length >= 2;
+}
+
+function showError(errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+function hideError(errorElement) {
+    errorElement.style.display = 'none';
+    errorElement.textContent = '';
+}
+
+// ============================================================
+// МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (МОБИЛЬНЫЙ)
+// ============================================================
+
+let mobileOrderPhoneNumber = '';
+
+function openOrderModal() {
+    const overlay = document.getElementById('modalOrderOverlay');
+    if (overlay) {
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        document.querySelectorAll('.modal-order-error').forEach(el => {
+            el.style.display = 'none';
+            el.textContent = '';
+        });
+        document.querySelectorAll('.modal-order-input').forEach(el => el.value = '');
+        const citySelect = document.getElementById('orderCity');
+        if (citySelect) citySelect.value = '';
+        const btn = document.getElementById('orderSubmitBtn');
+        btn.disabled = true;
+        btn.classList.remove('active');
+    }
+}
+
+function closeOrderModal() {
+    const overlay = document.getElementById('modalOrderOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// ===== ОБРАБОТЧИКИ =====
 document.addEventListener('DOMContentLoaded', function() {
-    const overlays = document.querySelectorAll('.modal-overlay, .modal-work-overlay');
-    overlays.forEach(overlay => {
-        overlay.addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-                document.body.style.overflow = 'auto';
+    const nameInput = document.getElementById('orderName');
+    const emailInput = document.getElementById('orderEmail');
+    const phoneInput = document.getElementById('orderPhone');
+    const citySelect = document.getElementById('orderCity');
+    const addressInput = document.getElementById('orderAddress');
+    const submitBtn = document.getElementById('orderSubmitBtn');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const cityError = document.getElementById('cityError');
+    const addressError = document.getElementById('addressError');
+
+    // ===== ФОРМАТИРОВАНИЕ ТЕЛЕФОНА =====
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            const digits = this.value.replace(/\D/g, '');
+            if (digits.length > 11) {
+                this.value = this.value.slice(0, -1);
+                return;
+            }
+            formatPhoneNumber(this);
+            if (phoneError) {
+                phoneError.style.display = 'none';
+            }
+            checkFieldsFilled();
+        });
+
+        phoneInput.addEventListener('paste', function (e) {
+            e.preventDefault();
+            const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+            const digits = pastedText.replace(/\D/g, '');
+
+            if (digits.length > 0) {
+                let number = digits;
+                if (number.startsWith('8')) {
+                    number = '7' + number.slice(1);
+                }
+                if (!number.startsWith('7')) {
+                    number = '7' + number;
+                }
+                number = number.slice(0, 11);
+                this.value = formatPhoneNumberStatic(number);
+                if (validatePhone(this.value)) {
+                    if (phoneError) {
+                        phoneError.style.display = 'none';
+                    }
+                }
+                checkFieldsFilled();
             }
         });
-    });
+    }
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modals = document.querySelectorAll('.modal-overlay, .modal-work-overlay');
-            modals.forEach(modal => {
-                if (modal.style.display === 'flex') {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            closeMobileMenu();
+    // ===== ПРОВЕРКА ЗАПОЛНЕННОСТИ ПОЛЕЙ =====
+    function checkFieldsFilled() {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const city = citySelect.value.trim();
+        const address = addressInput.value.trim();
+
+        const phoneDigits = phone.replace(/\D/g, '');
+        const isPhoneFilled = phoneDigits.length > 0;
+
+        if (name.length > 0 && email.length > 0 && isPhoneFilled && city.length > 0 && address.length > 0) {
+            submitBtn.disabled = false;
+            submitBtn.classList.add('active');
+        } else {
+            submitBtn.disabled = true;
+            submitBtn.classList.remove('active');
+        }
+    }
+
+    nameInput.addEventListener('input', checkFieldsFilled);
+    emailInput.addEventListener('input', checkFieldsFilled);
+    phoneInput.addEventListener('input', checkFieldsFilled);
+    citySelect.addEventListener('change', checkFieldsFilled);
+    addressInput.addEventListener('input', checkFieldsFilled);
+
+    // ===== ОТПРАВКА ФОРМЫ =====
+    submitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (this.disabled) return;
+
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const phone = phoneInput.value;
+        const city = citySelect.value;
+        const address = addressInput.value;
+
+        let isValid = true;
+
+        if (!validateName(name)) {
+            showError(nameError, 'Имя должно содержать минимум 2 буквы');
+            isValid = false;
+        } else {
+            hideError(nameError);
+        }
+
+        if (!validateEmail(email)) {
+            showError(emailError, 'Введите корректный email');
+            isValid = false;
+        } else {
+            hideError(emailError);
+        }
+
+        if (!validatePhone(phone)) {
+            showError(phoneError, 'Введите 11 цифр телефона');
+            isValid = false;
+        } else {
+            hideError(phoneError);
+        }
+
+        if (!validateCity(city)) {
+            showError(cityError, 'Выберите регион');
+            isValid = false;
+        } else {
+            hideError(cityError);
+        }
+
+        if (!validateAddress(address)) {
+            showError(addressError, 'Введите адрес (минимум 2 символа)');
+            isValid = false;
+        } else {
+            hideError(addressError);
+        }
+
+        if (isValid) {
+            mobileOrderPhoneNumber = phone;
+            document.getElementById('modalOrderOverlay').style.display = 'none';
+            openSuccessModal(phone);
         }
     });
 });
+
+// ===== ОКНО "ЗАКАЗ ОФОРМЛЕН!" =====
+function openSuccessModal(phone) {
+    const overlay = document.getElementById('modalSuccessOverlay');
+    if (overlay) {
+        const lastFour = phone.replace(/\D/g, '').slice(-4);
+        const masked = '***-***-**-' + lastFour.slice(0, 2) + '-' + lastFour.slice(2);
+        document.getElementById('successPhone').textContent = masked;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeSuccessModal() {
+    const overlay = document.getElementById('modalSuccessOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        closeOrderModal();
+    }
+}
 
 // ===== ПЕРЕКЛЮЧЕНИЕ СЕРДЕЦ =====
 function toggleMobileHeart(element) {
@@ -261,190 +553,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ============================================================
-// МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (МОБИЛЬНЫЙ)
-// ============================================================
-
-let mobileOrderPhoneNumber = '';
-
-function openOrderModal() {
-    const overlay = document.getElementById('modalOrderOverlay');
-    if (overlay) {
-        overlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        document.querySelectorAll('.modal-order-error').forEach(el => {
-            el.style.display = 'none';
-            el.textContent = '';
-        });
-        document.querySelectorAll('.modal-order-input').forEach(el => el.value = '');
-        const citySelect = document.getElementById('orderCity');
-        if (citySelect) citySelect.value = '';
-        const btn = document.getElementById('orderSubmitBtn');
-        btn.disabled = true;
-        btn.classList.remove('active');
-    }
-}
-
-function closeOrderModal() {
-    const overlay = document.getElementById('modalOrderOverlay');
-    if (overlay) {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// ===== ВАЛИДАЦИЯ =====
-function validateName(value) {
-    const regex = /^[A-Za-zА-Яа-яЁё\s]{2,}$/;
-    return regex.test(value.trim());
-}
-
-function validateEmail(value) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(value.trim());
-}
-
-function validatePhone(value) {
-    const digits = value.replace(/\D/g, '');
-    return digits.length === 11;
-}
-
-function validateCity(value) {
-    return value.trim().length >= 2;
-}
-
-function validateAddress(value) {
-    return value.trim().length >= 2;
-}
-
-function showError(errorElement, message) {
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-}
-
-function hideError(errorElement) {
-    errorElement.style.display = 'none';
-    errorElement.textContent = '';
-}
-
-// ===== ОБРАБОТЧИКИ =====
-document.addEventListener('DOMContentLoaded', function() {
-    const nameInput = document.getElementById('orderName');
-    const emailInput = document.getElementById('orderEmail');
-    const phoneInput = document.getElementById('orderPhone');
-    const citySelect = document.getElementById('orderCity');
-    const addressInput = document.getElementById('orderAddress');
-    const submitBtn = document.getElementById('orderSubmitBtn');
-
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const phoneError = document.getElementById('phoneError');
-    const cityError = document.getElementById('cityError');
-    const addressError = document.getElementById('addressError');
-
-    // Проверка заполненности полей
-    function checkFieldsFilled() {
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const phone = phoneInput.value.trim();
-        const city = citySelect.value.trim();
-        const address = addressInput.value.trim();
-
-        const phoneDigits = phone.replace(/\D/g, '');
-        const isPhoneFilled = phoneDigits.length > 0;
-
-        if (name.length > 0 && email.length > 0 && isPhoneFilled && city.length > 0 && address.length > 0) {
-            submitBtn.disabled = false;
-            submitBtn.classList.add('active');
-        } else {
-            submitBtn.disabled = true;
-            submitBtn.classList.remove('active');
-        }
-    }
-
-    nameInput.addEventListener('input', checkFieldsFilled);
-    emailInput.addEventListener('input', checkFieldsFilled);
-    phoneInput.addEventListener('input', checkFieldsFilled);
-    citySelect.addEventListener('change', checkFieldsFilled);
-    addressInput.addEventListener('input', checkFieldsFilled);
-
-    // Отправка формы
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (this.disabled) return;
-
-        const name = nameInput.value;
-        const email = emailInput.value;
-        const phone = phoneInput.value;
-        const city = citySelect.value;
-        const address = addressInput.value;
-
-        let isValid = true;
-
-        if (!validateName(name)) {
-            showError(nameError, 'Имя должно содержать минимум 2 буквы');
-            isValid = false;
-        } else {
-            hideError(nameError);
-        }
-
-        if (!validateEmail(email)) {
-            showError(emailError, 'Введите корректный email');
-            isValid = false;
-        } else {
-            hideError(emailError);
-        }
-
-        if (!validatePhone(phone)) {
-            showError(phoneError, 'Введите 11 цифр телефона');
-            isValid = false;
-        } else {
-            hideError(phoneError);
-        }
-
-        if (!validateCity(city)) {
-            showError(cityError, 'Выберите регион');
-            isValid = false;
-        } else {
-            hideError(cityError);
-        }
-
-        if (!validateAddress(address)) {
-            showError(addressError, 'Введите адрес (минимум 2 символа)');
-            isValid = false;
-        } else {
-            hideError(addressError);
-        }
-
-        if (isValid) {
-            mobileOrderPhoneNumber = phone;
-            document.getElementById('modalOrderOverlay').style.display = 'none';
-            openSuccessModal(phone);
-        }
-    });
-});
-
-// ===== ОКНО "ЗАКАЗ ОФОРМЛЕН!" =====
-function openSuccessModal(phone) {
-    const overlay = document.getElementById('modalSuccessOverlay');
-    if (overlay) {
-        const lastFour = phone.replace(/\D/g, '').slice(-4);
-        const masked = '***-***-**-' + lastFour.slice(0, 2) + '-' + lastFour.slice(2);
-        document.getElementById('successPhone').textContent = masked;
-        overlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeSuccessModal() {
-    const overlay = document.getElementById('modalSuccessOverlay');
-    if (overlay) {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        closeOrderModal();
-    }
-}
-
 // ===== ЗАКРЕПЛЕНИЕ МЕНЮ ПРИ ПРОКРУТКЕ =====
 document.addEventListener('DOMContentLoaded', function() {
     const menu = document.getElementById('mobileMenu');
@@ -466,4 +574,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', handleScroll);
+});
+
+// ===== ЗАКРЫТИЕ МОДАЛЬНЫХ ОКОН ПО КЛИКУ НА ФОН =====
+document.addEventListener('DOMContentLoaded', function() {
+    const overlays = document.querySelectorAll('.modal-overlay, .modal-work-overlay, .modal-order-overlay, .modal-success-overlay');
+    overlays.forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal-overlay, .modal-work-overlay, .modal-order-overlay, .modal-success-overlay');
+            modals.forEach(modal => {
+                if (modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            closeMobileMenu();
+        }
+    });
 });

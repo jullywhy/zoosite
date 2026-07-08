@@ -976,3 +976,248 @@ body {
     cursor: not-allowed;
     pointer-events: none;
 }
+
+/* ============================================================
+   ИНФОРМАЦИОННЫЕ БЛОКИ
+   ============================================================ */
+
+.mobile-info-1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1911px;
+    width: 310px;
+    height: 1145px;
+    z-index: 8;
+}
+
+.mobile-info-1 img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-info-3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3462px;
+    width: 320px;
+    height: 549px;
+    z-index: 8;
+}
+
+.mobile-info-3 img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-info-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4924px;
+    width: 333px;
+    height: 1350px;
+    z-index: 8;
+}
+
+.mobile-info-2 img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ============================================================
+   КНОПКА "ОФОРМИТЬ ЗАКАЗ"
+   ============================================================ */
+
+.mobile-btn-order {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6291px;
+    width: 162px;
+    height: 33px;
+    background: #E99700;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.mobile-btn-order:hover {
+    background: #F5A800;
+    transform: translateX(-50%) scale(1.02);
+}
+
+.mobile-btn-order:active {
+    background: #D48800;
+    transform: translateX(-50%) scale(0.98);
+}
+
+.mobile-btn-order span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+/* ============================================================
+   КАРТИНКА КОТ В КОРОБКЕ
+   ============================================================ */
+
+.mobile-cat-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6309px;
+    width: 310px;
+    height: 238px;
+    z-index: 8;
+}
+
+.mobile-cat-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ============================================================
+   ФУТЕР (МОБИЛЬНЫЙ)
+   ============================================================ */
+
+.mobile-footer {
+    position: absolute;
+    left: 0;
+    top: 6602px;
+    width: 360px;
+    min-height: 400px;
+    background: #FBEACC;
+    z-index: 8;
+    padding: 20px;
+}
+
+/* Заголовки колонок */
+.mobile-footer-title {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333333;
+    z-index: 8;
+}
+
+.mobile-footer-title-1 {
+    left: 20px;
+    top: 0px;
+}
+
+.mobile-footer-title-2 {
+    left: 140px;
+    top: 0px;
+}
+
+.mobile-footer-title-3 {
+    left: 250px;
+    top: 0px;
+}
+
+/* Ссылки в футере */
+.mobile-footer-link {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #333333;
+    z-index: 9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.6;
+}
+
+.mobile-footer-link:hover {
+    color: #999999;
+}
+
+/* Колонка "О компании" (x=20) */
+.mobile-footer-link-1 { left: 20px; top: 28px; }  /* О нас */
+.mobile-footer-link-2 { left: 20px; top: 48px; }  /* Сотрудничество */
+.mobile-footer-link-3 { left: 20px; top: 68px; }  /* Регистрация */
+.mobile-footer-link-4 { left: 20px; top: 88px; }  /* Вакансии */
+.mobile-footer-link-5 { left: 20px; top: 108px; } /* Доставка товаров */
+
+/* Колонка "Товары" (x=140) */
+.mobile-footer-link-6 { left: 140px; top: 28px; }  /* Бренды */
+.mobile-footer-link-7 { left: 140px; top: 48px; }  /* Предзаказ */
+.mobile-footer-link-8 { left: 140px; top: 68px; }  /* Для кошек */
+.mobile-footer-link-9 { left: 140px; top: 88px; }  /* Для собак */
+.mobile-footer-link-10 { left: 140px; top: 108px; } /* Для грызунов */
+.mobile-footer-link-11 { left: 140px; top: 128px; } /* Для птиц */
+
+/* Колонка "Магазины" (x=250) */
+.mobile-footer-link-12 { left: 250px; top: 28px; }  /* Адреса */
+.mobile-footer-link-13 { left: 250px; top: 48px; }  /* Отзывы */
+.mobile-footer-link-14 { left: 250px; top: 68px; }  /* Акции */
+.mobile-footer-link-15 { left: 250px; top: 88px; }  /* Доставка */
+
+/* Иконки соцсетей */
+.mobile-footer-social {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.mobile-footer-social:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+.mobile-footer-social img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-footer-inst {
+    left: 20px;
+    top: 180px;
+}
+
+.mobile-footer-fb {
+    left: 62px;
+    top: 180px;
+}
+
+.mobile-footer-tg {
+    left: 104px;
+    top: 180px;
+}
+
+/* Копирайт */
+.mobile-footer-copyright {
+    position: absolute;
+    left: 20px;
+    top: 230px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: #999999;
+    z-index: 8;
+}

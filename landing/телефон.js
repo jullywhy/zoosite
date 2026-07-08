@@ -444,3 +444,26 @@ function closeSuccessModal() {
         closeOrderModal();
     }
 }
+
+// ===== ЗАКРЕПЛЕНИЕ МЕНЮ ПРИ ПРОКРУТКЕ =====
+document.addEventListener('DOMContentLoaded', function() {
+    const menu = document.getElementById('mobileMenu');
+    if (!menu) return;
+    
+    const menuTop = menu.offsetTop;
+    let isFixed = false;
+
+    function handleScroll() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > menuTop && !isFixed) {
+            menu.classList.add('fixed');
+            isFixed = true;
+        } else if (scrollY <= menuTop && isFixed) {
+            menu.classList.remove('fixed');
+            isFixed = false;
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+});

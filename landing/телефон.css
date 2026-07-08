@@ -1721,3 +1721,100 @@ body {
 .modal-order-btn.active span {
     color: #FFFFFF;
 }
+
+/* ============================================================
+   МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" (МОБИЛЬНЫЙ)
+   ============================================================ */
+
+.modal-success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-success-window {
+    position: relative;
+    width: 320px;
+    height: 400px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.modal-success-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.modal-success-close img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.modal-success-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: #333333;
+    z-index: 5;
+    line-height: 1;
+    text-align: center;
+}
+
+.modal-success-description {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 90px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    z-index: 5;
+    text-align: center;
+    width: 90%;
+}
+
+.modal-success-description #successPhone {
+    font-weight: 600;
+    color: #E99700;
+}
+
+.modal-success-dog {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200px;
+    width: 200px;
+    height: 150px;
+    z-index: 5;
+}
+
+.modal-success-dog img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}

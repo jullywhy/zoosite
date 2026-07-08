@@ -1182,11 +1182,12 @@ body {
    БЛОК: "Мы в соцсетях" (МОБИЛЬНЫЙ)
    ============================================================ */
 
+/* Заголовки и описание ПОДНЯТЫ НА 60px ВВЕРХ */
 .mobile-title-social-1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3770px; /* Было 3870, подняли на 100px */
+    top: 3770px; /* Было 3830px, подняли на 60px */
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     font-size: 32px;
@@ -1200,7 +1201,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3815px; /* Было 3915, подняли на 100px */
+    top: 3815px; /* Было 3875px, подняли на 60px */
     font-family: 'Jost', sans-serif;
     font-weight: 600;
     font-size: 26px;
@@ -1214,7 +1215,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3860px; /* Было 3960, подняли на 100px */
+    top: 3860px; /* Было 3920px, подняли на 60px */
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -1230,11 +1231,12 @@ body {
     color: #333333;
 }
 
+/* Картинка кота, текст и кнопка ОПУЩЕНЫ НА 40px ВНИЗ */
 .mobile-social-cat {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3590px; /* Было 3690, подняли на 100px */
+    top: 3590px; /* Было 3550px, опустили на 40px */
     width: 230px;
     height: 203px;
     z-index: 8;
@@ -1257,7 +1259,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3811px; /* Было 3911, подняли на 100px */
+    top: 3811px; /* Было 3771px, опустили на 40px */
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -1272,7 +1274,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 3910px; /* Было 4010, подняли на 100px */
+    top: 3910px; /* Было 3870px, опустили на 40px */
     width: 68px;
     height: 19px;
     z-index: 9;

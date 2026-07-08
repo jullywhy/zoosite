@@ -1848,3 +1848,158 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
+
+/* ============================================================
+   КАРТИНКА КАРТ.png
+   ============================================================ */
+
+.mobile-map {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3089px;
+    width: 310px;
+    height: 313px;
+    z-index: 8;
+}
+
+.mobile-map img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ============================================================
+   ПЛАШКА E9F9FB
+   ============================================================ */
+
+.mobile-footer-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 6547px;
+    width: 348px;
+    height: 40px;
+    background: #E9F9FB;
+    border-radius: 20px;
+    z-index: 8;
+}
+
+/* ============================================================
+   ФУТЕР (МОБИЛЬНЫЙ) — ЦЕНТРИРОВАН
+   ============================================================ */
+
+.mobile-footer-title {
+    position: absolute;
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333333;
+    z-index: 8;
+}
+
+.mobile-footer-title-1 {
+    left: 25px;
+    top: 6602px;
+}
+
+.mobile-footer-title-2 {
+    left: 135px;
+    top: 6602px;
+}
+
+.mobile-footer-title-3 {
+    left: 245px;
+    top: 6602px;
+}
+
+/* Ссылки в футере */
+.mobile-footer-link {
+    position: absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #333333;
+    z-index: 9;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.6;
+}
+
+.mobile-footer-link:hover {
+    color: #999999;
+}
+
+/* Колонка "О компании" (x=25) */
+.mobile-footer-link-1 { left: 25px; top: 6630px; }
+.mobile-footer-link-2 { left: 25px; top: 6650px; }
+.mobile-footer-link-3 { left: 25px; top: 6670px; }
+.mobile-footer-link-4 { left: 25px; top: 6690px; }
+.mobile-footer-link-5 { left: 25px; top: 6710px; }
+
+/* Колонка "Товары" (x=135) */
+.mobile-footer-link-6 { left: 135px; top: 6630px; }
+.mobile-footer-link-7 { left: 135px; top: 6650px; }
+.mobile-footer-link-8 { left: 135px; top: 6670px; }
+.mobile-footer-link-9 { left: 135px; top: 6690px; }
+.mobile-footer-link-10 { left: 135px; top: 6710px; }
+.mobile-footer-link-11 { left: 135px; top: 6730px; }
+
+/* Колонка "Магазины" (x=245) */
+.mobile-footer-link-12 { left: 245px; top: 6630px; }
+.mobile-footer-link-13 { left: 245px; top: 6650px; }
+.mobile-footer-link-14 { left: 245px; top: 6670px; }
+.mobile-footer-link-15 { left: 245px; top: 6690px; }
+
+/* Иконки соцсетей */
+.mobile-footer-social {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 9;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.mobile-footer-social:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+.mobile-footer-social img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.mobile-footer-inst {
+    left: 25px;
+    top: 6750px;
+}
+
+.mobile-footer-fb {
+    left: 67px;
+    top: 6750px;
+}
+
+.mobile-footer-tg {
+    left: 109px;
+    top: 6750px;
+}
+
+.mobile-footer-copyright {
+    position: absolute;
+    left: 25px;
+    top: 6800px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: #999999;
+    z-index: 8;
+}

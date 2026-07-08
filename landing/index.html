@@ -30,36 +30,19 @@
                 <div class="mobile-menu-header">
                     <img src="лого.svg" alt="Логотип" class="mobile-menu-logo">
                 </div>
-                <!-- Блок "Товары" -->
-<div id="products" class="mobile-title-products-1">Тысячи товаров</div>
-
-<!-- Блок "О нас" -->
-<div id="about" class="mobile-title-about-1">Немного</div>
-
-<!-- Блок "Подборки" -->
-<div id="collections" class="mobile-title-collections-1">Подборки</div>
-
-<!-- Блок "Статьи" -->
-<div id="articles" class="mobile-title-social-1">Мы</div>
-
-<!-- Блок "Магазины" -->
-<div id="stores" class="mobile-title-stores-1">20 точек</div>
-
-<!-- Блок "Доставка" -->
-<div id="delivery" class="mobile-title-delivery-1">Доставка</div>
+                <a href="#products" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Товары</a>
+                <a href="#about" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">О нас</a>
+                <a href="#collections" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Подборки</a>
+                <a href="#articles" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Статьи</a>
+                <a href="#stores" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Магазины</a>
+                <a href="#delivery" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Доставка</a>
                 <div class="mobile-menu-contact" onclick="openModal()">
                     <img src="телефон.svg" alt="Телефон">
                     <span>Связаться с нами</span>
                 </div>
             </div>
         </div>
-<!-- Пункты меню -->
-<a href="#products" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Товары</a>
-<a href="#about" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">О нас</a>
-<a href="#collections" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Подборки</a>
-<a href="#articles" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Статьи</a>
-<a href="#stores" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Магазины</a>
-<a href="#delivery" class="mobile-menu-item" onclick="closeMobileMenu(); return false;">Доставка</a>
+
         <!-- ===== КОТИК ===== -->
         <div class="mobile-cat">
             <img src="котик.png" alt="Котик">
@@ -96,6 +79,286 @@
             <img src="copy.svg" alt="Копировать" id="mobileIconImage">
         </div>
 
+        <!-- ===== БЛОК: "То, что вы так долго искали" ===== -->
+        <div class="mobile-title-search-1">То, что вы</div>
+        <div class="mobile-title-search-2">так долго искали</div>
+        <div class="mobile-description-search">
+            Здесь вы можете найти для ваших<br>
+            питомцев <span class="mobile-highlight">зарубежные товары</span><br>
+            <span class="mobile-highlight">по выгодным ценам</span>, которые<br>
+            больше не поставляются в Россию
+        </div>
+
+        <!-- Прямоугольник с брендами -->
+        <div class="mobile-brands-container">
+            <div class="mobile-brand-item mobile-brand-4">
+                <img src="фиори.png" alt="Fiori">
+            </div>
+            <div class="mobile-brand-item mobile-brand-3">
+                <img src="канин.png" alt="Kanin">
+            </div>
+            <div class="mobile-brand-item mobile-brand-1">
+                <img src="проплан.png" alt="ProPlan">
+            </div>
+            <div class="mobile-brand-item mobile-brand-2">
+                <img src="монге.png" alt="Monge">
+            </div>
+        </div>
+
+        <!-- ===== БЛОК: "Тысячи товаров по выгодным ценам" ===== -->
+        <div id="products" class="mobile-title-products-1">Тысячи товаров</div>
+        <div class="mobile-title-products-2">по выгодным ценам</div>
+
+        <!-- Карточки товаров -->
+        <div class="mobile-product-card mobile-card-1">
+            <div class="mobile-product-image mobile-product-img-1">
+                <img src="товар1.png" alt="Товар 1">
+            </div>
+            <div class="mobile-heart-icon mobile-heart-1" onclick="toggleMobileHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="mobile-product-description">
+                Премиальный наполнитель<br>
+                для кошачьего туалета VAN<br>
+                CAT гранулы без отдушки 6 л
+            </div>
+            <div class="mobile-product-price" id="mobile-price-1">520 ₽</div>
+            <div class="mobile-product-counter" id="mobile-counter-1">
+                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="1">
+                <div class="mobile-counter-value" id="mobile-count-1">1</div>
+                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="1">
+            </div>
+            <div class="mobile-product-btn" data-id="1">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <div class="mobile-product-card mobile-card-2">
+            <div class="mobile-product-image mobile-product-img-2">
+                <img src="товар2.png" alt="Товар 2">
+            </div>
+            <div class="mobile-heart-icon mobile-heart-2" onclick="toggleMobileHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="mobile-product-description">
+                Премиальный корм для<br>
+                стерилизованных взрослых<br>
+                кошек MONGE 85 г
+            </div>
+            <div class="mobile-product-price" id="mobile-price-2">280 ₽</div>
+            <div class="mobile-product-counter" id="mobile-counter-2">
+                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="2">
+                <div class="mobile-counter-value" id="mobile-count-2">1</div>
+                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="2">
+            </div>
+            <div class="mobile-product-btn" data-id="2">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <div class="mobile-product-card mobile-card-3">
+            <div class="mobile-product-image mobile-product-img-3">
+                <img src="товар3.png" alt="Товар 3">
+            </div>
+            <div class="mobile-heart-icon mobile-heart-3" onclick="toggleMobileHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="mobile-product-description">
+                Палочки для чистки зубов<br>
+                и профилактики зубного<br>
+                камня для собак Pedigree 50 г
+            </div>
+            <div class="mobile-product-price" id="mobile-price-3">150 ₽</div>
+            <div class="mobile-product-counter" id="mobile-counter-3">
+                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="3">
+                <div class="mobile-counter-value" id="mobile-count-3">1</div>
+                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="3">
+            </div>
+            <div class="mobile-product-btn" data-id="3">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <div class="mobile-product-card mobile-card-4">
+            <div class="mobile-product-image mobile-product-img-4">
+                <img src="товар4.png" alt="Товар 4">
+            </div>
+            <div class="mobile-heart-icon mobile-heart-4" onclick="toggleMobileHeart(this)">
+                <img src="heart1.svg" alt="В избранное">
+            </div>
+            <div class="mobile-product-description">
+                Профессиональный набор<br>
+                для грумминга для собак<br>
+                и кошек Gamma 4 в 1
+            </div>
+            <div class="mobile-product-price" id="mobile-price-4">450 ₽</div>
+            <div class="mobile-product-counter" id="mobile-counter-4">
+                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="4">
+                <div class="mobile-counter-value" id="mobile-count-4">1</div>
+                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="4">
+            </div>
+            <div class="mobile-product-btn" data-id="4">
+                <span>В корзину</span>
+            </div>
+        </div>
+
+        <!-- ===== ИНФОРМАЦИОННЫЕ БЛОКИ ===== -->
+        <div class="mobile-info-1">
+            <img src="info.svg" alt="Информация">
+        </div>
+
+        <div class="mobile-info-2">
+            <img src="info2.svg" alt="Информация 2">
+        </div>
+
+        <!-- ===== КАРТИНКА КАРТ.png ===== -->
+        <div class="mobile-map">
+            <img src="карт.png" alt="Карта">
+        </div>
+
+        <!-- ===== БЛОК: "Подборки для каждого" ===== -->
+        <div id="collections" class="mobile-title-collections-1">Подборки</div>
+        <div class="mobile-title-collections-2">для каждого</div>
+        <div class="mobile-description-collections">
+            В наших магазинах можно найти все необходимые<br>
+            зоотовары <span class="mobile-highlight-collections">для каждого любимца</span>
+        </div>
+        <div class="mobile-collections-info">
+            <img src="инф.svg" alt="Инфографика">
+        </div>
+
+        <!-- ===== БЛОК: "Мы в соцсетях" ===== -->
+        <div id="articles" class="mobile-title-social-1">Мы</div>
+        <div class="mobile-title-social-2">в соцсетях</div>
+        <div class="mobile-description-social">
+            Каждую неделю обсуждаем <span class="mobile-highlight-social">новые интересные темы</span><br>
+            о ваших питомцах. Будьте в курсе всех<br>
+            <span class="mobile-highlight-social">самых важных новостей</span><br>
+            о своих любимцах: уходе, здоровье, стиле и о многом другом
+        </div>
+        <div class="mobile-social-cat" onclick="openModal(event)">
+            <img src="кот.png" alt="Кот">
+        </div>
+        <div class="mobile-social-text-left">
+            Свежая подборка отправленных фотографий<br>
+            ваших любимцев в блоге detynashi.<br>
+            Находите себя и оставляйте комментарии!
+        </div>
+        <div class="mobile-social-read-btn" onclick="openModal(event)">
+            <img src="читать.svg" alt="Читать">
+        </div>
+
+        <!-- ===== КАРТОЧКИ СТАТЕЙ ===== -->
+        <div class="mobile-article-card mobile-article-1">
+            <div class="mobile-article-image">
+                <img src="dog.png" alt="Собака">
+            </div>
+            <div class="mobile-article-text">
+                Тема: Топ-5 трендов в собачьей моде 2026.<br>
+                Что будет в моде этой осенью и зимой
+            </div>
+            <div class="mobile-article-read-btn" onclick="openModal(event)">
+                <img src="читать.svg" alt="Читать">
+            </div>
+        </div>
+
+        <div class="mobile-article-card mobile-article-2">
+            <div class="mobile-article-image">
+                <img src="lizard.png" alt="Ящерица">
+            </div>
+            <div class="mobile-article-text">
+                Тема: Каких ящериц разных видов можно<br>
+                держать вместе? Советы зоологов
+            </div>
+            <div class="mobile-article-read-btn" onclick="openModal(event)">
+                <img src="читать.svg" alt="Читать">
+            </div>
+        </div>
+
+        <div class="mobile-article-card mobile-article-3">
+            <div class="mobile-article-image">
+                <img src="parrots.png" alt="Попугаи">
+            </div>
+            <div class="mobile-article-text">
+                Тема: Какой корм полезен для волнистых<br>
+                попугаев больше всего? Изучаем подборку
+            </div>
+            <div class="mobile-article-read-btn" onclick="openModal(event)">
+                <img src="читать.svg" alt="Читать">
+            </div>
+        </div>
+
+        <!-- Кнопка "Перейти в блог" -->
+        <div class="mobile-btn-blog" onclick="openModal(event)">
+            <span>Перейти в блог</span>
+        </div>
+
+        <!-- ===== БЛОК: "20 точек по всей России" ===== -->
+        <div id="stores" class="mobile-title-stores-1">20 точек</div>
+        <div class="mobile-title-stores-2">по всей России</div>
+        <div class="mobile-description-stores">
+            Магазины находятся в <span class="mobile-highlight-stores">крупнейших городах</span><br>
+            для вашего удобства. Каждый год мы<br>
+            <span class="mobile-highlight-stores">расширяемся</span> и создаем <span class="mobile-highlight-stores">новые точки</span><br>
+            по всей стране
+        </div>
+
+        <!-- ===== БЛОК: "Доставка" ===== -->
+        <div id="delivery" class="mobile-title-delivery-1">Доставка</div>
+        <div class="mobile-title-delivery-2">в любую точку</div>
+        <div class="mobile-description-delivery">
+            Прекрасная возможность купить<br>
+            дефицитные товары <span class="mobile-highlight-delivery">не выходя из дома</span>
+        </div>
+
+        <!-- ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" ===== -->
+        <div class="mobile-btn-order" onclick="openOrderModal()">
+            <span>Оформить заказ</span>
+        </div>
+
+        <!-- ===== КАРТИНКА КОТ В КОРОБКЕ ===== -->
+        <div class="mobile-cat-box">
+            <img src="кот в коробке.png" alt="Кот в коробке">
+        </div>
+
+        <!-- ===== ПЛАШКА E9F9FB ===== -->
+        <div class="mobile-footer-bar"></div>
+
+        <!-- ===== ФУТЕР ===== -->
+        <div class="mobile-footer-title mobile-footer-title-1">О компании</div>
+        <div class="mobile-footer-title mobile-footer-title-2">Товары</div>
+        <div class="mobile-footer-title mobile-footer-title-3">Магазины</div>
+
+        <a class="mobile-footer-link mobile-footer-link-1" onclick="openWorkModal(event)">О нас</a>
+        <a class="mobile-footer-link mobile-footer-link-2" onclick="openWorkModal(event)">Сотрудничество</a>
+        <a class="mobile-footer-link mobile-footer-link-3" onclick="openWorkModal(event)">Регистрация</a>
+        <a class="mobile-footer-link mobile-footer-link-4" onclick="openWorkModal(event)">Вакансии</a>
+        <a class="mobile-footer-link mobile-footer-link-5" onclick="openWorkModal(event)">Доставка товаров</a>
+
+        <a class="mobile-footer-link mobile-footer-link-6" onclick="openWorkModal(event)">Бренды</a>
+        <a class="mobile-footer-link mobile-footer-link-7" onclick="openWorkModal(event)">Предзаказ</a>
+        <a class="mobile-footer-link mobile-footer-link-8" onclick="openWorkModal(event)">Для кошек</a>
+        <a class="mobile-footer-link mobile-footer-link-9" onclick="openWorkModal(event)">Для собак</a>
+        <a class="mobile-footer-link mobile-footer-link-10" onclick="openWorkModal(event)">Для грызунов</a>
+        <a class="mobile-footer-link mobile-footer-link-11" onclick="openWorkModal(event)">Для птиц</a>
+
+        <a class="mobile-footer-link mobile-footer-link-12" onclick="openWorkModal(event)">Адреса</a>
+        <a class="mobile-footer-link mobile-footer-link-13" onclick="openWorkModal(event)">Отзывы</a>
+        <a class="mobile-footer-link mobile-footer-link-14" onclick="openWorkModal(event)">Акции</a>
+        <a class="mobile-footer-link mobile-footer-link-15" onclick="openWorkModal(event)">Доставка</a>
+
+        <a class="mobile-footer-social mobile-footer-inst" onclick="openWorkModal(event)">
+            <img src="инста.png" alt="Instagram">
+        </a>
+        <a class="mobile-footer-social mobile-footer-fb" onclick="openWorkModal(event)">
+            <img src="фб.png" alt="Facebook">
+        </a>
+        <a class="mobile-footer-social mobile-footer-tg" onclick="openWorkModal(event)">
+            <img src="тг.png" alt="Telegram">
+        </a>
+
+        <div class="mobile-footer-copyright">@2024 Все права защищены</div>
+
     </div>
 
     <!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
@@ -123,314 +386,26 @@
         </div>
     </div>
 
-
-            <!-- ===== БЛОК: "То, что вы так долго искали" (МОБИЛЬНЫЙ) ===== -->
-        
-        <!-- Заголовок "То, что вы" -->
-        <div class="mobile-title-search-1">То, что вы</div>
-
-        <!-- Заголовок "так долго искали" -->
-        <div class="mobile-title-search-2">так долго искали</div>
-
-        <!-- Текст описания -->
-        <div class="mobile-description-search">
-            Здесь вы можете найти для ваших<br>
-            питомцев <span class="mobile-highlight">зарубежные товары</span><br>
-            <span class="mobile-highlight">по выгодным ценам</span>, которые<br>
-            больше не поставляются в Россию
-        </div>
-
-        <!-- Прямоугольник с брендами -->
-        <div class="mobile-brands-container">
-            <div class="mobile-brand-item mobile-brand-4">
-                <img src="фиори.png" alt="Fiori">
-            </div>
-            <div class="mobile-brand-item mobile-brand-3">
-                <img src="канин.png" alt="Kanin">
-            </div>
-            <div class="mobile-brand-item mobile-brand-1">
-                <img src="проплан.png" alt="ProPlan">
-            </div>
-            <div class="mobile-brand-item mobile-brand-2">
-                <img src="монге.png" alt="Monge">
-            </div>
-        </div>
-
-        <!-- ===== БЛОК: "Тысячи товаров по выгодным ценам" (МОБИЛЬНЫЙ) ===== -->
-        
-        <!-- Заголовок "Тысячи товаров" -->
-        <div class="mobile-title-products-1">Тысячи товаров</div>
-
-        <!-- Заголовок "по выгодным ценам" -->
-        <div class="mobile-title-products-2">по выгодным ценам</div>
-
-        <!-- ===== КАРТОЧКА ТОВАРА 1 ===== -->
-        <div class="mobile-product-card mobile-card-1">
-            <div class="mobile-product-image mobile-product-img-1">
-                <img src="товар1.png" alt="Товар 1">
-            </div>
-            <div class="mobile-heart-icon mobile-heart-1" onclick="toggleMobileHeart(this)">
-                <img src="heart1.svg" alt="В избранное">
-            </div>
-            <div class="mobile-product-description">
-                Премиальный наполнитель<br>
-                для кошачьего туалета VAN<br>
-                CAT гранулы без отдушки 6 л
-            </div>
-            <div class="mobile-product-price" id="mobile-price-1">520 ₽</div>
-            <div class="mobile-product-counter" id="mobile-counter-1">
-                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="1">
-                <div class="mobile-counter-value" id="mobile-count-1">1</div>
-                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="1">
-            </div>
-            <div class="mobile-product-btn" data-id="1">
-                <span>В корзину</span>
-            </div>
-        </div>
-
-        <!-- ===== КАРТОЧКА ТОВАРА 2 ===== -->
-        <div class="mobile-product-card mobile-card-2">
-            <div class="mobile-product-image mobile-product-img-2">
-                <img src="товар2.png" alt="Товар 2">
-            </div>
-            <div class="mobile-heart-icon mobile-heart-2" onclick="toggleMobileHeart(this)">
-                <img src="heart1.svg" alt="В избранное">
-            </div>
-            <div class="mobile-product-description">
-                Премиальный корм для<br>
-                стерилизованных взрослых<br>
-                кошек MONGE 85 г
-            </div>
-            <div class="mobile-product-price" id="mobile-price-2">280 ₽</div>
-            <div class="mobile-product-counter" id="mobile-counter-2">
-                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="2">
-                <div class="mobile-counter-value" id="mobile-count-2">1</div>
-                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="2">
-            </div>
-            <div class="mobile-product-btn" data-id="2">
-                <span>В корзину</span>
-            </div>
-        </div>
-
-        <!-- ===== КАРТОЧКА ТОВАРА 3 ===== -->
-        <div class="mobile-product-card mobile-card-3">
-            <div class="mobile-product-image mobile-product-img-3">
-                <img src="товар3.png" alt="Товар 3">
-            </div>
-            <div class="mobile-heart-icon mobile-heart-3" onclick="toggleMobileHeart(this)">
-                <img src="heart1.svg" alt="В избранное">
-            </div>
-            <div class="mobile-product-description">
-                Палочки для чистки зубов<br>
-                и профилактики зубного<br>
-                камня для собак Pedigree 50 г
-            </div>
-            <div class="mobile-product-price" id="mobile-price-3">150 ₽</div>
-            <div class="mobile-product-counter" id="mobile-counter-3">
-                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="3">
-                <div class="mobile-counter-value" id="mobile-count-3">1</div>
-                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="3">
-            </div>
-            <div class="mobile-product-btn" data-id="3">
-                <span>В корзину</span>
-            </div>
-        </div>
-
-        <!-- ===== КАРТОЧКА ТОВАРА 4 ===== -->
-        <div class="mobile-product-card mobile-card-4">
-            <div class="mobile-product-image mobile-product-img-4">
-                <img src="товар4.png" alt="Товар 4">
-            </div>
-            <div class="mobile-heart-icon mobile-heart-4" onclick="toggleMobileHeart(this)">
-                <img src="heart1.svg" alt="В избранное">
-            </div>
-            <div class="mobile-product-description">
-                Профессиональный набор<br>
-                для грумминга для собак<br>
-                и кошек Gamma 4 в 1
-            </div>
-            <div class="mobile-product-price" id="mobile-price-4">450 ₽</div>
-            <div class="mobile-product-counter" id="mobile-counter-4">
-                <img src="min.svg" alt="Минус" class="mobile-counter-btn mobile-counter-minus" data-id="4">
-                <div class="mobile-counter-value" id="mobile-count-4">1</div>
-                <img src="plus.svg" alt="Плюс" class="mobile-counter-btn mobile-counter-plus" data-id="4">
-            </div>
-            <div class="mobile-product-btn" data-id="4">
-                <span>В корзину</span>
-            </div>
-        </div>
-        <!-- ===== ИНФОРМАЦИОННЫЕ БЛОКИ ===== -->
-        
-        <!-- info.svg -->
-        <div class="mobile-info-1">
-            <img src="info.svg" alt="Информация">
-        </div>
-
-        <!-- info2.svg -->
-        <div class="mobile-info-2">
-            <img src="info2.svg" alt="Информация 2">
-        </div>
-
-        <!-- ===== КНОПКА "ОФОРМИТЬ ЗАКАЗ" ===== -->
-        <div class="mobile-btn-order" onclick="openOrderModal()">
-            <span>Оформить заказ</span>
-        </div>
-
-        <!-- ===== КАРТИНКА КОТ В КОРОБКЕ ===== -->
-        <div class="mobile-cat-box">
-            <img src="кот в коробке.png" alt="Кот в коробке">
-        </div>
-
-               <!-- ===== ФУТЕР (МОБИЛЬНЫЙ) ===== -->
-            
-        <!-- Заголовки колонок -->
-        <div class="mobile-footer-title mobile-footer-title-1">О компании</div>
-        <div class="mobile-footer-title mobile-footer-title-2">Товары</div>
-        <div class="mobile-footer-title mobile-footer-title-3">Магазины</div>
-
-        <!-- Ссылки колонки "О компании" -->
-        <a class="mobile-footer-link mobile-footer-link-1" onclick="openWorkModal(event)">О нас</a>
-        <a class="mobile-footer-link mobile-footer-link-2" onclick="openWorkModal(event)">Сотрудничество</a>
-        <a class="mobile-footer-link mobile-footer-link-3" onclick="openWorkModal(event)">Регистрация</a>
-        <a class="mobile-footer-link mobile-footer-link-4" onclick="openWorkModal(event)">Вакансии</a>
-        <a class="mobile-footer-link mobile-footer-link-5" onclick="openWorkModal(event)">Доставка товаров</a>
-
-        <!-- Ссылки колонки "Товары" -->
-        <a class="mobile-footer-link mobile-footer-link-6" onclick="openWorkModal(event)">Бренды</a>
-        <a class="mobile-footer-link mobile-footer-link-7" onclick="openWorkModal(event)">Предзаказ</a>
-        <a class="mobile-footer-link mobile-footer-link-8" onclick="openWorkModal(event)">Для кошек</a>
-        <a class="mobile-footer-link mobile-footer-link-9" onclick="openWorkModal(event)">Для собак</a>
-        <a class="mobile-footer-link mobile-footer-link-10" onclick="openWorkModal(event)">Для грызунов</a>
-        <a class="mobile-footer-link mobile-footer-link-11" onclick="openWorkModal(event)">Для птиц</a>
-
-        <!-- Ссылки колонки "Магазины" -->
-        <a class="mobile-footer-link mobile-footer-link-12" onclick="openWorkModal(event)">Адреса</a>
-        <a class="mobile-footer-link mobile-footer-link-13" onclick="openWorkModal(event)">Отзывы</a>
-        <a class="mobile-footer-link mobile-footer-link-14" onclick="openWorkModal(event)">Акции</a>
-        <a class="mobile-footer-link mobile-footer-link-15" onclick="openWorkModal(event)">Доставка</a>
-
-        <!-- Иконки соцсетей -->
-        <a class="mobile-footer-social mobile-footer-inst" onclick="openWorkModal(event)">
-            <img src="инста.png" alt="Instagram">
-        </a>
-        <a class="mobile-footer-social mobile-footer-fb" onclick="openWorkModal(event)">
-            <img src="фб.png" alt="Facebook">
-        </a>
-        <a class="mobile-footer-social mobile-footer-tg" onclick="openWorkModal(event)">
-            <img src="тг.png" alt="Telegram">
-        </a>
-
-        <!-- Копирайт -->
-        <div class="mobile-footer-copyright">@2024 Все права защищены</div>
-
-        <!-- ===== БЛОК: "Мы в соцсетях" (МОБИЛЬНЫЙ) ===== -->
-        
-        <!-- Заголовок "Мы" -->
-        <div class="mobile-title-social-1">Мы</div>
-
-        <!-- Заголовок "в соцсетях" -->
-        <div class="mobile-title-social-2">в соцсетях</div>
-
-        <!-- Текст описания -->
-        <div class="mobile-description-social">
-            Каждую неделю обсуждаем <span class="mobile-highlight-social">новые интересные темы</span><br>
-            о ваших питомцах. Будьте в курсе всех<br>
-            <span class="mobile-highlight-social">самых важных новостей</span><br>
-            о своих любимцах: уходе, здоровье, стиле и о многом другом
-        </div>
-
-        <!-- Картинка кот.png -->
-        <div class="mobile-social-cat" onclick="openModal(event)">
-            <img src="кот.png" alt="Кот">
-        </div>
-
-        <!-- Текст с выравниванием по левому краю -->
-        <div class="mobile-social-text-left">
-            Свежая подборка отправленных фотографий<br>
-            ваших любимцев в блоге detynashi.<br>
-            Находите себя и оставляйте комментарии!
-        </div>
-
-        <!-- Кнопка "читать" -->
-        <div class="mobile-social-read-btn" onclick="openModal(event)">
-            <img src="читать.svg" alt="Читать">
-        </div>
-
-        <!-- ===== КАРТОЧКИ СТАТЕЙ ===== -->
-        
-        <!-- Статья 1 -->
-        <div class="mobile-article-card mobile-article-1">
-            <div class="mobile-article-image">
-                <img src="dog.png" alt="Собака">
-            </div>
-            <div class="mobile-article-text">
-                Тема: Топ-5 трендов в собачьей моде 2026.<br>
-                Что будет в моде этой осенью и зимой
-            </div>
-            <div class="mobile-article-read-btn" onclick="openModal(event)">
-                <img src="читать.svg" alt="Читать">
-            </div>
-        </div>
-
-        <!-- Статья 2 -->
-        <div class="mobile-article-card mobile-article-2">
-            <div class="mobile-article-image">
-                <img src="lizard.png" alt="Ящерица">
-            </div>
-            <div class="mobile-article-text">
-                Тема: Каких ящериц разных видов можно<br>
-                держать вместе? Советы зоологов
-            </div>
-            <div class="mobile-article-read-btn" onclick="openModal(event)">
-                <img src="читать.svg" alt="Читать">
-            </div>
-        </div>
-
-        <!-- Статья 3 -->
-        <div class="mobile-article-card mobile-article-3">
-            <div class="mobile-article-image">
-                <img src="parrots.png" alt="Попугаи">
-            </div>
-            <div class="mobile-article-text">
-                Тема: Какой корм полезен для волнистых<br>
-                попугаев больше всего? Изучаем подборку
-            </div>
-            <div class="mobile-article-read-btn" onclick="openModal(event)">
-                <img src="читать.svg" alt="Читать">
-            </div>
-        </div>
-
-        <!-- Кнопка "Перейти в блог" -->
-        <div class="mobile-btn-blog" onclick="openModal(event)">
-            <span>Перейти в блог</span>
-        </div>
-        <!-- ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (МОБИЛЬНЫЙ) ===== -->
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" ===== -->
     <div class="modal-order-overlay" id="modalOrderOverlay">
         <div class="modal-order-window">
-            <!-- Крестик для закрытия -->
             <div class="modal-order-close" onclick="closeOrderModal()">
                 <img src="close.svg" alt="Закрыть">
             </div>
-
-            <!-- Заголовок "Оформление заказа" -->
             <div class="modal-order-title">Оформление заказа</div>
 
-            <!-- Поле "Имя" -->
             <div class="modal-order-label" style="left:30px; top:100px;">Имя</div>
             <input type="text" class="modal-order-input" id="orderName" placeholder="Введите ваше имя" style="left:30px; top:125px; width:280px; height:40px;">
             <div class="modal-order-error" id="nameError" style="left:30px; top:170px;"></div>
 
-            <!-- Поле "Почта" -->
             <div class="modal-order-label" style="left:30px; top:195px;">Почта</div>
             <input type="email" class="modal-order-input" id="orderEmail" placeholder="Введите любую почту" style="left:30px; top:220px; width:280px; height:40px;">
             <div class="modal-order-error" id="emailError" style="left:30px; top:265px;"></div>
 
-            <!-- Поле "Телефон" -->
             <div class="modal-order-label" style="left:30px; top:290px;">Телефон</div>
             <input type="tel" class="modal-order-input" id="orderPhone" placeholder="Введите номер телефона" style="left:30px; top:315px; width:280px; height:40px;">
             <div class="modal-order-error" id="phoneError" style="left:30px; top:360px;"></div>
 
-            <!-- Поле "Регион" -->
             <div class="modal-order-label" style="left:30px; top:385px;">Регион</div>
             <select class="modal-order-select" id="orderCity" style="left:30px; top:410px; width:280px; height:40px;">
                 <option value="">Выберите регион</option>
@@ -455,19 +430,17 @@
             </select>
             <div class="modal-order-error" id="cityError" style="left:30px; top:455px;"></div>
 
-            <!-- Поле "Адрес доставки" -->
             <div class="modal-order-label" style="left:30px; top:480px;">Адрес доставки</div>
             <input type="text" class="modal-order-input" id="orderAddress" placeholder="Введите адрес доставки" style="left:30px; top:505px; width:280px; height:40px;">
             <div class="modal-order-error" id="addressError" style="left:30px; top:550px;"></div>
 
-            <!-- Кнопка "Оформить заказ" -->
             <button class="modal-order-btn" id="orderSubmitBtn" disabled style="top:600px; width:200px; height:44px; left:50%; transform:translateX(-50%);">
                 <span>Оформить заказ</span>
             </button>
         </div>
     </div>
 
-        <!-- ===== МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" (МОБИЛЬНЫЙ) ===== -->
+    <!-- ===== МОДАЛЬНОЕ ОКНО "ЗАКАЗ ОФОРМЛЕН!" ===== -->
     <div class="modal-success-overlay" id="modalSuccessOverlay">
         <div class="modal-success-window">
             <div class="modal-success-close" onclick="closeSuccessModal()">
@@ -483,16 +456,7 @@
             </div>
         </div>
     </div>
-            <!-- ===== ПЛАШКА E9F9FB ===== -->
-        <div class="mobile-footer-bar"></div>
-            <!-- ===== КАРТИНКА КАРТ.png ===== -->
-        <div class="mobile-map">
-            <img src="карт.png" alt="Карта">
-        </div>
-    
-    
 
-        </div>
     <script src="телефон.js"></script>
 </body>
 </html>

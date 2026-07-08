@@ -50,7 +50,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 .mobile-logo {
@@ -314,10 +314,10 @@ body {
 /* ===== FROGG2.PNG ===== */
 .mobile-frog {
     position: absolute;
-    left: 30px;
+    left: 37px;
     top: 667px;
-    width: 320px;
-    height: 100px;
+    width: 286px;
+    height: 92px;
     z-index: 8;
 }
 
@@ -588,6 +588,7 @@ body {
     z-index: 8;
     line-height: 1;
     text-align: center;
+    letter-spacing: -0.04em;
 }
 
 .mobile-title-search-2 {
@@ -597,11 +598,13 @@ body {
     top: 837px;
     font-family: 'Jost', sans-serif;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 28px;
     color: #83BF13;
     z-index: 8;
     line-height: 1;
     text-align: center;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
 }
 
 .mobile-description-search {
@@ -617,6 +620,7 @@ body {
     line-height: 1.6;
     text-align: center;
     width: 90%;
+    letter-spacing: -0.04em;
 }
 
 .mobile-description-search .mobile-highlight {
@@ -624,10 +628,13 @@ body {
     color: #333333;
 }
 
-/* ===== БРЕНДЫ (СДВИГ ВПРАВО НА 10px) ===== */
+/* ============================================================
+   БРЕНДЫ (ЦЕНТРИРОВАНЫ)
+   ============================================================ */
 .mobile-brands-container {
     position: absolute;
-    left: 35px; /* Было 25px, стало 35px */
+    left: 50%;
+    transform: translateX(-50%);
     top: 994px;
     width: 310px;
     height: 212px;
@@ -638,10 +645,44 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    padding: 10px;
+    align-content: center;
+    gap: 6px;
+    padding: 8px;
 }
 
+.mobile-brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mobile-brand-item img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.mobile-brand-1 {
+    width: 80px;
+    height: 44px;
+}
+
+.mobile-brand-2 {
+    width: 105px;
+    height: 40px;
+}
+
+.mobile-brand-3 {
+    width: 94px;
+    height: 36px;
+}
+
+.mobile-brand-4 {
+    width: 86px;
+    height: 45px;
+}
 
 /* ============================================================
    БЛОК: "Тысячи товаров по выгодным ценам" (МОБИЛЬНЫЙ)
@@ -659,6 +700,7 @@ body {
     z-index: 8;
     line-height: 1;
     text-align: center;
+    letter-spacing: -0.04em;
 }
 
 .mobile-title-products-2 {
@@ -673,26 +715,41 @@ body {
     z-index: 8;
     line-height: 1;
     text-align: center;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
 }
 
-/* ===== КАРТОЧКИ ТОВАРОВ (СДВИГ ВПРАВО НА 10px) ===== */
+/* ============================================================
+   КАРТОЧКИ ТОВАРОВ (ЦЕНТРИРОВАНЫ)
+   ============================================================ */
+.mobile-product-card {
+    position: absolute;
+    width: 135px;
+    height: 230px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3.2px 2px rgba(0, 0, 0, 0.12);
+    z-index: 8;
+}
+
+/* Расчёт центрирования: (360 - 135*2 - 10) / 2 = 40px */
 .mobile-product-card.mobile-card-1 {
-    left: 50px; /* Было 40px, стало 50px */
+    left: 40px;
     top: 1386px;
 }
 
 .mobile-product-card.mobile-card-2 {
-    left: 195px; /* Было 185px, стало 195px */
+    left: 185px; /* 40 + 135 + 10 = 185 */
     top: 1386px;
 }
 
 .mobile-product-card.mobile-card-3 {
-    left: 50px; /* Было 40px, стало 50px */
+    left: 40px;
     top: 1621px;
 }
 
 .mobile-product-card.mobile-card-4 {
-    left: 195px; /* Было 185px, стало 195px */
+    left: 185px; /* 40 + 135 + 10 = 185 */
     top: 1621px;
 }
 
@@ -791,6 +848,7 @@ body {
     left: 0;
     top: 136px;
     padding: 0 5px;
+    letter-spacing: -0.04em;
 }
 
 /* ===== ЦЕНА ===== */
@@ -805,6 +863,7 @@ body {
     width: 100%;
     left: 0;
     top: 175px;
+    letter-spacing: -0.04em;
 }
 
 /* ===== КНОПКА "В КОРЗИНУ" ===== */
@@ -885,7 +944,7 @@ body {
     width: 22px;
     height: 22px;
     background: #FFFFFF;
-    border: 2px solid #E99700;
+    border: 1px solid #E99700;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -916,109 +975,4 @@ body {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
-}
-
-/* ===== УМЕНЬШЕНИЕ МЕЖБУКВЕННОГО ИНТЕРВАЛА НА 4% ===== */
-.mobile-description-search,
-.mobile-title-search-1,
-.mobile-title-search-2,
-.mobile-title-products-1,
-.mobile-title-products-2,
-.mobile-product-description,
-.mobile-product-price {
-    letter-spacing: -0.04em; /* Уменьшение на 4% */
-}
-
-/* ============================================================
-   БРЕНДЫ (СДВИГ ВЛЕВО НА 8px)
-   ============================================================ */
-.mobile-brands-container {
-    position: absolute;
-    left: 17px; /* Было 35px, стало 17px (сдвиг влево на 8px) */
-    top: 994px;
-    width: 310px;
-    height: 212px;
-    background: #DFF5F9;
-    border-radius: 10px;
-    z-index: 8;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 10px;
-}
-
-/* ============================================================
-   ЗАГОЛОВКИ (ОДНА СТРОКА)
-   ============================================================ */
-.mobile-title-search-2 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 837px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #83BF13;
-    z-index: 8;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap; /* Запрещает перенос на новую строку */
-}
-
-.mobile-title-products-2 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 1316px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 600;
-    font-size: 28px;
-    color: #83BF13;
-    z-index: 8;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap; /* Запрещает перенос на новую строку */
-}
-
-/* ============================================================
-   КАРТОЧКИ ТОВАРОВ (СДВИГ ВПРАВО НА 4px)
-   ============================================================ */
-.mobile-product-card.mobile-card-1 {
-    left: 54px; /* Было 50px, стало 54px (+4px) */
-    top: 1386px;
-}
-
-.mobile-product-card.mobile-card-2 {
-    left: 199px; /* Было 195px, стало 199px (+4px) */
-    top: 1386px;
-}
-
-.mobile-product-card.mobile-card-3 {
-    left: 54px; /* Было 50px, стало 54px (+4px) */
-    top: 1621px;
-}
-
-.mobile-product-card.mobile-card-4 {
-    left: 199px; /* Было 195px, стало 199px (+4px) */
-    top: 1621px;
-}
-
-/* ============================================================
-   СЧЁТЧИК (ОБВОДКА 1px)
-   ============================================================ */
-.mobile-counter-value {
-    width: 22px;
-    height: 22px;
-    background: #FFFFFF;
-    border: 1px solid #E99700; /* Было 2px, стало 1px */
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    color: #333333;
 }

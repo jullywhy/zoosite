@@ -387,6 +387,68 @@
         <div class="mobile-btn-blog" onclick="openModal(event)">
             <span>Перейти в блог</span>
         </div>
+        <!-- ===== МОДАЛЬНОЕ ОКНО "ОФОРМЛЕНИЕ ЗАКАЗА" (МОБИЛЬНЫЙ) ===== -->
+    <div class="modal-order-overlay" id="modalOrderOverlay">
+        <div class="modal-order-window">
+            <!-- Крестик для закрытия -->
+            <div class="modal-order-close" onclick="closeOrderModal()">
+                <img src="close.svg" alt="Закрыть">
+            </div>
+
+            <!-- Заголовок "Оформление заказа" -->
+            <div class="modal-order-title">Оформление заказа</div>
+
+            <!-- Поле "Имя" -->
+            <div class="modal-order-label" style="left:30px; top:100px;">Имя</div>
+            <input type="text" class="modal-order-input" id="orderName" placeholder="Введите ваше имя" style="left:30px; top:125px; width:280px; height:40px;">
+            <div class="modal-order-error" id="nameError" style="left:30px; top:170px;"></div>
+
+            <!-- Поле "Почта" -->
+            <div class="modal-order-label" style="left:30px; top:195px;">Почта</div>
+            <input type="email" class="modal-order-input" id="orderEmail" placeholder="Введите любую почту" style="left:30px; top:220px; width:280px; height:40px;">
+            <div class="modal-order-error" id="emailError" style="left:30px; top:265px;"></div>
+
+            <!-- Поле "Телефон" -->
+            <div class="modal-order-label" style="left:30px; top:290px;">Телефон</div>
+            <input type="tel" class="modal-order-input" id="orderPhone" placeholder="Введите номер телефона" style="left:30px; top:315px; width:280px; height:40px;">
+            <div class="modal-order-error" id="phoneError" style="left:30px; top:360px;"></div>
+
+            <!-- Поле "Регион" -->
+            <div class="modal-order-label" style="left:30px; top:385px;">Регион</div>
+            <select class="modal-order-select" id="orderCity" style="left:30px; top:410px; width:280px; height:40px;">
+                <option value="">Выберите регион</option>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Московская область">Московская область</option>
+                <option value="Ленинградская область">Ленинградская область</option>
+                <option value="Краснодарский край">Краснодарский край</option>
+                <option value="Свердловская область">Свердловская область</option>
+                <option value="Новосибирская область">Новосибирская область</option>
+                <option value="Республика Татарстан">Республика Татарстан</option>
+                <option value="Челябинская область">Челябинская область</option>
+                <option value="Нижегородская область">Нижегородская область</option>
+                <option value="Самарская область">Самарская область</option>
+                <option value="Ростовская область">Ростовская область</option>
+                <option value="Красноярский край">Красноярский край</option>
+                <option value="Республика Башкортостан">Республика Башкортостан</option>
+                <option value="Омская область">Омская область</option>
+                <option value="Воронежская область">Воронежская область</option>
+                <option value="Пермский край">Пермский край</option>
+                <option value="Республика Крым">Республика Крым</option>
+            </select>
+            <div class="modal-order-error" id="cityError" style="left:30px; top:455px;"></div>
+
+            <!-- Поле "Адрес доставки" -->
+            <div class="modal-order-label" style="left:30px; top:480px;">Адрес доставки</div>
+            <input type="text" class="modal-order-input" id="orderAddress" placeholder="Введите адрес доставки" style="left:30px; top:505px; width:280px; height:40px;">
+            <div class="modal-order-error" id="addressError" style="left:30px; top:550px;"></div>
+
+            <!-- Кнопка "Оформить заказ" -->
+            <button class="modal-order-btn" id="orderSubmitBtn" disabled style="top:600px; width:200px; height:44px; left:50%; transform:translateX(-50%);">
+                <span>Оформить заказ</span>
+            </button>
+        </div>
+    </div>
 
         </div>
     <script src="телефон.js"></script>
